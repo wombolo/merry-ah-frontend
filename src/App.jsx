@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import Routes from './components/Routes'
+import Menu from './components/Menu'
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to Art Cave</h1>
+        <Menu/>
+        <Routes/>
       </div>
     )
   }
