@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const title = 'Welcome to Art Cave';
+import App from './App';
+import style from './App.css';
 
 ReactDOM.render(
-  <div>{title}</div>,
+  <App />,
   document.getElementById('app')
 );
-
-module.hot.accept();
