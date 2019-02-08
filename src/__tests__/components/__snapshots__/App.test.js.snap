@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App Component should match snapshot 1`] = `
-<div>
-  <h1>
-    Welcome to Art Cave
-  </h1>
-</div>
+<BrowserRouter>
+  <div>
+    <Menu />
+    <Routes />
+  </div>
+</BrowserRouter>
 `;
