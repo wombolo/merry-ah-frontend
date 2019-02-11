@@ -7,7 +7,7 @@
     "start": "npm run build",
     "start:dev": "webpack-dev-server --open --config ./webpack/webpack.dev.js",
     "build": "webpack --config ./webpack/webpack.prod.js",
-    "test": "jest --config=jest.config.json --env=jsdom",
+    "test": "jest --config=jest.config.json --env=jsdom  --coverage --colors && cat ./coverage/lcov.info",
     "test:watch": "jest --watch"
   },
   "repository": {
@@ -50,7 +50,10 @@
   "dependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-merge": "^4.2.1"
