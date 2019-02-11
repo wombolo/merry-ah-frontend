@@ -8,6 +8,7 @@ export default class Menu extends Component {
         <ul>
           <li><NavLink to="/" >Home</NavLink></li>
           <li><NavLink to="/login" >Login</NavLink></li>
+          <li><NavLink to="/forgot-password" >Forgot Password</NavLink></li>
         </ul>
       </div>
     )

@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
       <Router>
         <div>
-          <Menu/>
+          {/* <Menu/> */}
           <Routes/>
         </div>
       </Router>
