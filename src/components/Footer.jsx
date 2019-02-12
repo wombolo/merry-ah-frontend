@@ -10,9 +10,9 @@ export default class Footer extends Component {
           </div>
           <div className="float-right">
             <ul>
-              <li><a href="#"><i class="fa fa-2x fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fa fa-2x fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-2x fa-instagram"></i></a></li>
+              <li><a href="#"><i className="fa fa-2x fa-facebook-f"></i></a></li>
+              <li><a href="#"><i className="fa fa-2x fa-twitter"></i></a></li>
+              <li><a href="#"><i className="fa fa-2x fa-instagram"></i></a></li>
             </ul>
           </div>
         </div>
