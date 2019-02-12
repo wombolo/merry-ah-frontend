@@ -23,7 +23,6 @@ class Login extends Component {
 		this.setState({ [event.target.name]: event.target.value });
 	};
 	render() {
-		console.log(this.props.auth)
 		return (
 				<div
 					className="tab-pane fade show active"

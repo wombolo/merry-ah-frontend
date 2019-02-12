@@ -45,8 +45,7 @@ it('creates SET_CURRENT_USER', async (done) => {
         }
       });
     const expectedActions = { type: SET_USER_ERROR };
-    const res = await store.dispatch(setUserError('holy moly'))
-    console.log(res)
+    await store.dispatch(setUserError('holy moly'))
     expect(store.getActions()[0].type).toEqual(expectedActions.type);
     expect(store.getActions()[0].payload).toEqual('holy moly');
 })

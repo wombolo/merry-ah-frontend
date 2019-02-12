@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Gloria+Hallelujah|Poppins');
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #171717;
+
+* {
+  margin: 0;
+  padding: 0;
+};
 
 body {
   font: 100% $font-stack;
@@ -12,3 +18,7 @@ body {
       max-width: 1400px;
 }
 }
+
+input, textarea, button {
+  outline: none;
+};
