@@ -21,7 +21,7 @@ exports[`Footer Component should match snapshot 1`] = `
             href="#"
           >
             <i
-              class="fa fa-2x fa-facebook-f"
+              className="fa fa-2x fa-facebook-f"
             />
           </a>
         </li>
@@ -30,7 +30,7 @@ exports[`Footer Component should match snapshot 1`] = `
             href="#"
           >
             <i
-              class="fa fa-2x fa-twitter"
+              className="fa fa-2x fa-twitter"
             />
           </a>
         </li>
@@ -39,7 +39,7 @@ exports[`Footer Component should match snapshot 1`] = `
             href="#"
           >
             <i
-              class="fa fa-2x fa-instagram"
+              className="fa fa-2x fa-instagram"
             />
           </a>
         </li>
