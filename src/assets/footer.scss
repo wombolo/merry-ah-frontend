@@ -1,0 +1,18 @@
+footer > div {
+    height: 63px;
+    background-color: #000000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    list-style: none;
+    padding: 15px;
+};
+
+footer div li {
+    display: inline-block;
+    padding: 10px;
+};
