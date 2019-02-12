@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack =  require('webpack');
 
 module.exports = {
-  entry: ['./src/index.jsx', 'font-awesome/scss/font-awesome.scss'],
+  entry: ['babel-polyfill', './src/index.jsx', 'font-awesome/scss/font-awesome.scss'],
   module: {
     rules: [
       {
