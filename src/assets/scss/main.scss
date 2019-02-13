@@ -15,6 +15,9 @@ $default-font-size: 18px;
 $form-input-font-size: 15px;
 $small-font-size: 13px;
 
+$card-width: 350px;
+$card-input-width: calc(350px - 10px);
+
 body {
   font: 100% $font-stack;
   background-color: $background-color;
@@ -60,9 +63,22 @@ a:hover {
   font-size: $default-font-size;
 }
 
+.sideText {
+  width: 400px;
+  position: absolute;
+  top: 20%;
+  left: 50px;
+  color: #ffffff;
+  font-family: $title-font;
+}
+
+.sideText h1 {
+  font-size: 40px;
+}
+
 .titleHr {
   width: 50px;
-  margin-inline-start: 0;
+  // margin-inline-start: 0;
   border: 2px solid #ffffff;
   transition: 0.5s all;
 }
@@ -81,11 +97,21 @@ a:hover {
 .forgot-password {
   margin-top: 150px;
   background: rgba(255, 255, 255, 0.26);
-  width: 310px;
+  width: $card-width;
   height: 250px;
   padding: 10px;
   border-radius: 5px;
-  float: right;
+  margin-right: 20px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.password-reset {
+  margin-top: 150px;
+  background: rgba(255, 255, 255, 0.26);
+  width: $card-width;
+  height: 250px;
+  padding: 10px;
+  border-radius: 5px;
   margin-right: 20px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
 }
@@ -98,7 +124,7 @@ a:hover {
 
 .form-input {
   background-color: transparent;
-  width: 300px;
+  width: $card-input-width;
   height: 30px;
   padding: 5px;
   border: 0;
@@ -120,7 +146,7 @@ a:hover {
 
 .form-button {
   background: $default-color;
-  width: 310px;
+  width: $card-width;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
   color: #ffffff;

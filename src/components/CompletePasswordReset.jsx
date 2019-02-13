@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { sendResetPasswordEmail } from '../actions/authActions';
+import { completePasswordReset } from '../actions/authActions';
 
-class ForgotPassword extends Component {
+/**
+ * Class Complete Reset Password
+ */
+class CompletePasswordReset extends Component {
   constructor(props) {
     super(props);
     
     this.state = {
-      email: ''
+      password: '',
+      confirmPassword: ''
     }
 
     this.onChange = this.onChange.bind(this);
@@ -20,10 +24,11 @@ class ForgotPassword extends Component {
     e.preventDefault();
 
     const body = {
-      email: this.state.email
+      password: this.state.password,
+      confirmPassword: this.state.confirmPassword,
     }
 
-    this.props.sendResetPasswordEmail(body);
+    this.props.completePasswordReset(body);
   }
   render() {
     return (
@@ -32,29 +37,32 @@ class ForgotPassword extends Component {
           <center>
             <div className="forgot-password">
               <div className="title">
-                <h2>Forgot Password</h2>
+                <h2>Complete password reset</h2>
               </div>
               <hr className="titleHr" />
               <div className="subtitle">
-                <p>Enter your email, we will send a link to you</p>
+                <p>Enter a new password to log in back to Art Cave</p>
               </div>
               <div>
                 <form method="post" onSubmit={this.onSubmit}>
                   <input
                   type="text"
-                  name="email"
-                  placeholder="Email Address"
+                  name="password"
+                  placeholder="New Password"
                   className="form-input"
                   onChange={this.onChange}
-                  value={this.state.email} />
+                  value={this.state.password} />
+                  <input
+                  type="text"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  className="form-input"
+                  onChange={this.onChange}
+                  value={this.state.confirmPassword} />
                   <button name="forgotPassword" className="form-button">
-                    Verify Email
+                    Proceed
                   </button>
                 </form>
-                <div className="alternative-links">
-                  <a href="">Login</a> |&nbsp;
-                  <a href="">Sign up</a>
-                </div>
               </div>
             </div>
             <div className="clear"></div>
@@ -65,4 +73,4 @@ class ForgotPassword extends Component {
   }
 }
 
-export default connect(null, { sendResetPasswordEmail })(ForgotPassword);
+export default connect(null, { completePasswordReset })(CompletePasswordReset);
