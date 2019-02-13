@@ -22,17 +22,15 @@ export const loginUser = (userData, history) => async dispatch => {
         const { token } = res.data.data
         localStorage.setItem('authToken', token);
         const decoded = jwt_decode(token);
-        if (decoded.userType === 'artist') {
-            history.push('/artist')
-        } else if (decoded.userType === 'admin') {
-            history.push('/admin');
-        } else {
-            history.push('/user');            
-        }
+        if(decoded) history.push('/profile')
         dispatch(setCurrentUser(decoded));
     } catch (err) {
            dispatch(setUserError(err.response.data.messages))
           Notify.notifyError(err.response.data.messages)
     }
 }
-  
+export const logoutUser = () => (dispatch) => {
+  localStorage.removeItem('authToken');
+  dispatch(setCurrentUser({}));
+};
+
