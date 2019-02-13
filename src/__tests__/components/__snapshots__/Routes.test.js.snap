@@ -24,6 +24,10 @@ exports[`Routes Component should match snapshot 1`] = `
     />
     <Route
       component={[Function]}
+      path="/profile"
+    />
+    <Route
+      component={[Function]}
     />
   </Switch>
 </Provider>
