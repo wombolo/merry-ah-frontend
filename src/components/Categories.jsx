@@ -20,25 +20,25 @@ export default class Categories extends Component {
       return (
         <section id="categories">
             <div>
-                { 
-                    this.state.categoryList.map(
-                        item => <div id="category" className="image" 
-                        key={item.objectID} 
-                        style={
-                            {background: `linear-gradient(rgba(0, 0, 0, 0.5), 
-                                rgba(0, 0, 0, 0.5)), url(${item.url}) no-repeat center `,
-                            backgroundSize: 'cover'}
-                            }>
-                    <div className="overlay">
-                        <span>
-                            <div id = "category_link">
-                                <Link  to={`/art/${item.category}`}>{item.title}</Link>
-                            </div>
-                        </span>
-                    </div> 
-                </div>
-                    )
-                }
+              { 
+                this.state.categoryList.map(
+                    item => <div id="category" className="image" 
+                    key={item.objectID} 
+                    style={
+                        {background: `linear-gradient(rgba(0, 0, 0, 0.5), 
+                            rgba(0, 0, 0, 0.5)), url(${item.url}) no-repeat center `,
+                        backgroundSize: 'cover'}
+                        }>
+                <div className="overlay">
+                    <span>
+                        <div id = "category_link">
+                            <Link  to={`/art/${item.category}`}>{item.title}</Link>
+                        </div>
+                    </span>
+                </div> 
+              </div>
+                  )
+              }
             </div>
         </section> 
         );
