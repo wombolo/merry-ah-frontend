@@ -20,7 +20,7 @@ exports[`Routes Component should match snapshot 1`] = `
     />
     <Route
       component={[Function]}
-      path="/auth"
+      path="/login"
     />
     <Route
       component={[Function]}

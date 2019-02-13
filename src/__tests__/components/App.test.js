@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import 'babel-polyfill';
 import React from 'react';
 import { shallow } from 'enzyme';
@@ -5,10 +6,10 @@ import App from '../../App';
 
 let wrapper;
 beforeEach(() => {
- wrapper = shallow(<App />);
-})
+  wrapper = shallow(<App />);
+});
 describe('App Component', () => {
   it('should match snapshot', () => {
-      expect(wrapper).toMatchSnapshot();
-  })
-})
+    expect(wrapper).toMatchSnapshot();
+  });
+});

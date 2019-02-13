@@ -4,7 +4,7 @@ exports[`Logo Component should match snapshot 1`] = `
 <NavLink
   activeClassName="active"
   aria-current="page"
-  className="navbar-brand col-lg-2 logo"
+  className="navbar-brand col-lg-2 logo pull-left w-50"
   id="brand-logo"
   to="/"
 >

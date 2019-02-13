@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico|Gloria+Hallelujah|Poppins');
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #171717;
+$font-stack: 'Poppins', Helvetica, sans-serif;
+$primary-color: #06a5ff;
 
 * {
   margin: 0;
@@ -9,16 +9,23 @@ $primary-color: #171717;
 
 body {
   font: 100% $font-stack;
-  color: $primary-color;
   margin: 0;
   padding: 0;
 }
 @media (min-width: 1200px){
   .container {
-      max-width: 1400px;
-}
+    max-width: 1400px;
+  }
 }
 
 input, textarea, button {
   outline: none;
 };
+a:hover {
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}

@@ -1,57 +1,58 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack =  require('webpack');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.jsx', 'font-awesome/scss/font-awesome.scss'],
+  entry: [
+    'babel-polyfill', './src/index.jsx', 'font-awesome/scss/font-awesome.scss'],
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['babel-loader'],
       },
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
+          'css-loader',
           'postcss-loader',
           'sass-loader',
-        ]
+        ],
       },
       {
         test: /.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-        use: "url-loader?limit=100000"
-    },
-    {
-      test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-      use: 'file-loader',
-    },
+        use: 'url-loader?limit=100000',
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        use: 'file-loader',
+      },
       {
         test: /font-awesome\.config\.js/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'font-awesome-loader' }
-        ]
+          { loader: 'font-awesome-loader' },
+        ],
       },
       {
-        test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery'
+        test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery',
       },
       { test: /\.json$/, loader: 'json-loader' },
-    ]
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: './index.html'
+      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -71,7 +72,7 @@ module.exports = {
       Scrollspy: 'exports-loader?Scrollspy!bootstrap/js/dist/scrollspy',
       Tab: 'exports-loader?Tab!bootstrap/js/dist/tab',
       Tooltip: 'exports-loader?Tooltip!bootstrap/js/dist/tooltip',
-      Util: 'exports-loader?Util!bootstrap/js/dist/util'
+      Util: 'exports-loader?Util!bootstrap/js/dist/util',
     }),
-  ]
+  ],
 };

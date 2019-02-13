@@ -5,12 +5,11 @@ input {
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
     border: none;
     border-radius: 5px;
-};
 
-input::placeholder {
-    font-family: 'Gloria Hallelujah', cursive;
+    &::placeholder {
+        font-family: 'Gloria Hallelujah', cursive;
+    };
 };
-
 .navbarSearch {
     position: absolute;
     top: 10px;

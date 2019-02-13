@@ -10,14 +10,20 @@ exports[`Menu Component should match snapshot 1`] = `
     aria-controls="navbarSupportedContent"
     aria-expanded="false"
     aria-label="Toggle navigation"
-    className="navbar-toggler"
+    className="navbar-toggler pull-right"
     data-target="#navbarSupportedContent"
     data-toggle="collapse"
     type="button"
   >
     <span
       className="navbar-toggler-icon"
-    />
+    >
+      <i
+        className="fa fa-bars"
+      >
+         
+      </i>
+    </span>
   </button>
   <div
     className="collapse navbar-collapse"
@@ -25,10 +31,10 @@ exports[`Menu Component should match snapshot 1`] = `
   >
     <Search />
     <ul
-      className="nav navbar-nav mr-auto col-lg-2 float-right offset-1"
+      className="navbar-nav mr-auto offset-1"
     >
       <li
-        className="nav-item"
+        className="nav-item offset-md-5"
       >
         <NavLink
           activeClassName="active"
@@ -39,7 +45,7 @@ exports[`Menu Component should match snapshot 1`] = `
         </NavLink>
       </li>
       <li
-        className="nav-item offset-1"
+        className="nav-item offset-md-5"
       >
         <NavLink
           activeClassName="active"
