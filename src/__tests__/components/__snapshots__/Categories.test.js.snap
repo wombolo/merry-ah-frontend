@@ -12,7 +12,7 @@ exports[`Categories Component should match snapshot 1`] = `
       style={
         Object {
           "background": "linear-gradient(rgba(0, 0, 0, 0.5), 
-                                rgba(0, 0, 0, 0.5)), url(../assets/images/painting.jpg) no-repeat center ",
+                            rgba(0, 0, 0, 0.5)), url(../assets/images/painting.jpg) no-repeat center ",
           "backgroundSize": "cover",
         }
       }
@@ -41,7 +41,7 @@ exports[`Categories Component should match snapshot 1`] = `
       style={
         Object {
           "background": "linear-gradient(rgba(0, 0, 0, 0.5), 
-                                rgba(0, 0, 0, 0.5)), url(../assets/images/sketch.jpg) no-repeat center ",
+                            rgba(0, 0, 0, 0.5)), url(../assets/images/sketch.jpg) no-repeat center ",
           "backgroundSize": "cover",
         }
       }
@@ -70,7 +70,7 @@ exports[`Categories Component should match snapshot 1`] = `
       style={
         Object {
           "background": "linear-gradient(rgba(0, 0, 0, 0.5), 
-                                rgba(0, 0, 0, 0.5)), url(../assets/images/mosaic.jpg) no-repeat center ",
+                            rgba(0, 0, 0, 0.5)), url(../assets/images/mosaic.jpg) no-repeat center ",
           "backgroundSize": "cover",
         }
       }
@@ -99,7 +99,7 @@ exports[`Categories Component should match snapshot 1`] = `
       style={
         Object {
           "background": "linear-gradient(rgba(0, 0, 0, 0.5), 
-                                rgba(0, 0, 0, 0.5)), url(../assets/images/welcome.jpeg) no-repeat center ",
+                            rgba(0, 0, 0, 0.5)), url(../assets/images/welcome.jpeg) no-repeat center ",
           "backgroundSize": "cover",
         }
       }
@@ -128,7 +128,7 @@ exports[`Categories Component should match snapshot 1`] = `
       style={
         Object {
           "background": "linear-gradient(rgba(0, 0, 0, 0.5), 
-                                rgba(0, 0, 0, 0.5)), url(../assets/images/architecture.jpg) no-repeat center ",
+                            rgba(0, 0, 0, 0.5)), url(../assets/images/architecture.jpg) no-repeat center ",
           "backgroundSize": "cover",
         }
       }
@@ -157,7 +157,7 @@ exports[`Categories Component should match snapshot 1`] = `
       style={
         Object {
           "background": "linear-gradient(rgba(0, 0, 0, 0.5), 
-                                rgba(0, 0, 0, 0.5)), url(../assets/images/poetry.jpg) no-repeat center ",
+                            rgba(0, 0, 0, 0.5)), url(../assets/images/poetry.jpg) no-repeat center ",
           "backgroundSize": "cover",
         }
       }
