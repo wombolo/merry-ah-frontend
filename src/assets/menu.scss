@@ -28,7 +28,12 @@ a {
     color: #AAAAAA;
     font-size: 18px;
 	font-family: 'Gloria Hallelujah', cursive;
-	text-decoration: none;
+	
+}
+
+a:hover {
+	color: #06A5FF;
+	text-decoration: none !important;
 }
 
 header nav {
