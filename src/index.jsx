@@ -6,8 +6,6 @@ import './assets/main.scss';
 import './assets/menu.scss';
 import './assets/search.scss';
 import './assets/footer.scss';
-import './assets/showcase.scss';
-import './assets/categories.scss';
 
 ReactDOM.render(
     <App />,
