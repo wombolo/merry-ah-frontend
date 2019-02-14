@@ -39,7 +39,7 @@ export class Login extends Component {
           <div className="row">
             <div className="col-md-4 col-sm-12">&nbsp;</div>
 
-            <div className="col-md-4 mt-4 col-sm-12 pb-2" id="auth-background">
+            <div className="col-md-4 mt-4 col-sm-12" id="auth-background">
               <div className="row">
                 <ul
                   className="nav nav-pills mb-3 w-100 text-center"
@@ -96,18 +96,15 @@ export class Login extends Component {
                        className="text-center text-light text-poppins">
                        Forgot Password?</a>
                   </p>
-                  <br />
 
                   <p className="text-center text-light">Login with Social</p>
                 </div>
-                <div className="row">
-                  <div className="col-2 offset-3 text-right">
-                    <div className="auth-icons facebook-square">&nbsp;</div>
-                  </div>
-                  <div className="col-2 text-center">
-                    <div className="auth-icons twitter-square">&nbsp;</div>
-                  </div>
-                  <div className="col-2 text-left">
+                <div className="row pb-3">
+                  <div
+                  className="col-4 offset-4 text-right d-inline-flex pl-2 pr-2">
+                    <div
+                    className="auth-icons facebook-square mr-1">&nbsp;</div>
+                    <div className="auth-icons twitter-square mr-1">&nbsp;</div>
                     <div className="auth-icons google-plus-square">&nbsp;</div>
                   </div>
                 </div>
