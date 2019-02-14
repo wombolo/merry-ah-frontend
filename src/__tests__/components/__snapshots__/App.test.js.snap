@@ -4,6 +4,8 @@ exports[`App Component should match snapshot 1`] = `
 <BrowserRouter>
   <div>
     <Menu />
+    <Showcase />
+    <Categories />
     <Routes />
     <Footer />
   </div>

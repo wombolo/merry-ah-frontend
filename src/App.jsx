@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Routes from './components/Routes';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
+import Showcase from './components/Showcase';
+import Categories from './components/Categories';
 
 export default class App extends Component {
   render() {
@@ -11,6 +13,8 @@ export default class App extends Component {
       <Router>
         <div>
           <Menu/>
+          <Showcase/>
+          <Categories/>
           <Routes/>
           <Footer/>
         </div>
