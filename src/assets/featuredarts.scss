@@ -2,18 +2,38 @@
     width: 100%;
 }
 
-section div {
-    text-align: center;
+#feature_list{
+    padding:5%;
 }
 
-#cards {
-    height: 250px;
-    width: 46%;
+section div {
+    text-align: center;
+    display: inline-block;
+    
+}
+
+// #cards {
+
+// }
+
+.cards_active{
+    height: 450px;
+    width: 40%;
     margin-top: 25px;
     margin-left: 10px;
     margin-right: 10px;
     display: inline-block;
-    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cards_inactive{
+    height: 300px;
+    width: 27%;
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
     box-sizing: border-box;
     box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
 }
@@ -40,8 +60,7 @@ section div {
 }
 
 #feature_button_div {
-    // padding-left: 30%; 
-    padding-top: 25%;
+    padding-top: 35%;
     text-align: center;
 }
 
@@ -52,4 +71,12 @@ section div {
     line-height: normal;
     font-size: 25px;
     color: #FFFFFF;
+}
+
+.slide-arrow {
+	color: #06A5FF;
+	cursor: pointer;
+	font-size: 2rem;
+	position: fixed;
+	top: 50%;
 }
