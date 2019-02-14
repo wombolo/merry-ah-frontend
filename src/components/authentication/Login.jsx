@@ -45,12 +45,10 @@ export class Login extends Component {
               className="nav nav-pills mb-3 w-100 text-center"
               id="pills-tab" role="tablist">
                 <li className="nav-item col-sm-12 p-0">
-                  <a
-                  className="nav-link active text-poppins"
-                  id="pills-home-tab" data-toggle="pill"
-                  href="#pills-login"
-                  role="tab" aria-controls="pills-home"
-                  aria-selected="true">Login</a>
+                  <h5
+                  className="nav-link text-poppins text-left"
+                  id="pills-home-tab"
+                  aria-selected="true">Login</h5>
                 </li>
               </ul>
             </div>

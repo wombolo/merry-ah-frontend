@@ -26,7 +26,7 @@ export default class Menu extends Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <Search/>
-          <ul className="navbar-nav mr-auto offset-1">
+          <ul className="navbar-nav mr-auto offset-1 offset-md-2">
             <li className="nav-item offset-md-5">
               <NavLink to="/login" >Login</NavLink>
             </li>
