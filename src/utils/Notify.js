@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 * @class Notify
 */
 class Notify {
- /**
+  /**
   * @method notifyError
   * @memberof Notify
   * @static
@@ -14,11 +14,11 @@ class Notify {
   *
   * @returns {void}
   */
- static notifyError(error) {
-   swal('', error, 'error');
- }
+  static notifyError(error) {
+    swal('', error, 'error');
+  }
 
- /**
+  /**
   * @method notifySuccess
   * @memberof Notify
   * @static
@@ -26,10 +26,10 @@ class Notify {
   *
   * @returns {void}
   */
- static async notifySuccess(message) {
-   await swal('', message, 'success');
-   window.location.reload();
- }
+  static async notifySuccess(message) {
+    await swal('', message, 'success');
+    window.location.reload();
+  }
 }
 
 export default Notify;

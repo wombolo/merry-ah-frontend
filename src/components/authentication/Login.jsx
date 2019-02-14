@@ -93,7 +93,7 @@ export class Login extends Component {
             </button>
           </div>
         </form>
-        <p>Login with Social</p>
+        <p className="social-text">Login with Social</p>
       </div>
       <div className="row">
                 <div
