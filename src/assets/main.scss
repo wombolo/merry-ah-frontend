@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Gloria+Hallelujah|Poppins');
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #171717;
+$default-color: #06A5FF;
+
+$regular-font: 'Poppins';
+
+* {
+  margin: 0;
+  padding: 0;
+};
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+};
+
+input, textarea, button {
+  outline: none;
+};
+
+a {
+  color: #EEEEEE;
+  text-decoration: none;
+  font-family: $regular-font;
+  transition: 0.3s all;
+}
+
+a:hover {
+  color: $default-color;
+}

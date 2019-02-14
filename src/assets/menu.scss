@@ -1,0 +1,37 @@
+header, nav {
+	background-color: #ffffff;
+	color: #f4f7fb;
+	min-height: 70px;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+#brand-logo {
+	color: #06A5FF;
+	text-decoration: none;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: 'Pacifico', cursive;
+}
+
+header ul {
+	width:100%;
+	text-align:center;
+}
+header li {
+	float: left;
+	display:inline;
+	height: 40px;
+	padding: 10px 20px 10px 20px;
+}
+
+a {
+    color: #AAAAAA;
+    font-size: 18px;
+	font-family: 'Gloria Hallelujah', cursive;
+	text-decoration: none;
+}
+
+header nav {
+	float: right;
+	margin-top: -50px;
+}
