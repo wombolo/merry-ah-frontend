@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 
+/**
+ * Search Component
+ */
 class Search extends Component {
-    render() {
-        return (
+  /**
+ * @param {function} render
+ *  @returns {JSX} jsx
+ */
+  render() {
+    return (
           <form className="form-inline my-2 my-lg-0 col-lg-7">
             <input type="search" placeholder="Search" aria-label="Search for"/>
           </form>
-        )
-      }
+    );
+  }
 }
 
 export default Search;
