@@ -5,7 +5,7 @@
 	border-bottom: 1px solid #ffffff;
 	color: #ffffff;
 	transition: 0.3s all;
-	margin-bottom: 30px;
+	margin-bottom: 1em;
 	box-shadow: none;
 
 	&::placeholder {
@@ -57,8 +57,4 @@
 	height: 100vh;
 	background-blend-mode: multiply;
 	background-position: center;
-}
-.social-text {
-	color: white;
-	text-align: center;
 }

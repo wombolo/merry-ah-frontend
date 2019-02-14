@@ -37,16 +37,16 @@ export class Login extends Component {
       <div id="page-background">
       <div className="container">
         <div className="row">
-          <div className="col-md-3 col-sm-12">&nbsp;</div>
+          <div className="col-md-4 col-sm-12">&nbsp;</div>
 
-          <div className="col-md-6 mt-4 col-sm-12 pb-5" id="auth-background">
+          <div className="col-md-4 mt-4 col-sm-12 pb-5" id="auth-background">
             <div className="row">
               <ul
               className="nav nav-pills mb-3 w-100 text-center"
               id="pills-tab" role="tablist">
                 <li className="nav-item col-sm-12 p-0">
                   <a
-                  className="nav-link active"
+                  className="nav-link active text-poppins"
                   id="pills-home-tab" data-toggle="pill"
                   href="#pills-login"
                   role="tab" aria-controls="pills-home"
@@ -67,7 +67,7 @@ export class Login extends Component {
             <input
               type="email"
               placeholder="Email"
-              className="form-control input1"
+              className="my-form-control input1"
               name="email"
               onChange={this.handleChange}
               value={this.state.email}
@@ -78,7 +78,7 @@ export class Login extends Component {
             <input
               type="password"
               placeholder="Password"
-              className="form-control input2"
+              className="my-form-control input2"
               name="password"
               onChange={this.handleChange}
               value={this.state.password}
@@ -93,7 +93,13 @@ export class Login extends Component {
             </button>
           </div>
         </form>
-        <p className="social-text">Login with Social</p>
+        <p>
+          <a href={'#'}
+          className="text-center text-light text-poppins">Forgot Password?</a>
+        </p>
+        <br />
+
+        <p className="text-center text-light">Login with Social</p>
       </div>
       <div className="row">
                 <div
@@ -107,7 +113,7 @@ export class Login extends Component {
               </div>
             </div>
           </div>
-          <div className="col-md-3 col-sm-12">&nbsp;</div>
+          <div className="col-md-4 col-sm-12">&nbsp;</div>
         </div>
       </div>
     </div>
