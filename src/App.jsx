@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Routes from './components/Routes';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
+import FeaturedArts from './components/FeaturedArts'
 
 export default class App extends Component {
   render() {
@@ -12,6 +13,7 @@ export default class App extends Component {
         <div>
           <Menu/>
           <Routes/>
+          <FeaturedArts/>
           <Footer/>
         </div>
       </Router>

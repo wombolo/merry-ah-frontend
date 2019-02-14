@@ -1,0 +1,55 @@
+#featuredarts {
+    width: 100%;
+}
+
+section div {
+    text-align: center;
+}
+
+#cards {
+    height: 250px;
+    width: 46%;
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+.feature_button {
+	background: #06A5FF;
+	color:#ffffff;
+	border: 0;
+	padding-right: 40px;
+	padding-left: 40px;
+	cursor: pointer;
+    height: 37px;
+    width: 144px;
+  	border-radius: 5px;
+    font-family: 'Poppins', cursive;
+    background: #06A5FF;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.feature_button:hover {
+	background-color:#ffffff;
+    color:#06A5FF;
+}
+
+#feature_button_div {
+    // padding-left: 30%; 
+    padding-top: 25%;
+    text-align: center;
+}
+
+#feature_button_div h5 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 25px;
+    color: #FFFFFF;
+}
