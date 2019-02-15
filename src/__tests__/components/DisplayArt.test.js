@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DisplayArt from '../../components/DisplayArt';
+import DisplayArt from '../../components/DisplayArt.jsx';
 
 let wrapper;
 beforeEach(() => {

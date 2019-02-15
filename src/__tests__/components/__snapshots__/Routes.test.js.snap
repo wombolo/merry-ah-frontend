@@ -28,6 +28,10 @@ exports[`Routes Component should match snapshot 1`] = `
     />
     <Route
       component={[Function]}
+      path="/art/:category"
+    />
+    <Route
+      component={[Function]}
     />
   </Switch>
 </Provider>
