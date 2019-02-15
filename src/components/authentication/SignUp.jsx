@@ -159,16 +159,16 @@ export class SignUp extends Component {
           </div>
         </div>
       </div>
-    );
+  );
   }
-}
-SignUp.propTypes = {
-  auth: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  signUp: PropTypes.func.isRequired,
-};
-export const mapStateToProps = state => ({
-  auth: state.auth,
-});
+  }
+  SignUp.propTypes = {
+    auth: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+    signUp: PropTypes.func.isRequired,
+  };
+  export const mapStateToProps = state => ({
+    auth: state.auth,
+  });
 
-export default connect(mapStateToProps, { signUp })(withRouter(SignUp));
+  export default connect(mapStateToProps, { signUp })(withRouter(SignUp));
