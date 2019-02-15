@@ -44,12 +44,10 @@ export const sendResetPasswordEmail = (body, history) => async (dispatch) => {
       `${basePath}/auth/forgot-password`,
       body
     );
-    console.log(res);
     dispatch(setPasswordResetEmail(res.data));
     Notify.notifySuccess('Email successfully sent');
     history.push('/login');
   } catch(err) {
-    console.log(err.response);
     dispatch(setUserError(err.response.data.messages));
     Notify.notifyError('Email not successfully sent');
   }
@@ -70,7 +68,6 @@ export const completePasswordReset = (body, token, history) => async (dispatch) 
     history.push('/login');
     Notify.notifySuccess('Password successfully updated');
   } catch(err) {
-    console.log(err.response);
     const errorMessage = err.response.data.message || err.response.data.messages
     dispatch(setUserError(errorMessage));
     Notify.notifyError('There was an error updating password');
