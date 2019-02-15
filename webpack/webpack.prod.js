@@ -1,10 +1,10 @@
-const common = require('./webpack.common.js');
-const merge = require('webpack-merge');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+import merge from 'webpack-merge';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import common from './webpack.common';
 
 
-module.exports = merge(common, {
+export default merge(common, {
   mode: 'production',
   devtool: 'source-map',
   optimization: {
@@ -12,7 +12,7 @@ module.exports = merge(common, {
       new UglifyJsPlugin({
         sourceMap: true,
       }),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({}),
     ],
   },
 });

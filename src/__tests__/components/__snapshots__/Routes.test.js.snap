@@ -8,7 +8,7 @@ exports[`Routes Component should match snapshot 1`] = `
       "getState": [Function],
       "replaceReducer": [Function],
       "subscribe": [Function],
-      Symbol(observable): [Function],
+      Symbol(Symbol.observable): [Function],
     }
   }
 >
@@ -21,6 +21,10 @@ exports[`Routes Component should match snapshot 1`] = `
     <Route
       component={[Function]}
       path="/login"
+    />
+    <Route
+      component={[Function]}
+      path="/profile"
     />
     <Route
       component={[Function]}
