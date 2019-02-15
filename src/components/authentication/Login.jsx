@@ -29,19 +29,6 @@ export class Login extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  onPasswordReset = (event) => {
-    event.preventDefault();
-
-    const body = {
-      email: this.state.resetEmail,
-    };
-
-    this.props.sendResetPasswordEmail(
-      body,
-      this.props.history,
-    );
-  };
-
   /**
    * @param {function} render
    *  @returns {JSX} jsx
