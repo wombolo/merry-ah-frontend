@@ -4,46 +4,61 @@ exports[`Footer Component should match snapshot 1`] = `
 <footer>
   <div>
     <div
-      className="float-left"
+      className="row"
     >
-      <li>
-        <h5>
-          © 2019 All Rights Reserved
-        </h5>
-      </li>
-    </div>
-    <div
-      className="float-right"
-    >
-      <ul>
+      <div
+        className="col-lg-3 col-sm-12 float-left pull-left text-center"
+      >
         <li>
-          <a
-            href="#"
-          >
-            <i
-              className="fa fa-2x fa-facebook-f"
-            />
-          </a>
+          <p>
+            © 2019 All Rights Reserved
+          </p>
         </li>
-        <li>
-          <a
-            href="#"
-          >
-            <i
-              className="fa fa-2x fa-twitter"
-            />
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-          >
-            <i
-              className="fa fa-2x fa-instagram"
-            />
-          </a>
-        </li>
-      </ul>
+      </div>
+      <div
+        className="col-lg-7"
+      >
+         
+      </div>
+      <div
+        className="col-lg-2 col-sm-12 pull-right text-center"
+      >
+        <ul>
+          <li>
+            <a
+              href="#"
+            >
+              <i
+                className="fa fa-facebook-f"
+              >
+                 
+              </i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+            >
+              <i
+                className="fa fa-twitter"
+              >
+                 
+              </i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+            >
+              <i
+                className="fa fa-instagram"
+              >
+                 
+              </i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </footer>

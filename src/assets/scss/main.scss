@@ -1,176 +1,39 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #171717;
-$background-color: #EEEEEE;
-$default-color: #06A5FF;
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Gloria+Hallelujah|Poppins');
+$font-stack: 'Poppins', Helvetica, sans-serif;
+$primary-color: #06a5ff;
 
-$authBackground: url(../images/background1.jpeg);
-
-$default-font: 'Gloria Hallelujah', cursive;
-$title-font: 'Fredericka the Great', cursive;;
-$text-font: 'Righteous', cursive;
-$design-font: 'Pacifico', cursive;
-$regular-font: 'Poppins';
-
-$default-font-size: 18px;
-$form-input-font-size: 15px;
-$small-font-size: 13px;
-
-$card-width: 350px;
-$card-input-width: calc(350px - 10px);
+* {
+  margin: 0;
+  padding: 0;
+};
 
 body {
   font: 100% $font-stack;
-  background-color: $background-color;
-  color: $primary-color;
   margin: 0;
   padding: 0;
 }
+@media (min-width: 1200px){
+  .container {
+    max-width: 1400px;
+  }
+}
 
-input, button, textarea {
+input, textarea, button {
   outline: none;
-}
-
-a {
-  color: #EEEEEE;
-  text-decoration: none;
-  font-family: $regular-font;
-  transition: 0.3s all;
-}
-
+};
 a:hover {
-  color: $default-color;
+  text-decoration: none;
+  color: $primary-color;
 }
 
-#forgotPassword {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: $authBackground;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
-  background-color: rgba(0, 0, 0, 0.5);
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
 }
 
-#forgotPassword .title {
-  margin-bottom: -10px;
-  color: #ffffff;
+.text-poppins {
+	font-family: Poppins, sans-serif;
 }
-
-#forgotPassword .title h2 {
-  font-family: $regular-font;
-  font-size: $default-font-size;
-}
-
-.sideText {
-  width: 400px;
-  position: absolute;
-  top: 20%;
-  left: 50px;
-  color: #ffffff;
-  font-family: $title-font;
-}
-
-.sideText h1 {
-  font-size: 40px;
-}
-
-.titleHr {
-  width: 50px;
-  // margin-inline-start: 0;
-  border: 2px solid #ffffff;
-  transition: 0.5s all;
-}
-
-.forgot-password:hover .titleHr {
-  width: 100px;
-  border: 2px solid $default-color;
-}
-
-#forgotPassword .subtitle p {
-  font-family: $regular-font;
-  font-size: $small-font-size;
-  color: #333333;
-}
-
-.forgot-password {
-  margin-top: 150px;
-  background: rgba(255, 255, 255, 0.26);
-  width: $card-width;
-  height: 250px;
-  padding: 10px;
-  border-radius: 5px;
-  margin-right: 20px;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
-}
-
-.password-reset {
-  margin-top: 150px;
-  background: rgba(255, 255, 255, 0.26);
-  width: $card-width;
-  height: 250px;
-  padding: 10px;
-  border-radius: 5px;
-  margin-right: 20px;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
-}
-
-.clear {
-  clear: both;
-}
-
-/** Form **/
-
-.form-input {
-  background-color: transparent;
-  width: $card-input-width;
-  height: 30px;
-  padding: 5px;
-  border: 0;
-  font-size: $form-input-font-size;
-  font-family: $regular-font;
-  color: #ffffff;
-  border-bottom: 1px solid #ffffff;
-  margin-bottom: 15px;
-  transition: 0.3s all;
-}
-
-.form-input::placeholder {
-  color: $background-color;
-}
-
-.form-input:focus {
-  border-bottom: 1px solid $default-color;
-}
-
-.form-button {
-  background: $default-color;
-  width: $card-width;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 3px;
-  color: #ffffff;
-  border: 1px solid transparent;
-  padding: 10px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: 0.3s all;
-}
-
-.form-button:hover {
-  background-color: #ffffff;
-  color: $default-color;
-  border: 1px solid $default-color;
-}
-
-.alternative-links {
-  font-size: $small-font-size;
-  text-align: center;
-  line-height: 25px;
-  margin-top: 15px;
-  color: #ffffff;
-}
-
-.alternative-links a:hover {
-  color: #ffffff;
+button{
+  height: 45px;
 }

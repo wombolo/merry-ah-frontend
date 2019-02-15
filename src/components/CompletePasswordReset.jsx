@@ -1,35 +1,64 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import queryString from 'query-string';
 import { completePasswordReset } from '../actions/authActions';
+import Notify from '../utils/Notify';
 
 /**
- * Class Complete Reset Password
+ * @param {function} event
+ *  @returns {JSX} jsx
  */
 class CompletePasswordReset extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      password: '',
-      confirmPassword: ''
-    }
+  state = {
+    password: '',
+    confirmPassword: '',
+    token: '',
+  }
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+  onChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   }
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-  onSubmit(e) {
-    e.preventDefault();
+
+  onSubmit = (event) => {
+    event.preventDefault();
 
     const body = {
       password: this.state.password,
       confirmPassword: this.state.confirmPassword,
-    }
+    };
 
-    this.props.completePasswordReset(body);
+    this.props.completePasswordReset(
+      body,
+      this.state.token,
+      this.props.history,
+    );
   }
+
+  checkToken = () => {
+    const strings = queryString.parse(this.props.location.search);
+    const { token } = strings;
+    if (!token) {
+      Notify.notifyError('This link is invalid or broken');
+      this.props.history.push('/login');
+      return false;
+    }
+    this.setState({ token });
+  }
+
+  /**
+ * @param {function} event
+ *  @returns {null} null
+ */
+  componentDidMount() {
+    this.checkToken();
+  }
+
+  /**
+   * @param {function} render
+   *  @returns {JSX} jsx
+   */
   render() {
     return (
       <div>
@@ -40,20 +69,17 @@ class CompletePasswordReset extends Component {
                 <h2>Complete password reset</h2>
               </div>
               <hr className="titleHr" />
-              <div className="subtitle">
-                <p>Enter a new password to log in back to Art Cave</p>
-              </div>
               <div>
                 <form method="post" onSubmit={this.onSubmit}>
                   <input
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="New Password"
                   className="form-input"
                   onChange={this.onChange}
                   value={this.state.password} />
                   <input
-                  type="text"
+                  type="password"
                   name="confirmPassword"
                   placeholder="Confirm Password"
                   className="form-input"
@@ -69,8 +95,15 @@ class CompletePasswordReset extends Component {
           </center>
         </section>
       </div>
-    )
+    );
   }
 }
 
-export default connect(null, { completePasswordReset })(CompletePasswordReset);
+CompletePasswordReset.propTypes = {
+  completePasswordReset: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
+
+export default connect(null,
+  { completePasswordReset })(withRouter(CompletePasswordReset));

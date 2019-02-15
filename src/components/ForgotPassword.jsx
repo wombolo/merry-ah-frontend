@@ -1,30 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { sendResetPasswordEmail } from '../actions/authActions';
 
-class ForgotPassword extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      email: ''
-    }
+/**
+ * @param {function} event
+ *  @returns {JSX} jsx
+ */
+export class ForgotPassword extends Component {
+  state = {
+    email: '',
+  };
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+  onChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   }
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-  onSubmit(e) {
-    e.preventDefault();
+
+  onSubmit = (event) => {
+    event.preventDefault();
 
     const body = {
-      email: this.state.email
-    }
+      email: this.state.email,
+    };
 
-    this.props.sendResetPasswordEmail(body);
+    this.props.sendResetPasswordEmail(
+      body,
+      this.props.history,
+    );
   }
+
+  /**
+   * @param {function} render
+   *  @returns {JSX} jsx
+   */
   render() {
     return (
       <div>
@@ -47,22 +56,32 @@ class ForgotPassword extends Component {
                   className="form-input"
                   onChange={this.onChange}
                   value={this.state.email} />
-                  <button name="forgotPassword" className="form-button">
-                    Verify Email
+                  <button name="forgotPassword"
+                  className="form-button"
+                  disabled={this.props.auth.isLoading}>
+                    {this.props.auth.isLoading
+                      ? 'Sending. . .' : 'Verify Email' }
                   </button>
                 </form>
-                <div className="alternative-links">
-                  <a href="">Login</a> |&nbsp;
-                  <a href="">Sign up</a>
-                </div>
               </div>
             </div>
             <div className="clear"></div>
           </center>
         </section>
       </div>
-    )
+    );
   }
 }
 
-export default connect(null, { sendResetPasswordEmail })(ForgotPassword);
+ForgotPassword.propTypes = {
+  sendResetPasswordEmail: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+export const mapStateToProps = state => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps,
+  { sendResetPasswordEmail })(withRouter(ForgotPassword));

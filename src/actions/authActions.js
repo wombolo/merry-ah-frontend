@@ -1,49 +1,78 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
-import { TEST_DISPATCH, RESET_PASSWORD_EMAIL, COMPLETE_PASSWORD_RESET } from './types';
+import jwt_decode from 'jwt-decode';
+import { SET_CURRENT_USER, SET_USER_REQUEST, SET_USER_ERROR, RESET_PASSWORD_EMAIL, COMPLETE_PASSWORD_RESET } from './types';
+import { basePath } from '../utils/basePath';
+import Notify from '../utils/Notify';
 
-const apiPath = 'https://merry-ah-staging.herokuapp.com/api/v1';
-const localPath = 'http://localhost:9000/api/v1';
-
-export const loginUser = userData => dispatch => {
-  dispatch({
-    type: TEST_DISPATCH,
-    payload: userData
-  })
-}
-
-export const sendResetPasswordEmail = (body) => async dispatch => {
+export const setCurrentUser = decoded => ({
+  type: SET_CURRENT_USER,
+  payload: decoded,
+});
+export const setUserRequest = () => ({
+  type: SET_USER_REQUEST,
+});
+export const setUserError = error => ({
+  type: SET_USER_ERROR,
+  payload: error,
+});
+export const setPasswordResetEmail = response => ({
+  type: RESET_PASSWORD_EMAIL,
+  payload: response,
+});
+export const loginUser = (userData, history) => async (dispatch) => {
+  dispatch(setUserRequest());
   try {
-    const sendRequest = await axios.post(
-      localPath+'/auth/forgot-password',
+    const res = await axios.post(`${basePath}/auth/signin`, userData);
+    const { token } = res.data.data;
+    const decoded = jwt_decode(token);
+    localStorage.setItem('authToken', token);
+    if (decoded) {
+      history.push('/profile');
+    }
+    dispatch(setCurrentUser(decoded));
+  } catch (err) {
+    dispatch(setUserError(err.response.data.messages));
+    Notify.notifyError(err.response.data.messages);
+  }
+};
+
+export const sendResetPasswordEmail = (body, history) => async (dispatch) => {
+  dispatch(setUserRequest());
+  try {
+    const res = await axios.post(
+      `${basePath}/auth/forgot-password`,
       body
     );
-    
-    dispatch({
-      type: RESET_PASSWORD_EMAIL,
-      payload: sendRequest,
-    })
-    console.log(sendRequest);
-  } catch(error) {
-    console.log(error);
+    console.log(res);
+    dispatch(setPasswordResetEmail(res.data));
+    Notify.notifySuccess('Email successfully sent');
+    history.push('/login');
+  } catch(err) {
+    console.log(err.response);
+    dispatch(setUserError(err.response.data.messages));
+    Notify.notifyError('Email not successfully sent');
   }
 }
 
-export const completePasswordReset = (body) => async dispatch => {
+export const completePasswordReset = (body, token, history) => async (dispatch) => {
+  dispatch(setUserRequest());
   try {
-    const sendRequest = await axios.put(
-      localPath+'/auth/forgot-password',
-      body,
-      {
-        'x-access-token': ''
+    const headers = {
+      'x-access-token': token
+    }
+    const res = await axios.put(
+      `${basePath}/auth/forgot-password`,
+      body,{
+        headers: headers
       }
     );
-    
-    dispatch({
-      type: COMPLETE_PASSWORD_RESET,
-      payload: sendRequest,
-    })
-    console.log(sendRequest);
-  } catch(error) {
-    console.log(error);
+    history.push('/login');
+    Notify.notifySuccess('Password successfully updated');
+  } catch(err) {
+    console.log(err.response);
+    const errorMessage = err.response.data.message || err.response.data.messages
+    dispatch(setUserError(errorMessage));
+    Notify.notifyError('There was an error updating password');
   }
 }
