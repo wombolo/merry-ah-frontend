@@ -52,6 +52,7 @@ exports[`Menu Component should match snapshot 1`] = `
         <NavLink
           activeClassName="active"
           aria-current="page"
+          id="nav-link"
           onClick={[Function]}
           to="/login"
         >

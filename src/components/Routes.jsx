@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from './Home.jsx';
 import NotFound from './NotFound.jsx';
 import Profile from './Profile.jsx';

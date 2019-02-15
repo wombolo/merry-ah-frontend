@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Search from './Search.jsx';
 import Logo from './Logo.jsx';
-import PropTypes from 'prop-types';
 
 /**
  * Menu Component
