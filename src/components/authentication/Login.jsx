@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { loginUser, sendResetPasswordEmail } from '../../actions/authActions';
+import { loginUser } from '../../actions/authActions';
 
 /**
  * @param {function} event
@@ -135,11 +135,10 @@ Login.propTypes = {
   auth: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   loginUser: PropTypes.func.isRequired,
-  sendResetPasswordEmail: PropTypes.func.isRequired,
 };
 export const mapStateToProps = state => ({
   auth: state.auth,
 });
 
 export default connect(mapStateToProps,
-  { loginUser, sendResetPasswordEmail })(withRouter(Login));
+  { loginUser })(withRouter(Login));
