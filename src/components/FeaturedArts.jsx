@@ -18,55 +18,55 @@ export default class FeaturedArts extends Component {
       artList: [
         {
           objectID: 1,
-          url: '//placehold.it/400x600?text=1',
+          url: '../assets/images/1.jpg',
           title: 'Do you love art',
           category: 'painting',
         },
         {
           objectID: 2,
-          url: '//placehold.it/400x400?text=2',
+          url: '../assets/images/2.jpg',
           title: 'Cirrhosis of the sky',
           category: 'freehand_sketch',
         },
         {
           objectID: 3,
-          url: '//placehold.it/400x400?text=3',
+          url: '../assets/images/3.jpg',
           title: 'Walkers Short Bread',
           category: 'mosaic',
         },
         {
           objectID: 4,
-          url: '//placehold.it/400x400?text=4',
+          url: '../assets/images/4.jpg',
           title: 'How to have a blast',
           category: 'mosaic',
         },
         {
           objectID: 5,
-          url: '//placehold.it/400x400?text=5',
+          url: '../assets/images/5.jpg',
           title: 'Debugging best practices',
           category: 'mosaic',
         },
         {
           objectID: 6,
-          url: '//placehold.it/400x400?text=6',
+          url: '../assets/images/6.jpg',
           title: 'Fast and furious remake',
           category: 'mosaic',
         },
         {
           objectID: 7,
-          url: '//placehold.it/400x400?text=7',
+          url: '../assets/images/7.jpg',
           title: 'Best Coder alive',
           category: 'mosaic',
         },
         {
           objectID: 8,
-          url: '//placehold.it/400x400?text=8',
+          url: '../assets/images/8.jpg',
           title: 'Fifa e-world cup',
           category: 'mosaic',
         },
         {
           objectID: 9,
-          url: '//placehold.it/400x400?text=9',
+          url: '../assets/images/9.jpg',
           title: 'Perfection at its peak',
           category: 'mosaic',
         },
@@ -159,6 +159,9 @@ export default class FeaturedArts extends Component {
     return (
       <div>
       <div id="feature_list">
+        <div id="featured_arts_header">
+          <h5>Featured Arts</h5>
+        </div>
         {
           this.state.activeList.map(
             (item, index) => <FeatureCard
@@ -168,11 +171,19 @@ export default class FeaturedArts extends Component {
               title={item.title} imgUrl={item.url} />,
           )
         }
-      </div>
         <div id="carousel_control">
-          <Arrow className="slide-arrow" clickFunction={ this.previousSlide } direction="left" glyph="&#9664;" />
-          <Arrow className="slide-arrow" clickFunction={ this.nextSlide } direction="right" glyph="&#9654;" />
+          <Arrow
+            className="slide-arrow"
+            clickFunction={ this.previousSlide }
+            direction="left"
+            glyph="&#9664;" />
+          <Arrow
+            className="slide-arrow" 
+            clickFunction={ this.nextSlide } 
+            direction="right" 
+            glyph="&#9654;" />
         </div>
+      </div>
       </div>
     );
   }
