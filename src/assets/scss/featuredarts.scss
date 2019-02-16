@@ -1,141 +1,147 @@
 #featuredarts {
-    width: 100%;
+  width: 100%;
 
 }
 
 #feature_list{
-    padding:5%;
-    background: #E5E5E5 !important;
+  padding:5%;
+  background: #E5E5E5 !important;
 }
 
 #featured_arts_header h5 {
-    font-family: 'Fredericka the Great', cursive;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: 30px;
-    color: #000000;
-    text-align: center;
-    text-decoration: underline;
+  font-family: 'Fredericka the Great', cursive;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 30px;
+  color: #000000;
+  text-align: center;
+}
 
+#featured_arts_header hr {
+  border: 2px ridge #000000;
+  width: 150px;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 section div {
-    text-align: center;
-    display: inline-block;
-    
+  text-align: center;
+  display: inline-block;
+  
 }
 
 .cards_active{
-    height: 450px;
-    width: 40%;
-    margin-top: 25px;
-    margin-left: 10px;
-    margin-right: 10px;
-    display: inline-block;
-    box-sizing: border-box;
-    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
+  height: 450px;
+  width: 40%;
+  margin-top: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;
+  box-sizing: border-box;
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .cards_inactive{
-    height: 300px;
-    width: 27%;
-    margin-top: 25px;
-    margin-left: 10px;
-    margin-right: 10px;
-    display: inline-block;
-    box-sizing: border-box;
-    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
+  height: 300px;
+  width: 27%;
+  margin-top: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;
+  box-sizing: border-box;
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .feature_button {
-	background: #06A5FF;
-	color:#ffffff;
-	border: 0;
-	padding-right: 40px;
-	padding-left: 40px;
-	cursor: pointer;
-    height: 37px;
-    width: 144px;
-  	border-radius: 5px;
-    font-family: 'Poppins', cursive;
-    background: #06A5FF;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
+background: #06A5FF;
+color:#ffffff;
+border: 0;
+padding-right: 40px;
+padding-left: 40px;
+cursor: pointer;
+  height: 37px;
+  width: 144px;
+  border-radius: 5px;
+  font-family: 'Poppins', cursive;
+  background: #06A5FF;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 }
 
 .feature_button:hover {
-	background-color:#ffffff;
-    color:#06A5FF;
+background-color:#ffffff;
+  color:#06A5FF;
 }
 
 #feature_button_div {
-    padding-top: 35%;
-    text-align: center;
+  padding-top: 35%;
+  text-align: center;
 }
 
 #feature_button_div h5 {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: 25px;
-    color: #FFFFFF;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 25px;
+  color: #FFFFFF;
 }
 
 .slide-arrow {
-	color: #06A5FF;
-	cursor: pointer;
-	font-size: 3rem;
-	position: relative;
-    display: inline-block;
-    margin-right: 3%;
+color: #06A5FF;
+cursor: pointer;
+font-size: 3rem;
+position: relative;
+  display: inline-block;
+  margin-right: 3%;
 }
 
 #carousel_control {
-    text-align: center;
-    padding: 1%;
+  text-align: center;
+  padding: 1%;
 }
 
 
 .cards_active {
-    margin-top: 25px;
-    font-size: 21px;
-    text-align: center;
-    animation: fadein 3s;
-    -moz-animation: fadein 3s; /* Firefox */
-    -webkit-animation: fadein 3s; /* Safari and Chrome */
-    -o-animation: fadein 3s; /* Opera */
+  margin-top: 25px;
+  font-size: 21px;
+  text-align: center;
+  animation: fadein 3s;
+  -moz-animation: fadein 3s; /* Firefox */
+  -webkit-animation: fadein 3s; /* Safari and Chrome */
+  -o-animation: fadein 3s; /* Opera */
 }
 @keyframes fadein {
-    from {
-        opacity:-1;
-    }
-    to {
-        opacity:1;
-    }
+  from {
+      opacity:-1;
+  }
+  to {
+      opacity:1;
+  }
 }
 @-moz-keyframes fadein { /* Firefox */
-    from {
-        opacity:-1;
-    }
-    to {
-        opacity:1;
-    }
+  from {
+      opacity:-1;
+  }
+  to {
+      opacity:1;
+  }
 }
 @-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-        opacity:-1;
-    }
-    to {
-        opacity:1;
-    }
+  from {
+      opacity:-1;
+  }
+  to {
+      opacity:1;
+  }
 }
 @-o-keyframes fadein { /* Opera */
-    from {
-        opacity:-1;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+      opacity:-1;
+  }
+  to {
+      opacity: 1;
+  }
 }
