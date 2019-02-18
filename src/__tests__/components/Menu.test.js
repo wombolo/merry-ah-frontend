@@ -8,7 +8,7 @@ import localStorageMock from '../__mocks__/localStorageMock';
 window.localStorage = localStorageMock;
 
 let wrapper;
-const props = {
+let props = {
   auth: {
     isAuthenticated: true,
   },
@@ -27,6 +27,18 @@ describe('Menu Component', () => {
     });
     it('should have one button element', () => {
       expect(wrapper.find('button').length).toEqual(1);
+    });
+    it('it should handle log out ', () => {
+      expect(wrapper.find('#nav-link').at(0).text()).toEqual('logout');
+    });
+    it('it should display login for non logged in users ', () => {
+      props = {
+        auth: {
+          isAuthenticated: false,
+        },
+      };
+      wrapper = mount(<MemoryRouter><Menu {...props}/></MemoryRouter>);
+      expect(wrapper.find('NavLink').at(1).text()).toEqual('Login');
     });
   });
 });
