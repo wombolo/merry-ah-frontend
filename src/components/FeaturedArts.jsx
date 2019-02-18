@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import FeatureCard from './FeatureCard.jsx';
 import Arrow from './FeatureArrow.jsx';
-import { initSlide, nextSlide, previousSlide } from '../actions/featureActions';
+import {
+  nextSlide,
+  previousSlide,
+  setInitData,
+} from '../actions/featureActions';
 
 /**
  * @param {class} component
  *  @returns {JSX} jsx
  */
-class FeaturedArts extends Component {
+export class FeaturedArts extends Component {
   /**
    * @description handles state change
      * @returns {state} current state
      */
   componentDidMount() {
-    this.props.initSlide();
-    console.log('mount artList', this.props);
+    this.props.setInitData();
+    setInterval(this.props.nextSlide, 5000);
   }
 
   /**
@@ -23,7 +28,6 @@ class FeaturedArts extends Component {
    *  @returns {JSX} jsx
    */
   render() {
-    console.log('------------> ', this.props);
     return (
       <div>
       <div id="feature_list">
@@ -32,7 +36,7 @@ class FeaturedArts extends Component {
           <hr/>
         </div>
         {
-          this.props.artList.activeList.map(
+          this.props.data.activeList.map(
             (item, index) => <FeatureCard
               key={item.objectID}
               activeClass={
@@ -58,13 +62,21 @@ class FeaturedArts extends Component {
   }
 }
 
+FeaturedArts.propTypes = {
+  data: PropTypes.object.isRequired,
+  activeList: PropTypes.array.isRequired,
+  setInitData: PropTypes.func.isRequired,
+  previousSlide: PropTypes.func.isRequired,
+  nextSlide: PropTypes.func.isRequired,
+};
+
 /**
  * @param {object} state
  *  @returns {object} object
  */
-const mapStateToProps = state => ({ artList: state.featureReducer });
+export const mapStateToProps = state => ({ data: state.featureReducer });
 
 export default connect(
   mapStateToProps,
-  { initSlide, nextSlide, previousSlide },
+  { setInitData, nextSlide, previousSlide },
 )(FeaturedArts);

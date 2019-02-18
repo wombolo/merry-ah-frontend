@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * @param {function} event
@@ -11,17 +12,20 @@ export default class FeatureButton extends Component {
      */
   render() {
     const {
-      text
+      text,
+      myclass,
     } = this.props;
     return (
       <button
-          // type={type}
-          // disabled={disabled}
-          // onClick={onClick}
-          className="feature_button"
+          className={myclass}
         >
           {text}
       </button>
     );
   }
 }
+
+FeatureButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  myclass: PropTypes.string.isRequired,
+};

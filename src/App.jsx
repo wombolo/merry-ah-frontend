@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Routes from './components/Routes.jsx';
 import Menu from './components/Menu.jsx';
 import Footer from './components/Footer.jsx';
-import FeaturedArts from './components/FeaturedArts.jsx';
 
 /**
  * App Component
@@ -20,7 +19,6 @@ export default class App extends Component {
         <div>
           <Menu/>
           <Routes/>
-          <FeaturedArts/>
           <Footer/>
         </div>
       </Router>

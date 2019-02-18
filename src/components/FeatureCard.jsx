@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FeatureButton from './FeatureButton.jsx';
 
 /**
@@ -14,7 +15,7 @@ export default class FeatureCard extends Component {
     const {
       imgUrl,
       title,
-      activeClass
+      activeClass,
     } = this.props;
     return (
       <div id="cards" className={activeClass} style={
@@ -26,9 +27,21 @@ export default class FeatureCard extends Component {
       }>
         <div id="feature_button_div">
           <h5>{title}</h5>
-          <FeatureButton text="View" />
+          <FeatureButton
+            text="View"
+            myclass={
+              activeClass
+                .localeCompare(
+                  'cards_active',
+                ) === 0 ? 'feature_button' : 'feature_button_inactive'
+              } />
         </div>
       </div>
-    )
+    );
   }
 }
+FeatureCard.propTypes = {
+  imgUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  activeClass: PropTypes.string.isRequired,
+};

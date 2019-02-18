@@ -6,7 +6,6 @@ import App from './App.jsx';
 import 'jquery';
 import 'popper.js';
 import 'bootstrap/dist/js/bootstrap.min';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/scss/main.scss';
 import './assets/scss/menu.scss';

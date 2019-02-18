@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import FeaturedArts from './FeaturedArts.jsx';
 /**
  * Home Component
  */
@@ -10,7 +11,8 @@ export default class Home extends Component {
  */
   render() {
     return (
-        <div className="container">
+        <div>
+          <FeaturedArts/>
         </div>
     );
   }
