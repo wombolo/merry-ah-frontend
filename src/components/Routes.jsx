@@ -7,8 +7,8 @@ import Home from './Home';
 import Profile from './Profile.jsx';
 import Login from './authentication/Login.jsx';
 import NotFound from './NotFound';
-import ForgotPassword from "./ForgotPassword";
-import CompletePasswordReset from './CompletePasswordReset';
+import ForgotPassword from './ForgotPassword.jsx';
+import CompletePasswordReset from './CompletePasswordReset.jsx';
 
 const Routes = () => (
   <Provider store={store}>

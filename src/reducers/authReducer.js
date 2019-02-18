@@ -1,5 +1,5 @@
 import {
-  SET_CURRENT_USER, SET_USER_ERROR, SET_USER_REQUEST, RESET_PASSWORD_EMAIL
+  SET_CURRENT_USER, SET_USER_ERROR, SET_USER_REQUEST, RESET_PASSWORD_EMAIL,
 } from '../actions/types';
 import isEmpty from '../utils/isEmpty';
 
@@ -37,7 +37,7 @@ export default function (state = initialState, action) {
         ...state,
         response: action.payload,
         isLoading: false,
-      }
+      };
     default:
       return state;
   }

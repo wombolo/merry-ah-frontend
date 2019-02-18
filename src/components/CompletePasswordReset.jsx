@@ -10,7 +10,7 @@ import Notify from '../utils/Notify';
  * @param {function} event
  *  @returns {JSX} jsx
  */
-class CompletePasswordReset extends Component {
+export class CompletePasswordReset extends Component {
   state = {
     password: '',
     confirmPassword: '',
@@ -75,14 +75,14 @@ class CompletePasswordReset extends Component {
                   type="password"
                   name="password"
                   placeholder="New Password"
-                  className="form-input"
+                  className="form-input test-input1"
                   onChange={this.onChange}
                   value={this.state.password} />
                   <input
                   type="password"
                   name="confirmPassword"
                   placeholder="Confirm Password"
-                  className="form-input"
+                  className="form-input test-input2"
                   onChange={this.onChange}
                   value={this.state.confirmPassword} />
                   <button name="forgotPassword" className="form-button">

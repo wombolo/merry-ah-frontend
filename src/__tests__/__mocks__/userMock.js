@@ -16,5 +16,34 @@ const mockData = {
     email: 'email1@gmail.com',
     password: 'abcdefgh',
   },
+  resetEmail: {
+    email: 'danny@gmail.com',
+  },
+  resetEmailResponse: {
+    status: 'Ok',
+    code: 200,
+    messages: 'Email sent successfully',
+    data: {
+      token:
+      `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6
+      MTQsImVtYWlsIjoiZGFuaWVsY2hpZGllYmVsZUBnbWFpbC
+      5jb20iLCJ1c2VybmFtZSI6IkRhbm55IiwiaWF0IjoxNTUw
+      NDUxNjcxLCJleHAiOjE1NTA0NTUyNzF9.Eyvu6ppkXzUHO
+      u2xXwxQzNyh8hmeege7TVUP1YIp1Yg`,
+    },
+  },
+  passwordReset: {
+    password: 'qwertyuiop',
+    confirmPassword: 'qwertyuiop',
+  },
+  passwordResetResponse: {
+    status: 'Ok',
+    code: 200,
+    messages: 'Password successfully updated',
+  },
+  noTokenError: {
+    status: 'error',
+    message: 'No token provided',
+  },
 };
 export default mockData;
