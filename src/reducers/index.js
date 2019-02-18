@@ -3,5 +3,6 @@ import authReducer from './authReducer';
 import featureReducer from './featureReducer';
 
 export default combineReducers({
-  auth: authReducer, featureReducer,
+  auth: authReducer,
+  featureReducer,
 });
