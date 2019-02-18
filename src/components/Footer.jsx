@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+
 /**
- * Footer Component
- */
+     * @param {function} render
+     *  @returns {JSX} jsx
+     */
 export default class Footer extends Component {
-/**
- * @param {function} render
- *  @returns {JSX} jsx
- */
+  /**
+     * @param {function} render
+     *  @returns {JSX} jsx
+     */
   render() {
     return (
       <footer>

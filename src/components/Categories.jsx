@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import painting from '../assets/images/painting.jpg';
+import sketch from '../assets/images/sketch.jpg';
+import mosaic from '../assets/images/mosaic.jpg';
+import sculpture from '../assets/images/welcome.jpeg';
+import architecture from '../assets/images/architecture.jpg';
+import poetry from '../assets/images/poetry.jpg';
 
 /**
  * @param {function} event
@@ -7,7 +13,7 @@ import { Link } from 'react-router-dom';
  */
 export default class Categories extends Component {
   /**
-   * @param {function} props
+   * @param {object} props
    *  @returns {JSX} jsx
    */
   constructor(props) {
@@ -16,37 +22,37 @@ export default class Categories extends Component {
       categoryList: [
         {
           objectID: 1,
-          url: '../assets/images/painting.jpg',
+          url: painting,
           title: 'PAINTING',
           category: 'painting',
         },
         {
           objectID: 2,
-          url: '../assets/images/sketch.jpg',
+          url: sketch,
           title: 'FREEHAND SKETCH',
           category: 'freehand_sketch',
         },
         {
           objectID: 3,
-          url: '../assets/images/mosaic.jpg',
+          url: mosaic,
           title: 'MOSAIC',
           category: 'mosaic',
         },
         {
           objectID: 4,
-          url: '../assets/images/sculpture.jpg',
+          url: sculpture,
           title: 'SCULPTURE',
           category: 'sculpture',
         },
         {
           objectID: 5,
-          url: '../assets/images/architecture.jpg',
+          url: architecture,
           title: 'ARCHITECTURE',
           category: 'architecture',
         },
         {
           objectID: 6,
-          url: '../assets/images/poetry.jpg',
+          url: poetry,
           title: 'POETRY',
           category: 'poetry',
         },
@@ -55,9 +61,9 @@ export default class Categories extends Component {
   }
 
   /**
-   * @param {function} render
-   *  @returns {JSX} jsx
-   */
+     * @param {function} render
+     *  @returns {JSX} jsx
+     */
   render() {
     return (
       <section id="categories">
@@ -69,7 +75,7 @@ export default class Categories extends Component {
                 style={
                   {
                     background: `linear-gradient(rgba(0, 0, 0, 0.5), 
-                            rgba(0, 0, 0, 0.5)), 
+                            rgba(0, 0, 0, 0.5)),
                             url(${item.url}) no-repeat center `,
                     backgroundSize: 'cover',
                   }

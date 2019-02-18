@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+
 /**
- * @param {function} event
- *  @returns {JSX} jsx
- */
+     * @param {function} render
+     *  @returns {JSX} jsx
+     */
 export default class DisplayArt extends Component {
+
   /**
-   * @param {render} event
-   *  @returns {JSX} jsx
-   */
+     * @param {function} render
+     *  @returns {JSX} jsx
+     */
   render() {
     return (
       <div className="container">
