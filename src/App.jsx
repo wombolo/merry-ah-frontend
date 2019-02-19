@@ -4,8 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Routes from './components/Routes.jsx';
 import Menu from './components/Menu.jsx';
 import Footer from './components/Footer.jsx';
-import Showcase from './components/Showcase.jsx';
-import Categories from './components/Categories.jsx';
+
 /**
  * App Component
  */
@@ -19,8 +18,6 @@ export default class App extends Component {
       <Router>
         <div>
           <Menu/>
-          <Showcase/>
-          <Categories/>
           <Routes/>
           <Footer/>
         </div>
