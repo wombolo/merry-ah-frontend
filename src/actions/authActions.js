@@ -16,7 +16,7 @@ export const setUserError = error => ({
   type: SET_USER_ERROR,
   payload: error,
 });
-export const loginUser = (userData, history) => async (dispatch) => {
+export const loginUser = userData => async (dispatch) => {
   dispatch(setUserRequest());
   try {
     const res = await axios.post(`${basePath}/auth/signin`, userData);
@@ -24,7 +24,7 @@ export const loginUser = (userData, history) => async (dispatch) => {
     const decoded = jwt_decode(token);
     localStorage.setItem('authToken', token);
     if (decoded) {
-      history.push('/profile');
+      window.location.replace('/profile');
     }
     dispatch(setCurrentUser(decoded));
   } catch (err) {
