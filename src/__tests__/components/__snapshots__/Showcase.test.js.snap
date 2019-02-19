@@ -16,18 +16,18 @@ exports[`Showcase Component should match snapshot 1`] = `
       <h4>
         ArtCave will deliver the best art gallery stories
       </h4>
-    </div>
-    <div>
-      <a
-        href="#"
-      >
-        <button
-          className="showcase_button"
-          type="button"
+      <div>
+        <a
+          href="#"
         >
-          Get Started
-        </button>
-      </a>
+          <button
+            className="showcase_button"
+            type="button"
+          >
+            Get Started
+          </button>
+        </a>
+      </div>
     </div>
   </div>
 </section>
