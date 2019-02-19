@@ -1,42 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Routes Component should match snapshot 1`] = `
-<Provider
-  store={
-    Object {
-      "dispatch": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-      Symbol(Symbol.observable): [Function],
-    }
-  }
->
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
-    />
-    <Route
-      component={[Function]}
-      path="/login"
-    />
-    <Route
-      component={[Function]}
-      path="/profile"
-    />
-    <Route
-      component={[Function]}
-      path="/forgot-password"
-    />
-    <Route
-      component={[Function]}
-      path="/complete-password-reset"
-    />
-    <Route
-      component={[Function]}
-    />
-  </Switch>
-</Provider>
+<Switch>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/"
+  />
+  <Connect(GuestRoute)
+    component={[Function]}
+    exact={true}
+    path="/login"
+  />
+  <Connect(PrivateRoute)
+    component={[Function]}
+    path="/profile"
+  />
+  <Connect(GuestRoute)
+    component={[Function]}
+    path="/forgot-password"
+  />
+  <Connect(GuestRoute)
+    component={[Function]}
+    path="/complete-password-reset"
+  />
+  <Route
+    component={[Function]}
+  />
+</Switch>
 `;

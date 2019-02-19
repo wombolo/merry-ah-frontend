@@ -1,11 +1,20 @@
+import jwtDecode from 'jwt-decode';
 import {
   SET_CURRENT_USER, SET_USER_ERROR, SET_USER_REQUEST, RESET_PASSWORD_EMAIL,
 } from '../actions/types';
 import isEmpty from '../utils/isEmpty';
 
+let authToken = null;
+let isAuthenticated = false;
+let currentUser = {};
+if (localStorage.getItem('authToken')) {
+  authToken = localStorage.getItem('authToken');
+  currentUser = jwtDecode(authToken);
+}
+if (authToken) isAuthenticated = true;
 const initialState = {
-  user: {},
-  isAuthenticated: false,
+  user: currentUser,
+  isAuthenticated,
   error: '',
   isLoading: false,
 };
