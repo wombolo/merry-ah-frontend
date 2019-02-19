@@ -15,10 +15,7 @@ const FeatureCard = ({ imgUrl, title, activeClass }) => (
       <FeatureButton
         text="View"
         myclass={
-          activeClass
-            .localeCompare(
-              'cards_active',
-            ) === 0 ? 'feature_button' : 'feature_button_inactive'
+          activeClass === 'card_active' ? 'feature_button' : 'feature_button_inactive'
           } />
     </div>
   </div>

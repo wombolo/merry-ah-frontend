@@ -58,13 +58,11 @@ export class FeaturedArts extends Component {
           <Arrow
             className="slide-arrow"
             clickFunction={ this.props.previousSlide }
-            direction="left"
-            glyph="&#9664;" />
+            direction="left" />
           <Arrow
             className="slide-arrow"
             clickFunction={ this.props.nextSlide }
-            direction="right"
-            glyph="&#9654;" />
+            direction="right" />
         </div>
       </div>
       </div>

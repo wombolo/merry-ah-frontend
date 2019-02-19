@@ -238,11 +238,11 @@ exports[`FeaturedArts Component should match snapshot 1`] = `
               Cirrhosis of the sky
             </h5>
             <FeatureButton
-              myclass="feature_button"
+              myclass="feature_button_inactive"
               text="View"
             >
               <button
-                className="feature_button"
+                className="feature_button_inactive"
               >
                 View
               </button>
@@ -293,26 +293,28 @@ exports[`FeaturedArts Component should match snapshot 1`] = `
           className="slide-arrow"
           clickFunction={[Function]}
           direction="left"
-          glyph="◀"
         >
           <div
-            className="slide-arrow left"
+            className="slide-arrow"
             onClick={[Function]}
           >
-            ◀
+            <i
+              className="fa fa-caret-left fa-5x"
+            />
           </div>
         </Arrow>
         <Arrow
           className="slide-arrow"
           clickFunction={[Function]}
           direction="right"
-          glyph="▶"
         >
           <div
-            className="slide-arrow right"
+            className="slide-arrow"
             onClick={[Function]}
           >
-            ▶
+            <i
+              className="fa fa-caret-right fa-5x"
+            />
           </div>
         </Arrow>
       </div>

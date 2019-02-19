@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Arrow = ({ direction, clickFunction, glyph }) => {
-  return (<div className={`slide-arrow ${direction}`} onClick={clickFunction}>
-    {glyph}
+const Arrow = ({ direction, clickFunction }) => {
+  return (<div className='slide-arrow' onClick={clickFunction}>
+    <i className={`fa fa-caret-${direction} fa-5x`}></i>
 </div>);
 };
 
 Arrow.propTypes = {
   direction: PropTypes.string.isRequired,
   clickFunction: PropTypes.func.isRequired,
-  glyph: PropTypes.string.isRequired,
 };
 
 export default Arrow;
