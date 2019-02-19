@@ -24,6 +24,22 @@ export class FeaturedArts extends Component {
   }
 
   /**
+   * @description handles the generatrion of cards
+     * @returns {jsx} for cards
+     */
+  generateCards() {
+    const { activeList } = this.props.data;
+
+    return activeList.map(
+      (item, index) => <FeatureCard
+        key={item.objectID}
+        activeClass={
+          index === 1 ? 'cards_active' : 'cards_inactive'}
+        title={item.title} imgUrl={item.url} />,
+    );
+  }
+
+  /**
    * @param {function} render
    *  @returns {JSX} jsx
    */
@@ -36,13 +52,7 @@ export class FeaturedArts extends Component {
           <hr/>
         </div>
         {
-          this.props.data.activeList.map(
-            (item, index) => <FeatureCard
-              key={item.objectID}
-              activeClass={
-                index === 1 ? 'cards_active' : 'cards_inactive'}
-              title={item.title} imgUrl={item.url} />,
-          )
+          this.generateCards()
         }
         <div id="carousel_control">
           <Arrow

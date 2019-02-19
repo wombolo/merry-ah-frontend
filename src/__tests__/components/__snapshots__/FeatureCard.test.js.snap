@@ -7,7 +7,7 @@ exports[`FeatureCard Component should match snapshot 1`] = `
   style={
     Object {
       "background": "linear-gradient(rgba(0, 0, 0, 0.5), 
-                        rgba(0, 0, 0, 0.5)), url(../a.jpeg) no-repeat center ",
+                    rgba(0, 0, 0, 0.5)), url(../a.jpeg) no-repeat center ",
       "backgroundSize": "cover",
     }
   }

@@ -1,5 +1,3 @@
-/* eslint-disable import/no-duplicates */
-/* eslint-disable no-restricted-globals */
 import React from 'react';
 import { mount } from 'enzyme';
 import props from '../__mocks__/__featureMocks__/propsMock';

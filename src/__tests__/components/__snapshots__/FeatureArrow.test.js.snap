@@ -2,6 +2,9 @@
 
 exports[`FeatureArrow Component should match snapshot 1`] = `
 <div
-  className="slide-arrow undefined"
-/>
+  className="slide-arrow right"
+  onClick={[Function]}
+>
+  &#9654;
+</div>
 `;

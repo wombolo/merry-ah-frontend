@@ -3,7 +3,15 @@ import {
   SET_NEXT_SLIDE,
   SET_PREVIOUS_SLIDE,
 } from './types';
-
+import sampleImage1 from '../assets/images/1.jpg';
+import sampleImage2 from '../assets/images/2.jpg';
+import sampleImage3 from '../assets/images/3.jpg';
+import sampleImage4 from '../assets/images/4.jpg';
+import sampleImage5 from '../assets/images/5.jpg';
+import sampleImage6 from '../assets/images/6.jpg';
+import sampleImage7 from '../assets/images/7.jpg';
+import sampleImage8 from '../assets/images/8.jpg';
+import sampleImage9 from '../assets/images/9.jpg';
 
 /**
  * @param {function} payload
@@ -35,55 +43,55 @@ export const setInitData = () => {
     artList: [
       {
         objectID: 1,
-        url: '../assets/images/1.jpg',
+        url: sampleImage1,
         title: 'Do you love art',
         category: 'painting',
       },
       {
         objectID: 2,
-        url: '../assets/images/2.jpg',
+        url: sampleImage2,
         title: 'Cirrhosis of the sky',
         category: 'freehand_sketch',
       },
       {
         objectID: 3,
-        url: '../assets/images/3.jpg',
+        url: sampleImage3,
         title: 'Walkers Short Bread',
         category: 'mosaic',
       },
       {
         objectID: 4,
-        url: '../assets/images/4.jpg',
+        url: sampleImage4,
         title: 'How to have a blast',
         category: 'mosaic',
       },
       {
         objectID: 5,
-        url: '../assets/images/5.jpg',
+        url: sampleImage5,
         title: 'Debugging best practices',
         category: 'mosaic',
       },
       {
         objectID: 6,
-        url: '../assets/images/6.jpg',
+        url: sampleImage6,
         title: 'Fast and furious remake',
         category: 'mosaic',
       },
       {
         objectID: 7,
-        url: '../assets/images/7.jpg',
+        url: sampleImage7,
         title: 'Best Coder alive',
         category: 'mosaic',
       },
       {
         objectID: 8,
-        url: '../assets/images/8.jpg',
+        url: sampleImage8,
         title: 'Fifa e-world cup',
         category: 'mosaic',
       },
       {
         objectID: 9,
-        url: '../assets/images/9.jpg',
+        url: sampleImage9,
         title: 'Perfection at its peak',
         category: 'mosaic',
       },

@@ -1,14 +1,11 @@
-/* eslint-disable import/no-unresolved */
 import React from 'react';
 import { shallow } from 'enzyme';
-import FeatureCard from '../../components/FeatureCard';
+import FeatureCard from '../../components/FeatureCard.jsx';
+import props from '../__mocks__/__featureMocks__/cardsMock';
 
 let wrapper;
 beforeEach(() => {
-  wrapper = shallow(<FeatureCard
-    imgUrl='../a.jpeg'
-    title='title'
-    activeClass='cardactive' />);
+  wrapper = shallow(<FeatureCard {...props} />);
 });
 describe('FeatureCard Component', () => {
   it('should match snapshot', () => {
