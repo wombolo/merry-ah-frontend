@@ -1,4 +1,4 @@
-const props = {
+const loginProps = {
   auth: {
     isLoading: false,
   },
@@ -11,5 +11,17 @@ const props = {
   location: {
     search: {},
   },
+  signUp: () => null,
 };
-export default props;
+
+const signUpProps = {
+  auth: {
+    isLoading: false,
+  },
+  history: {
+    push: () => null,
+  },
+  signUp: () => null,
+};
+
+export { loginProps, signUpProps };

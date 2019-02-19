@@ -3,7 +3,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import { mount } from 'enzyme';
-import props from '../__mocks__/propsMock';
+import { loginProps as props } from '../__mocks__/propsMock';
 import {
   CompletePasswordReset,
 } from '../../components/CompletePasswordReset.jsx';
@@ -45,9 +45,10 @@ describe('Elements in page', () => {
   it('should have Proceed text in the button', () => {
     expect(wrapper.find('button').render().text()).toContain('Proceed');
   });
-  // it('should contain disable props and it should be false', () => {
-  //   expect(wrapper.find('button').props().disabled).toBe(false);
-  // });
+  it('should contain token state', () => {
+    wrapper.instance().componentDidMount();
+    expect(wrapper.state().token).toBe('');
+  });
   it('should contain a password field with a password attribute', () => {
     wrapper.find('.test-input1').simulate('change', {
       target: name,

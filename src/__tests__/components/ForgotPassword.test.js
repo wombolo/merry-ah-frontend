@@ -3,7 +3,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import { mount } from 'enzyme';
-import props from '../__mocks__/propsMock';
+import { loginProps as props } from '../__mocks__/propsMock';
 import {
   ForgotPassword,
   mapStateToProps,

@@ -2,7 +2,7 @@ import authReducer from '../../reducers/authReducer';
 import {
   SET_CURRENT_USER, SET_USER_ERROR, SET_USER_REQUEST, RESET_PASSWORD_EMAIL,
 } from '../../actions/types';
-import mockData from '../__mocks__/userMock';
+import { loginMockData as mockData } from '../__mocks__/userMock';
 
 it('should handle action handle action of type GET_PRODUCTS', () => {
   const action = {

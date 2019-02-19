@@ -80,4 +80,20 @@ export const completePasswordReset = (
     dispatch(setUserError(errorMessage));
     Notify.notifyError('There was an error updating password');
   }
+}
+export const signUp = (userData, history) => async (dispatch) => {
+  dispatch(setUserRequest());
+  try {
+    const res = await axios.post(`${basePath}/auth/signup`, userData);
+    const { token } = res.data.data;
+    const decoded = jwt_decode(token);
+    localStorage.setItem('authToken', token);
+    if (decoded) {
+      history.push('/profile');
+    }
+    dispatch(setCurrentUser(decoded));
+  } catch (err) {
+    dispatch(setUserError(err.response.data.messages));
+    Notify.notifyError(err.response.data.messages);
+  }
 };

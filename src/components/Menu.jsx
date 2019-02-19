@@ -47,9 +47,9 @@ headerLinks = (isAuthenticated) => {
  * @param {function} render
  *  @returns {JSX} jsx
  */
-render() {
-  return (
-      <nav id="nav" className="navbar navbar-expand-lg bg-light">
+  render() {
+    return (
+      <nav id="nav" className="navbar navbar-expand-lg bg-light w-100 my-nav-style">
         <Logo/>
         <button
         className="navbar-toggler pull-right"
