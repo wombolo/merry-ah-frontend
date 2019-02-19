@@ -1,8 +1,9 @@
-header, nav {
+nav {
 	background-color: #ffffff;
 	color: #f4f7fb;
 	min-height: 64px;
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+	padding: 0 1rem !important;
 }
 
 #brand-logo {
@@ -11,17 +12,6 @@ header, nav {
 	font-size: 1.5em;
 	font-weight: bold;
 	font-family: 'Pacifico', cursive;
-}
-
-header ul {
-	width:100%;
-	text-align:center;
-}
-header li {
-	float: left;
-	display:inline;
-	height: 40px;
-	padding: 10px 20px 10px 20px;
 }
 
 a {
@@ -33,9 +23,4 @@ a {
 a:hover {
 	color: #06A5FF;
 	text-decoration: none !important;
-}
-
-header nav {
-	float: right;
-	margin-top: -50px;
 }
