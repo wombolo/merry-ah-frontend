@@ -13,6 +13,8 @@ import './assets/scss/auth.scss';
 import './assets/scss/search.scss';
 import './assets/scss/footer.scss';
 import './assets/scss/featuredarts.scss';
+import './assets/scss/showcase.scss';
+import './assets/scss/categories.scss';
 
 
 ReactDOM.render(
