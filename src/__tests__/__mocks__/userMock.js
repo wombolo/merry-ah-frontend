@@ -31,6 +31,7 @@ const signUpMockData = {
     firstName: 'Dan',
     lastName: 'Watkins',
     email:'dmorodolu@icloud.commm',
+    confirm_email:'dmorodolu@icloud.comm',
     username: 'slick007',
     password:'12345',
     userType:'artist',

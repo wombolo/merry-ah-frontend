@@ -2,7 +2,7 @@
 /* eslint-disable no-restricted-globals */
 import 'babel-polyfill';
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { SignUp } from '../../../components/authentication/SignUp.jsx';
 import {signUpProps as props} from '../../__mocks__/propsMock';
 import { mapStateToProps } from '../../../components/authentication/SignUp.jsx';
@@ -17,6 +17,7 @@ describe('Elements in page', () => {
   afterEach(() => {
     wrapper.unmount();
   });
+
   it('map state to props', () => {
     const mock = {
       auth: {
@@ -29,6 +30,7 @@ describe('Elements in page', () => {
     const state = mapStateToProps(mock);
     expect(state).toEqual(mock);
   });
+
   it('should have eight input fields', () => {
     expect(wrapper.find('input').length).toEqual(8);
   });
@@ -51,14 +53,6 @@ describe('Elements in page', () => {
     wrapper.update();
     expect(wrapper.find('.firstName').prop('name')).toContain('firstName');
   });
-
-  // it('should confirm if email fields match ', () => {
-  //   wrapper.find('.input1').simulate('change', {
-  //     target: name,
-  //   });
-  //   wrapper.update();
-  //   expect(wrapper.find('.input1').prop('name')).toContain('email');
-  // });
 
   it('should empty the form on submit', () => {
     wrapper.find('form').simulate('submit');

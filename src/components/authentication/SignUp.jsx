@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { signUp } from '../../actions/authActions';
 import Notify from "../../utils/Notify";
+import validatePassword from "../../utils/validatePassword";
 
 /**
  * @param {function} event
@@ -32,11 +33,15 @@ export class SignUp extends Component {
       userType: this.state.userType,
     };
 
-    if (userData.email === userData.confirm_email){
-      this.props.signUp(userData, this.props.history);
+    if (!validatePassword(userData.password)){
+      Notify.notifyError('Please use a stronger password that contains a number and is 5 letters long');
     }
     else {
-      Notify.notifyError('Emails do not match. Try again');
+      if (userData.email === userData.confirm_email) {
+        this.props.signUp(userData, this.props.history);
+      } else {
+        Notify.notifyError('Emails do not match. Try again');
+      }
     }
   };
 
@@ -71,28 +76,28 @@ export class SignUp extends Component {
                   <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                       <input type="text" placeholder="Firstname" className="my-form-control firstName"
-                             name="firstName"
+                             name="firstName" required={true}
                              onChange={this.handleChange}
                              value={this.state.firstName}
                       />
                     </div>
                     <div className="form-group">
                       <input type="text" placeholder="Lastname" className="my-form-control"
-                             name="lastName"
+                             name="lastName" required={true}
                              onChange={this.handleChange}
                              value={this.state.lastName}/>
                     </div>
 
                     <div className="form-group">
                       <input type="text" placeholder="Username" className="my-form-control"
-                             name="username"
+                             name="username" required={true}
                              onChange={this.handleChange}
                              value={this.state.username}/>
                     </div>
 
                     <div className="form-group">
                       <input type="email" placeholder="Email" className="my-form-control"
-                             name="email"
+                             name="email" required={true}
                              onChange={this.handleChange}
                              value={this.state.email}
                       />
@@ -100,7 +105,7 @@ export class SignUp extends Component {
 
                     <div className="form-group">
                       <input type="email" placeholder="Confirm Email" className="my-form-control"
-                             name="confirm_email"
+                             name="confirm_email" required={true}
                              onChange={this.handleChange}
                              value={this.state.confirm_email}
                       />
@@ -108,7 +113,7 @@ export class SignUp extends Component {
 
                     <div className="form-group">
                       <input type="password" placeholder="Password" className="my-form-control"
-                             name="password"
+                             name="password" required={true}
                              onChange={this.handleChange}
                              value={this.state.password}
                       />
@@ -118,7 +123,7 @@ export class SignUp extends Component {
                       <label className="form-check-label">Select a User Account Type</label>
                       <div className="form-check">
                         <input type="radio" value="artist" className="form-check-input"
-                               name="userType"
+                               name="userType" required={true}
                                onChange={this.handleChange}/>
 
                         <label className="form-check-label">Artist</label>
