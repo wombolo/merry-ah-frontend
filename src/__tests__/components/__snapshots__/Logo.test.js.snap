@@ -13,6 +13,6 @@ exports[`Logo Component should match snapshot 1`] = `
     className="w-25"
     src="../assets/images/artcave-logo.png"
   />
-   artCave
+  artCave
 </NavLink>
 `;
