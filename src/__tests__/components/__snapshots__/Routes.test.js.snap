@@ -7,11 +7,12 @@ exports[`Routes Component should match snapshot 1`] = `
     exact={true}
     path="/"
   />
-  <Route
+  <Connect(GuestRoute)
     component={[Function]}
+    exact={true}
     path="/login"
   />
-  <Route
+  <Connect(PrivateRoute)
     component={[Function]}
     path="/profile"
   />

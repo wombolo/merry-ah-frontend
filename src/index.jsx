@@ -17,7 +17,7 @@ import './assets/scss/featuredarts.scss';
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+    <App />
     </Provider>,
     document.getElementById('app'),
 );

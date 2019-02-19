@@ -3,7 +3,7 @@
 exports[`App Component should match snapshot 1`] = `
 <BrowserRouter>
   <div>
-    <Menu />
+    <Connect(Menu) />
     <Routes />
     <Footer />
   </div>

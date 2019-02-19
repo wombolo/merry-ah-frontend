@@ -39,9 +39,11 @@ exports[`Menu Component should match snapshot 1`] = `
         <NavLink
           activeClassName="active"
           aria-current="page"
-          to="/login"
+          to="/notify"
         >
-          Login
+          <i
+            className="fa fa-bell"
+          />
         </NavLink>
       </li>
       <li
@@ -50,9 +52,11 @@ exports[`Menu Component should match snapshot 1`] = `
         <NavLink
           activeClassName="active"
           aria-current="page"
-          to="/register"
+          id="nav-link"
+          onClick={[Function]}
+          to="/login"
         >
-          Register
+          logout
         </NavLink>
       </li>
     </ul>
