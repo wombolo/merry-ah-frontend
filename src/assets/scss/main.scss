@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico|Gloria+Hallelujah|Poppins|Fredericka+the+Great');
 $font-stack: 'Poppins', Helvetica, sans-serif;
+$font-artistic: 'Gloria Hallelujah', cursive;;
 $primary-color: #06a5ff;
 
 * {
@@ -34,8 +35,19 @@ a:hover {
 }
 
 .text-poppins {
-	font-family: Poppins, sans-serif;
+	font-family: $font-stack;
+}
+
+.text-artistic {
+  font-family: $font-artistic;
+  letter-spacing: .1em;
 }
 button{
   height: 45px;
+}
+
+nav {
+  position: fixed !important;
+  top: 0;
+  z-index: 99;
 }
