@@ -12,11 +12,11 @@ import './assets/scss/search.scss';
 import './assets/scss/menu.scss';
 import './assets/scss/auth.scss';
 import './assets/scss/footer.scss';
-import './assets/scss/sideBar.scss';
-import './assets/scss/profile.scss';
 import './assets/scss/featuredarts.scss';
 import './assets/scss/showcase.scss';
 import './assets/scss/categories.scss';
+import './assets/scss/sideBar.scss';
+import './assets/scss/profile.scss';
 
 
 ReactDOM.render(
