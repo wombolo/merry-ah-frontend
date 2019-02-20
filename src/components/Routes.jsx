@@ -16,8 +16,8 @@ const Routes = () => (
         <Route exact path="/" component={Home}></Route>
         <Route path="/art/:category" component={DisplayArt}></Route>
         <GuestRoute exact path="/login" component={Login}></GuestRoute>
-        <GuestRoute exact path="/register" component={SignUp}> </GuestRoute>
-        <GuestRoute exact path="/single-art" component={SingleArt}> </GuestRoute>
+        <GuestRoute exact path="/register" component={SignUp}></GuestRoute>
+        <GuestRoute exact path="/single-art" component={SingleArt}></GuestRoute>
         <PrivateRoute path="/profile" component={Profile}></PrivateRoute>
         <Route component={NotFound}></Route>
     </Switch>

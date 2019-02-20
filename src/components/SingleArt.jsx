@@ -62,16 +62,6 @@ export default class SingleArt extends Component {
                 looked up one of the more obscure Latin words, consectetur,
                 from a Lorem Ipsum passage, and going through the cites of the
                 word in classical literature, discovered the undoubtable source.
-                Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus
-                Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
-                written in 45 BC. This book is a treatise on the theory of ethics,
-                very popular during the Renaissance. The first line of Lorem Ipsum,
-                "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                The standard chunk of Lorem Ipsum used since the 1500s is reproduced
-                below for those interested. Sections 1.10.32 and 1.10.33 from "de
-                Finibus Bonorum et Malorum" by Cicero are also reproduced in their
-                exact original form, accompanied by English versions from the 1914
-                translation by H. Rackham
                 </p>
               </div>
               <div className="rate-section">
@@ -85,13 +75,47 @@ export default class SingleArt extends Component {
               <div className="comment-section">
                 <h6>Add your comment</h6>
                 <form action="">
-                  <textarea name="" id="" placeholder="Type comment here. . ."></textarea>
+                  <textarea name="" id=""placeholder="Type comment here. . .">
+                  </textarea>
                   <button className="comment-button">Comment</button>
                 </form>
                 <div className="comments">
                   <h6>Comments</h6>
                   <div className="single-comment">
-                    <img src="" alt=""/>
+                    <img src="../assets/images/painting.jpg"
+                      className="comment-thumbnail" alt=""/>
+                    <div className="single-comment-details">
+                      <h6>Oluseyi Akinyiga</h6>
+                      <small>Fantastic piece of art. Keep it going</small>
+                      <p>
+                        <i className="fa fa-heart-o"></i>
+                      </p>
+                    </div>
+                    <div className=""></div>
+                  </div>
+                  <div className="single-comment">
+                    <img src="../assets/images/painting.jpg"
+                      className="comment-thumbnail" alt=""/>
+                    <div className="single-comment-details">
+                      <h6>Oluseyi Akinyiga</h6>
+                      <small>Fantastic piece of art. Keep it going</small>
+                      <p>
+                        <i className="fa fa-heart-o"></i>
+                      </p>
+                    </div>
+                    <div className="clear"></div>
+                  </div>
+                  <div className="single-comment">
+                    <img src="../assets/images/painting.jpg"
+                      className="comment-thumbnail" alt=""/>
+                    <div className="single-comment-details">
+                      <h6>Oluseyi Akinyiga</h6>
+                      <small>Fantastic piece of art. Keep it going</small>
+                      <p>
+                        <i className="fa fa-heart-o"></i>
+                      </p>
+                    </div>
+                    <div className=""></div>
                   </div>
                 </div>
               </div>
@@ -103,7 +127,7 @@ export default class SingleArt extends Component {
               <div className="art-right-cards">
                 <div className="card-item">
                   <div className="item" style={
-                    {backgroundImage: `url('../assets/images/sculpture.jpg')`}
+                    { backgroundImage: 'url("../assets/images/sculpture.jpg")' }
                     }>
                     <div className="card-props">
                       <p className="label card-label">Poetry</p>
@@ -116,7 +140,7 @@ export default class SingleArt extends Component {
                 </div>
                 <div className="card-item">
                   <div className="item" style={
-                    {backgroundImage: `url('../assets/images/painting.jpg')`}
+                    { backgroundImage: 'url("../assets/images/painting.jpg")' }
                     }>
                     <div className="card-props">
                       <p className="label card-label">Painting</p>
@@ -129,7 +153,7 @@ export default class SingleArt extends Component {
                 </div>
                 <div className="card-item">
                   <div className="item" style={
-                    {backgroundImage: `url('../assets/images/architecture.jpg')`}
+                    { backgroundImage: 'url("../assets/images/architecture.jpg")' }
                     }>
                     <div className="card-props">
                       <p className="label card-label">Architecture</p>
@@ -142,7 +166,7 @@ export default class SingleArt extends Component {
                 </div>
                 <div className="card-item">
                   <div className="item" style={
-                    {backgroundImage: `url('../assets/images/poetry.jpg')`}
+                    { backgroundImage: 'url("../assets/images/poetry.jpg")' }
                     }>
                     <div className="card-props">
                       <p className="label card-label">Sculpture</p>
@@ -159,6 +183,6 @@ export default class SingleArt extends Component {
           </section>
         </section>
       </div>
-    )
+    );
   }
 }

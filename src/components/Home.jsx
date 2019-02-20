@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import FeaturedArts from './FeaturedArts.jsx';
 import Showcase from './Showcase.jsx';
 import Categories from './Categories.jsx';
 /**
@@ -14,6 +15,7 @@ export default class Home extends Component {
     return (
         <div>
           <Showcase/>
+          <FeaturedArts/>
           <Categories/>
         </div>
     );

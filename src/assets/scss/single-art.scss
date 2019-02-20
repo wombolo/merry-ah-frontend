@@ -124,6 +124,24 @@ $regular-font: 'Poppins';
   border: 1px solid $primary-color;
 }
 
+.comment-thumbnail {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 15px;
+}
+
+.single-comment-details h6 {
+  margin-bottom: 0;
+  font-size: 15px;
+}
+
+.single-comment-details small {
+  color: #aaaaaa;
+  font-size: 12px;
+}
+
 .art-right-cards {
   margin-top: 22px;
 }
