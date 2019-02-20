@@ -3,6 +3,7 @@ header, nav {
 	color: #f4f7fb;
 	min-height: 64px;
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+	
 }
 
 #brand-logo {
@@ -11,6 +12,7 @@ header, nav {
 	font-size: 1.5em;
 	font-weight: bold;
 	font-family: 'Pacifico', cursive;
+	
 }
 
 header ul {
@@ -31,7 +33,22 @@ a {
 	text-decoration: none;
 }
 
+nav#nav {
+	top:0;
+	position: fixed;
+	width: 100%;
+}
+
 header nav {
 	float: right;
 	margin-top: -50px;
+}
+
+.header-icons{
+	font-family: 'poppins', cursive;
+	color: black;
+}
+li .logout{
+	text-align: center;
+	
 }

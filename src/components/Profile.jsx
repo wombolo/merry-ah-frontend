@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SiderBar from './SideBar.jsx';
+import ProfileBanner from './ProfileBanner.jsx';
+import ArtList from './ArtList.jsx';
 /**
  * Profile Componenet
  */
@@ -9,7 +12,13 @@ class Profile extends Component {
  *  @returns {jsx} jsx
  */
   render() {
-    return (<h1>Profile</h1>);
+    return (
+      <React.Fragment>
+      <ProfileBanner />
+      <ArtList />
+      <SiderBar />
+      </React.Fragment>
+    );
   }
 }
 

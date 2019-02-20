@@ -13,7 +13,8 @@ import './assets/scss/menu.scss';
 import './assets/scss/auth.scss';
 import './assets/scss/search.scss';
 import './assets/scss/footer.scss';
-
+import './assets/scss/sideBar.scss';
+import './assets/scss/profile.scss';
 
 ReactDOM.render(
     <Provider store={store}>

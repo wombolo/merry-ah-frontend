@@ -1,1 +1,2 @@
-export const basePath = 'https://merry-ah-staging.herokuapp.com/api/v1';
+/* eslint-disable import/prefer-default-export */
+export const basePath = 'http://localhost:9000/api/v1';
