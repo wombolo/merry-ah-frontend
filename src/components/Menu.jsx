@@ -43,11 +43,12 @@ export class Menu extends Component {
             <div className="dropdown">
 
               <a data-target="#" href="page.html"
-              data-toggle="dropdown" className="dropdown-toggle">
-              <b className="caret"></b>
+                data-toggle="dropdown" className="dropdown-toggle">
+                <b className="caret"></b>
               </a>
               <ul className="dropdown-menu">
-                <li className='logout'><a href="#" onClick={this.handleLogout}>Logout</a></li>
+                <li className='logout'><a href="#"
+                onClick={this.handleLogout}>Logout</a></li>
 
               </ul>
             </div>
@@ -63,7 +64,8 @@ export class Menu extends Component {
    */
   render() {
     return (
-      <nav id="nav" className="navbar navbar-expand-lg bg-light">
+      <nav id="nav"
+      className="navbar navbar-expand-lg bg-light w-100 my-nav-style">
         <Logo />
         <button
           className="navbar-toggler pull-right"

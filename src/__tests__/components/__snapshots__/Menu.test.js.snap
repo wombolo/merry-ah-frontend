@@ -2,7 +2,7 @@
 
 exports[`Menu Component should match snapshot 1`] = `
 <nav
-  className="navbar navbar-expand-lg bg-light"
+  className="navbar navbar-expand-lg bg-light w-100 my-nav-style"
   id="nav"
 >
   <Logo />

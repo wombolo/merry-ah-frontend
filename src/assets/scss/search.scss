@@ -1,3 +1,5 @@
+$styled-font: 'Gloria Hallelujah', cursive;
+
 input {
     height: 45px;
     width: 100%;
@@ -6,12 +8,14 @@ input {
     border: none;
     border-radius: 5px;
 
-    &::placeholder {
-        font-family: 'Gloria Hallelujah', cursive;
+    nav &::placeholder {
+        font-family: $styled-font;
+        letter-spacing: .1em;
     };
 };
-.navbarSearch {
-    position: absolute;
-    top: 10px;
-    left: 20%;
-};
+
+input[type=checkbox], input[type=radio] {
+    height: unset;
+    box-shadow: none;
+    border-radius: 0;
+}

@@ -4,7 +4,7 @@ import 'babel-polyfill';
 import React from 'react';
 import { mount } from 'enzyme';
 import { Login } from '../../../components/authentication/Login.jsx';
-import props from '../../__mocks__/propsMock';
+import { loginProps as props } from '../../__mocks__/propsMock';
 import { mapStateToProps } from '../../../components/authentication/Login.jsx';
 
 describe('Elements in page', () => {
