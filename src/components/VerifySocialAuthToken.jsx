@@ -12,7 +12,6 @@ export default class VerifySocialAuthToken extends Component {
    *  @returns {JSX} jsx
    */
   componentDidMount() {
-    localStorage.clear();
     const { token } = getQueryStrings(window.location.href);
     localStorage.setItem('authToken', token);
     window.location.replace('/login');
