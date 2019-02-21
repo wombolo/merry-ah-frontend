@@ -12,6 +12,6 @@ const getQueryStrings = (url) => {
     obj[key] = value;
   });
   return obj;
- };
- 
- export default getQueryStrings;
+};
+
+export default getQueryStrings;
