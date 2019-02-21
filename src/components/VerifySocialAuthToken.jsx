@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getParamValuePairs from '../utils/getRequestParams';
+import getQueryStrings from '../utils/getQueryStrings';
 
 
 /**
@@ -13,7 +13,7 @@ export default class VerifySocialAuthToken extends Component {
    */
   componentDidMount() {
     localStorage.clear();
-    const { token } = getParamValuePairs(window.location.href);
+    const { token } = getQueryStrings(window.location.href);
     localStorage.setItem('authToken', token);
     window.location.replace('/login');
   }
