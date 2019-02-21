@@ -115,7 +115,7 @@ export default class SingleArt extends Component {
                         <i className="fa fa-heart-o"></i>
                       </p>
                     </div>
-                    <div className=""></div>
+                    <div className="clear"></div>
                   </div>
                 </div>
               </div>
