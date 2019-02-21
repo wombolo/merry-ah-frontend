@@ -18,16 +18,6 @@ describe('Elements in page', () => {
   afterEach(() => {
     wrapper.unmount();
   });
-  //   it('map state to props', () => {
-  //     const mock = {
-  //       auth: {
-  //         isLoading: true,
-  //         error: '',
-  //       },
-  //     };
-  //     const state = mapStateToProps(mock);
-  //     expect(state).toEqual(mock);
-  //   });
   it('should have two input fields', () => {
     expect(wrapper.find('input').length).toEqual(2);
   });

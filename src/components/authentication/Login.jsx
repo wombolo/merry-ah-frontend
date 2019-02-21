@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { loginUser } from '../../actions/authActions';
 
 /**
@@ -93,9 +93,12 @@ export class Login extends Component {
                     </div>
                   </form>
                   <p>
-                    <a href="/forgot-password"
-                      className="text-center text-light text-poppins">
-                      Forgot Password?</a>
+                    <Link
+                      to="/forgot-password"
+                      className="text-center text-light text-poppins"
+                    >
+                      Forgot Password?
+                    </Link>
                   </p>
 
                   <p className="text-center text-light">Login with Social</p>

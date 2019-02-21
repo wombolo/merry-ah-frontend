@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import queryString from 'query-string';
 import { completePasswordReset } from '../actions/authActions';
 import Notify from '../utils/Notify';
+import getQueryStrings from '../utils/getQueryStrings';
 
 /**
  * @param {function} event
@@ -37,7 +37,7 @@ export class CompletePasswordReset extends Component {
   }
 
   checkToken = () => {
-    const strings = queryString.parse(this.props.location.search);
+    const strings = getQueryStrings(window.location.href);
     const { token } = strings;
     if (!token) {
       Notify.notifyError('This link is invalid or broken');
@@ -68,30 +68,31 @@ export class CompletePasswordReset extends Component {
               <div className="title">
                 <h2>Complete password reset</h2>
               </div>
-              <hr className="titleHr" />
-              <div>
+              <div className="form-container">
                 <form method="post" onSubmit={this.onSubmit}>
                   <input
-                  type="password"
-                  name="password"
-                  placeholder="New Password"
-                  className="form-input test-input1"
-                  onChange={this.onChange}
-                  value={this.state.password} />
+                    type="password"
+                    name="password"
+                    placeholder="New Password"
+                    className="form-input test-input1"
+                    onChange={this.onChange}
+                    value={this.state.password}
+                    required
+                  />
                   <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                  className="form-input test-input2"
-                  onChange={this.onChange}
-                  value={this.state.confirmPassword} />
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    className="form-input test-input2"
+                    onChange={this.onChange}
+                    value={this.state.confirmPassword}
+                  />
                   <button name="forgotPassword" className="form-button">
                     Proceed
                   </button>
                 </form>
               </div>
             </div>
-            <div className="clear"></div>
           </center>
         </section>
       </div>

@@ -43,22 +43,24 @@ export class ForgotPassword extends Component {
               <div className="title">
                 <h2>Forgot Password</h2>
               </div>
-              <hr className="titleHr" />
               <div className="subtitle">
                 <p>Enter your email, we will send a link to you</p>
               </div>
-              <div>
+              <div className="form-container">
                 <form method="post" onSubmit={this.onSubmit}>
                   <input
-                  type="text"
-                  name="email"
-                  placeholder="Email Address"
-                  className="form-input"
-                  onChange={this.onChange}
-                  value={this.state.email} />
-                  <button name="forgotPassword"
-                  className="form-button"
-                  disabled={this.props.auth.isLoading}>
+                    type="text"
+                    name="email"
+                    placeholder="Email Address"
+                    className="form-input"
+                    onChange={this.onChange}
+                    value={this.state.email}
+                  />
+                  <button
+                    name="forgotPassword"
+                    className="form-button"
+                    disabled={this.props.auth.isLoading}
+                  >
                     {this.props.auth.isLoading
                       ? 'Sending. . .' : 'Verify Email' }
                   </button>

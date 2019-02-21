@@ -3,6 +3,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import { mount } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
 import { Login } from '../../../components/authentication/Login.jsx';
 import { loginProps as props } from '../../__mocks__/propsMock';
 import { mapStateToProps } from '../../../components/authentication/Login.jsx';
@@ -11,7 +12,7 @@ describe('Elements in page', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = mount(
-    <Login {...props}/>,
+      <MemoryRouter><Login {...props}/></MemoryRouter>,
     );
   });
   afterEach(() => {
@@ -72,7 +73,7 @@ describe('Elements in page', () => {
   });
   it('shoulkd render', () => {
     const props2 = { ...props, auth: { isLoading: true } };
-    wrapper = mount(<Login {...props2}/>);
+    wrapper = mount(<MemoryRouter><Login {...props2}/></MemoryRouter>);
     expect(wrapper.find('button')).toEqual({});
   });
 });
