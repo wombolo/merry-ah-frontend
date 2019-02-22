@@ -14,7 +14,7 @@ export default class Logo extends Component {
       <NavLink
       className="navbar-brand col-lg-2 logo pull-left w-50 p-0"
       to="/" id="brand-logo">
-        <img alt={'logo'} src='../assets/images/artcave-logo.png' className='w-25' />artCave</NavLink>
+        <img alt={'logo'} src={require('../assets/images/artcave-logo.png')} className='w-25' />artCave</NavLink>
     );
   }
 }
