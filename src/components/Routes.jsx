@@ -9,15 +9,17 @@ import Login from './authentication/Login.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 import GuestRoute from './GuestRoute.jsx';
 import SignUp from './authentication/SignUp.jsx';
+import CreateArt from './CreateArt.jsx';
 
 const Routes = () => (
     <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route path="/art/:category" component={DisplayArt}></Route>
-        <GuestRoute exact path="/login" component={Login}></GuestRoute>
-        <GuestRoute exact path="/register" component={SignUp}> </GuestRoute>
-        <PrivateRoute path="/profile" component={Profile}></PrivateRoute>
-        <Route component={NotFound}></Route>
+        <Route exact path="/" component={Home}/>
+        <Route path="/art/:category" component={DisplayArt}/>
+        <GuestRoute exact path="/login" component={Login}/>
+        <GuestRoute exact path="/register" component={SignUp}/>
+        <PrivateRoute path="/profile" component={Profile}/>
+        <PrivateRoute path="/create-art" component={CreateArt}/>
+        <Route component={NotFound}/>
     </Switch>
 );
 
