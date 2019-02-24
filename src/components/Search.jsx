@@ -10,7 +10,8 @@ class Search extends Component {
  */
   render() {
     return (
-          <form className="form-inline my-2 my-lg-0 col-lg-7">
+      
+          <form className="form-inline my-2 my-lg-0 col-lg-12">
             <input type="search" placeholder="Search" aria-label="Search for"/>
           </form>
     );
