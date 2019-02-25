@@ -1,34 +1,50 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getSingleArt } from '../actions/artsActions';
 
 /**
  *  @returns {JSX} jsx
  */
-export default class SingleArt extends Component {
+export class SingleArt extends Component {
+  /**
+   * @param {function} render
+   *  @returns {JSX} jsx
+   */
+  componentDidMount() {
+    this.props.getSingleArt('cirrhosis-of-the-sky-5c1fas');
+  }
+
   /**
    * @param {function} render
    *  @returns {JSX} jsx
    */
   render() {
+    const { isLoading, details } = this.props.art;
     return (
       <div>
-        <section id="single-art">
-          <div className="single-art-banner">
+        {isLoading ? false
+          : <section id="single-art">
+          <div className="single-art-banner"
+            style={{
+              backgroundImage: `url(${details.featuredImg})`,
+            }}
+          >
             <div className="art-details">
-              <div className="label">Mosaic</div>
+              <div className="label">{ details.Category.categoryName }</div>
               <div className="title">
-                <h2>Cirrhosis of the sky</h2>
-                <h6>- Akintunde Adebanjo</h6>
+                <h2>{ details.title }</h2>
+                <h6>- { details.Author.username }</h6>
               </div>
               <div className="thumbnails">
-                <div className="thumbnail">
-                  <img src="../assets/images/painting.jpg" alt=""/>
-                </div>
-                <div className="thumbnail">
-                  <img src="../assets/images/architecture.jpg" alt=""/>
-                </div>
-                <div className="thumbnail">
-                  <img src="../assets/images/painting.jpg" alt=""/>
-                </div>
+                {
+                  details.Media.map(image => (
+                    <div key={image.id} className="thumbnail">
+                      <img src={image.contentUrl} alt=""/>
+                    </div>
+                  ))
+                }
+                <div className="clear"></div>
               </div>
             </div>
           </div>
@@ -48,20 +64,14 @@ export default class SingleArt extends Component {
                     <span>Average Ratings</span>
                   </li>
                   <li>
-                    <span>2306 Views</span>
+                    <span>{details.visited} Views</span>
                   </li>
                 </ul>
               </div>
               <div className="videoPreview"></div>
               <div className="art-description">
                 <p>
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin literature
-                from 45 BC, making it over 2000 years old. Richard McClintock,
-                a Latin professor at Hampden-Sydney College in Virginia,
-                looked up one of the more obscure Latin words, consectetur,
-                from a Lorem Ipsum passage, and going through the cites of the
-                word in classical literature, discovered the undoubtable source.
+                  {details.description}
                 </p>
               </div>
               <div className="rate-section">
@@ -153,7 +163,7 @@ export default class SingleArt extends Component {
                 </div>
                 <div className="card-item">
                   <div className="item" style={
-                    { backgroundImage: 'url("../assets/images/architecture.jpg")' }
+                    { backgroundImage: 'url("../assets/images/poetry.jpg")' }
                     }>
                     <div className="card-props">
                       <p className="label card-label">Architecture</p>
@@ -182,7 +192,22 @@ export default class SingleArt extends Component {
             <div className="clear"></div>
           </section>
         </section>
+        }
       </div>
     );
   }
 }
+
+SingleArt.propTypes = {
+  getSingleArt: PropTypes.func.isRequired,
+  art: PropTypes.shape({
+    isLoading: PropTypes.bool.isRequired,
+    details: PropTypes.object,
+  }),
+};
+
+const mapStatesToProps = state => ({
+  art: state.art,
+});
+
+export default connect(mapStatesToProps, { getSingleArt })(SingleArt);
