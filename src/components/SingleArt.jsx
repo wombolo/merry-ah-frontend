@@ -12,7 +12,8 @@ export class SingleArt extends Component {
    *  @returns {JSX} jsx
    */
   componentDidMount() {
-    this.props.getSingleArt('cirrhosis-of-the-sky-5c1fas');
+    const { slug } = this.props.match.params;
+    this.props.getSingleArt(slug);
   }
 
   /**
@@ -203,6 +204,11 @@ SingleArt.propTypes = {
   art: PropTypes.shape({
     isLoading: PropTypes.bool.isRequired,
     details: PropTypes.object,
+  }),
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+    }),
   }),
 };
 
