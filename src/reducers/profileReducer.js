@@ -2,11 +2,16 @@ import {
   GET_PROFILE_REQUEST,
   GET_PROFILE_SUCCESS,
   GET_PROFILE_ERROR,
+  GET_USER_ART_REQUEST,
+  GET_USER_ART_SUCCESS,
+  GET_USER_ART_ERROR,
 } from '../actions/types';
 
 const initialState = {
   isLoading: false,
-  userProfile: [],
+  isGettingArts: true,
+  userProfile: {},
+  userArts: [],
   error: '',
 };
 
@@ -31,6 +36,21 @@ export default function (state = initialState, action) {
       return {
         error: action.payload,
         isLoading: false,
+      };
+    case GET_USER_ART_REQUEST:
+      return {
+        isGettingArts: true,
+      };
+    case GET_USER_ART_SUCCESS:
+      return {
+        ...state,
+        userArts: action.payload,
+        isGettingArts: false,
+      };
+    case GET_USER_ART_ERROR:
+      return {
+        error: action.payload,
+        isGettingArts: false,
       };
     default:
       return state;
