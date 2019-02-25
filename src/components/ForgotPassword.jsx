@@ -77,8 +77,12 @@ export class ForgotPassword extends Component {
 
 ForgotPassword.propTypes = {
   sendResetPasswordEmail: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+  auth: PropTypes.shape({
+    isLoading: PropTypes.bool.isRequired,
+  }),
 };
 
 export const mapStateToProps = state => ({

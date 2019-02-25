@@ -3,6 +3,7 @@
 exports[`Home Component should match snapshot 1`] = `
 <div>
   <Showcase />
+  <Connect(FeaturedArts) />
   <Categories />
 </div>
 `;

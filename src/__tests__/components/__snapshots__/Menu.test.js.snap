@@ -41,8 +41,9 @@ exports[`Menu Component should match snapshot 1`] = `
           aria-current="page"
           to="/notify"
         >
-          <i
-            className="fa fa-bell"
+          <img
+            alt=""
+            src="test-file-stub"
           />
         </NavLink>
       </li>
@@ -53,11 +54,42 @@ exports[`Menu Component should match snapshot 1`] = `
           activeClassName="active"
           aria-current="page"
           id="nav-link"
-          onClick={[Function]}
-          to="/login"
+          to="/profile"
         >
-          logout
+          Juliet
         </NavLink>
+      </li>
+      <li
+        className="nav-item offset-md-1"
+      >
+        <div
+          className="dropdown"
+        >
+          <a
+            className="dropdown-toggle"
+            data-target="#"
+            data-toggle="dropdown"
+            href="page.html"
+          >
+            <b
+              className="caret"
+            />
+          </a>
+          <ul
+            className="dropdown-menu"
+          >
+            <li
+              className="logout"
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+              >
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
       </li>
     </ul>
   </div>

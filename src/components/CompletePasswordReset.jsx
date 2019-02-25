@@ -102,8 +102,9 @@ export class CompletePasswordReset extends Component {
 
 CompletePasswordReset.propTypes = {
   completePasswordReset: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
 };
 
 export default connect(null,
