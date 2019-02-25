@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import DropzoneComponent from 'react-dropzone-component';
 import { connect } from 'react-redux';
-
 import CKEditor from 'ckeditor4-react';
-
 import {
   addFile, removeFile, handleUploadImages, getCategories
 } from '../actions/artActions';
 import Notify from '../utils/Notify';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 
 /**
@@ -23,6 +23,10 @@ export class CreateArt extends Component {
     price: 0,
     accessToken:localStorage.getItem('authToken')
   };
+
+  componentDidMount() {
+    this.props.getCategories();
+  }
 
   handleChange = (event) => {
     this.setState({[ event.target.name] : event.target.value });
@@ -40,10 +44,6 @@ export class CreateArt extends Component {
       const response = await this.props.handleUploadImages(files, this.state);
     }
   };
-
-  componentDidMount() {
-    this.props.getCategories();
-  }
 
   /**
    * @param {function} render
@@ -74,22 +74,18 @@ export class CreateArt extends Component {
       addedfile: (file) => {
         numberOfFiles++;
 
+        console.log('file:', file);
         if (numberOfFiles <= 7){
           this.props.addFile({id: file.upload.uuid, file});
         }
-
-        console.log('filescount>>', files.length);
-
       },
       removedfile: (file) => {
-        console.log('>>>',file.upload.uuid);
         this.props.removeFile({id: file.upload.uuid})
       },
 
       maxfilesreached:(files) =>{
         Notify.notifyError('Maximum files reached')
       },
-
     };
 
     return (
@@ -99,7 +95,7 @@ export class CreateArt extends Component {
             <h5>CREATE NEW ARTICLE</h5>
             <div className="form-group">
               <label>Title</label>
-              <input type="text" className="form-control"
+              <input type="text" className="form-control title"
                      onChange={this.handleChange} name='title'
                      required={true}
                      placeholder="Enter Title"/>
@@ -155,6 +151,14 @@ export class CreateArt extends Component {
     );
   }
 }
+CreateArt.propTypes = {
+  artProps: PropTypes.shape({}).isRequired,
+  history: PropTypes.shape({}).isRequired,
+  addFile: PropTypes.func.isRequired,
+  removeFile: PropTypes.func.isRequired,
+  handleUploadImages: PropTypes.func.isRequired,
+  getCategories: PropTypes.func.isRequired
+};
 
 export const mapStateToProps = state => ({
   artProps: state.artReducer,
@@ -162,4 +166,4 @@ export const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   addFile, removeFile, handleUploadImages, getCategories
-})(CreateArt);
+})(withRouter(CreateArt));

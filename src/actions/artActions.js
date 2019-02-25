@@ -1,10 +1,9 @@
-/* eslint-disable camelcase */
 import axios from 'axios';
 import {
   ADD_FILE,
   REMOVE_FILE,
-  GET_CATEGORIES_FILES, SET_USER_REQUEST,
-  SET_FILE_ERROR, SET_USER_ERROR
+  GET_CATEGORIES_FILES,
+  SET_FILE_ERROR
 } from './types';
 
 import Notify from '../utils/Notify';
@@ -20,10 +19,6 @@ export const removeFile = (payload) => ({
   payload
 });
 
-export const setUserRequest = () => ({
-  type: SET_USER_REQUEST,
-});
-
 export const setCategories = (payload) => ({
   type: GET_CATEGORIES_FILES,
   payload
@@ -32,17 +27,17 @@ export const setCategories = (payload) => ({
 export const getCategories = () => async (dispatch) => {
   try {
     const categories = await axios.get(`${basePath}/categories`);
-
-    // console.log('<>>',categories.data.data.categories.rows);
     dispatch(setCategories(categories.data.data.categories.rows));
   } catch (e) {
     console.log(e.response);
   }
 };
+
 export const setFileError = error => ({
   type: SET_FILE_ERROR,
   payload: error,
 });
+
 export const handleUploadImages = (images, payload) => async (dispatch) =>  {
   let imageURLs = [];
 
@@ -80,14 +75,11 @@ export const handleUploadImages = (images, payload) => async (dispatch) =>  {
           "Content-Type": "application/json",
           "x-access-token": payload.accessToken
         }});
-    window.location.replace('/')
-    console.log('post>>', postToBackEnd);
+    window.location.replace('/');
   }
   catch (error) {
     const errMessage = `${error.response.data.messages}. Try Again`;
     dispatch(setFileError(errMessage));
     Notify.notifyError(errMessage)
   }
-
 };
-

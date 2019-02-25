@@ -22,15 +22,14 @@ function artReducer(state = initialState, action) {
 
     case REMOVE_FILE: {
       const removeItemID = action.payload.id;
-      let emptyFiles = false;
 
-      if (state.files.length > 0 ){
-        emptyFiles = true;
-      }
+      const removedFileFromState = state.files.filter( file => file.id !== removeItemID);
+
+      const emptyFiles = removedFileFromState.length > 0 ? true :false;
 
       return {
         ...state,
-        files: state.files.filter( file => file.id !== removeItemID),
+        files: removedFileFromState,
         isLoading: emptyFiles
       };
     }
