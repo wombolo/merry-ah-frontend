@@ -2,7 +2,7 @@
 
 exports[`Search Component should match snapshot 1`] = `
 <form
-  className="form-inline my-2 my-lg-0 col-lg-7"
+  className="form-inline my-2 my-lg-0 col-lg-12"
 >
   <input
     aria-label="Search for"
