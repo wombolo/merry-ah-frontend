@@ -1,288 +1,62 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import card1 from '../assets/images/card1.jpeg';
-import star from '../assets/images/star.png';
-import emptyStar from '../assets/images/empty-star.png';
+import startCount from '../utils/startCount';
+import counter from '../utils/counter';
 import like from '../assets/images/like.png';
 import comment from '../assets/images/comment.png';
 /**
  * ArtList Component
  */
-class ArtList extends Component {
-  /**
+/**
    * @param {function} render
    *  @returns {JSX} jsx
    */
-  render() {
-    return (
+const ArtList = ({ user, isGettingArts }) => (
       <div className="row" id="art-list">
         <p className="profile-header col-12">My Works</p>
-        <div className="col-3">
-          <div
-            className="my-card"
-            style={{
-              backgroundImage: `url(${card1})`,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          >
-            <div className="card-category">Poetry</div>
-            <div className="card-container">
-              <div className="card-title">
-                <h6>
-                  {' '}
-                  <a href=""> An Artist’s Discovery</a>{' '}
-                </h6>
-                <p>An Artist can be discovered from his art work</p>
+        { !isGettingArts && user.userArts.map((art, i) => (
+            <div key={i} className="col-3">
+              <div
+                className="my-card"
+                style={{
+                  backgroundImage: `url(${art.featuredImg})`,
+                  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                }}
+              >
+                <div className="card-category">{art.Category.categoryName}</div>
+                <div className="card-container">
+                  <div className="card-title">
+                    <h6>
+                      {' '}
+                      <a href=""> {art.title}</a>{' '}
+                    </h6>
+                    <p>
+                    {art.description.replace('<p>', '').replace('</p>', '')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="card-footer">
+                <div className="comments">
+                  <p>
+                    <img src={like} alt="" /> {counter(art.LikesCount)}{' '}
+                  </p>
+                  <p>
+                    <img src={comment} alt="" /> {counter(art.CommentsCount)}{' '}
+                  </p>
+                </div>
+                <div className="ratings">
+                {startCount(art.CalculatedRate)}
+                </div>
               </div>
             </div>
-          </div>
-          <div className="card-footer" >
-          <div className="comments">
-          <p><img src={like} alt="" />   20 </p>
-          <p><img src={comment} alt="" /> 200 </p>
-          </div>
-          <div className="ratings">
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={emptyStar} alt=""/>
-          <img src={emptyStar} alt=""/>
-          </div>
+        ))}
         </div>
-        </div>
-        <div className="col-3">
-          <div
-            className="my-card"
-            style={{
-              backgroundImage: `url(${card1})`,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          >
-            <div className="card-category">Poetry</div>
-            <div className="card-container">
-              <div className="card-title">
-                <h6>
-                  {' '}
-                  <a href=""> An Artist’s Discovery</a>{' '}
-                </h6>
-                <p>An Artist can be discovered from his art work</p>
-              </div>
-            </div>
-          </div>
-          <div className="card-footer" >
-          <div className="comments">
-          <p><img src={like} alt="" />   20 </p>
-          <p><img src={comment} alt="" /> 200 </p>
-          </div>
-          <div className="ratings">
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={emptyStar} alt=""/>
-          <img src={emptyStar} alt=""/>
-          </div>
-        </div>
-        </div>
-        <div className="col-3">
-          <div
-            className="my-card"
-            style={{
-              backgroundImage: `url(${card1})`,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          >
-            <div className="card-category">Poetry</div>
-            <div className="card-container">
-              <div className="card-title">
-                <h6>
-                  {' '}
-                  <a href=""> An Artist’s Discovery</a>{' '}
-                </h6>
-                <p>An Artist can be discovered from his art work</p>
-              </div>
-            </div>
-          </div>
-          <div className="card-footer" >
-          <div className="comments">
-          <p><img src={like} alt="" />   20 </p>
-          <p><img src={comment} alt="" /> 200 </p>
-          </div>
-          <div className="ratings">
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={emptyStar} alt=""/>
-          <img src={emptyStar} alt=""/>
-          </div>
-        </div>
-        </div>
-        <div className="col-3">
-          <div
-            className="my-card"
-            style={{
-              backgroundImage: `url(${card1})`,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          >
-            <div className="card-category">Poetry</div>
-            <div className="card-container">
-              <div className="card-title">
-                <h6>
-                  {' '}
-                  <a href=""> An Artist’s Discovery</a>{' '}
-                </h6>
-                <p>An Artist can be discovered from his art work</p>
-              </div>
-            </div>
-          </div>
-          <div className="card-footer" >
-          <div className="comments">
-          <p><img src={like} alt="" />   20 </p>
-          <p><img src={comment} alt="" /> 200 </p>
-          </div>
-          <div className="ratings">
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={emptyStar} alt=""/>
-          <img src={emptyStar} alt=""/>
-          </div>
-        </div>
-        </div>
-        <div className="col-3">
-          <div
-            className="my-card"
-            style={{
-              backgroundImage: `url(${card1})`,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          >
-            <div className="card-category">Poetry</div>
-            <div className="card-container">
-              <div className="card-title">
-                <h6>
-                  {' '}
-                  <a href=""> An Artist’s Discovery</a>{' '}
-                </h6>
-                <p>An Artist can be discovered from his art work</p>
-              </div>
-            </div>
-          </div>
-          <div className="card-footer" >
-          <div className="comments">
-          <p><img src={like} alt="" />   20 </p>
-          <p><img src={comment} alt="" /> 200 </p>
-          </div>
-          <div className="ratings">
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={emptyStar} alt=""/>
-          <img src={emptyStar} alt=""/>
-          </div>
-        </div>
-        </div>
-        <div className="col-3">
-          <div
-            className="my-card"
-            style={{
-              backgroundImage: `url(${card1})`,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          >
-            <div className="card-category">Poetry</div>
-            <div className="card-container">
-              <div className="card-title">
-                <h6>
-                  {' '}
-                  <a href=""> An Artist’s Discovery</a>{' '}
-                </h6>
-                <p>An Artist can be discovered from his art work</p>
-              </div>
-            </div>
-          </div>
-          <div className="card-footer" >
-          <div className="comments">
-          <p><img src={like} alt="" />   20 </p>
-          <p><img src={comment} alt="" /> 200 </p>
-          </div>
-          <div className="ratings">
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={emptyStar} alt=""/>
-          <img src={emptyStar} alt=""/>
-          </div>
-        </div>
-        </div>
-        <div className="col-3">
-          <div
-            className="my-card"
-            style={{
-              backgroundImage: `url(${card1})`,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          >
-            <div className="card-category">Poetry</div>
-            <div className="card-container">
-              <div className="card-title">
-                <h6>
-                  {' '}
-                  <a href=""> An Artist’s Discovery</a>{' '}
-                </h6>
-                <p>An Artist can be discovered from his art work</p>
-              </div>
-            </div>
-          </div>
-          <div className="card-footer" >
-          <div className="comments">
-          <p><img src={like} alt="" />   20 </p>
-          <p><img src={comment} alt="" /> 200 </p>
-          </div>
-          <div className="ratings">
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={emptyStar} alt=""/>
-          <img src={emptyStar} alt=""/>
-          </div>
-        </div>
-        </div>
-        <div className="col-3">
-          <div
-            className="my-card"
-            style={{
-              backgroundImage: `url(${card1})`,
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}
-          >
-            <div className="card-category">Poetry</div>
-            <div className="card-container">
-              <div className="card-title">
-                <h6>
-                  {' '}
-                  <a href=""> An Artist’s Discovery</a>{' '}
-                </h6>
-                <p>An Artist can be discovered from his art work</p>
-              </div>
-            </div>
-          </div>
-          <div className="card-footer" >
-          <div className="comments">
-          <p><img src={like} alt="" />   20 </p>
-          <p><img src={comment} alt="" /> 200 </p>
-          </div>
-          <div className="ratings">
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={emptyStar} alt=""/>
-          <img src={emptyStar} alt=""/>
-          </div>
-        </div>
-        </div>
-      </div>
-    );
-  }
-}
+);
 
+ArtList.propTypes = {
+  user: PropTypes.object.isRequired,
+  isGettingArts: PropTypes.bool.isRequired,
+};
 export default ArtList;
