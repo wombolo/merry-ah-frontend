@@ -42,6 +42,9 @@ export class Menu extends Component {
                aria-expanded="false"> {auth.user.username} <i className='fa fa-caret-down m-2'/>
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+
+              <NavLink to="/profile" className="dropdown-item">Profile</NavLink>
+
               <NavLink to="/create-art" className="dropdown-item">Create Art</NavLink>
 
               <div className="dropdown-divider"/>
