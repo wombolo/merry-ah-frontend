@@ -24,7 +24,7 @@ const ArtList = ({ user, isGettingArts }) => (
                   backgroundColor: 'rgba(0, 0, 0, 0.5)',
                 }}
               >
-                <div className="card-category">{art.Category.categoryName}</div>
+                {/*<div className="card-category">{art.Category.categoryName}</div>*/}
                 <div className="card-container">
                   <div className="card-title">
                     <h6>
