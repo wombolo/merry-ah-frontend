@@ -90,7 +90,7 @@ export class SingleArt extends Component {
                   </textarea>
                   <button className="comment-button">Comment</button>
                 </form>
-                <div className="comments">
+                <div className="sub-comments">
                   <h6>Comments</h6>
                   <div className="single-comment">
                     <img src="../assets/images/painting.jpg"
@@ -100,6 +100,8 @@ export class SingleArt extends Component {
                       <small>Fantastic piece of art. Keep it going</small>
                       <p>
                         <i className="fa fa-heart-o"></i>
+                        <small><a href="">Edit</a></small>
+                        <small><a href="">Delete</a></small>
                       </p>
                     </div>
                     <div className=""></div>
@@ -112,6 +114,8 @@ export class SingleArt extends Component {
                       <small>Fantastic piece of art. Keep it going</small>
                       <p>
                         <i className="fa fa-heart-o"></i>
+                        <small><a href="">Edit</a></small>
+                        <small><a href="">Delete</a></small>
                       </p>
                     </div>
                     <div className="clear"></div>
@@ -124,6 +128,8 @@ export class SingleArt extends Component {
                       <small>Fantastic piece of art. Keep it going</small>
                       <p>
                         <i className="fa fa-heart-o"></i>
+                        <small><a href="">Edit</a></small>
+                        <small><a href="">Delete</a></small>
                       </p>
                     </div>
                     <div className="clear"></div>

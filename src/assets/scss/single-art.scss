@@ -87,8 +87,9 @@ $regular-font: 'Poppins';
   margin-top: 30px;
 }
 
-.comment-section, .comments {
+.comment-section, .sub-comments {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .comment-section textarea {
@@ -139,6 +140,15 @@ $regular-font: 'Poppins';
 
 .single-comment-details small {
   color: #aaaaaa;
+  font-size: 12px;
+}
+
+.single-comment-details p small {
+  margin-left: 10px;
+}
+
+.single-comment-details p a {
+  font-family: $regular-font;
   font-size: 12px;
 }
 
