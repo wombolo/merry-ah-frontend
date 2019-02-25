@@ -35,24 +35,20 @@ export class Menu extends Component {
           <li className="nav-item offset-md-5">
             <NavLink to="/notify" ><img src={notify} alt="" /></NavLink>
           </li>
-          <li className="nav-item offset-md-5">
-            <NavLink to="/profile"
-              id="nav-link">{auth.user.username}</NavLink>
-          </li>
-          <li className="nav-item offset-md-1">
-            <div className="dropdown">
 
-              <a data-target="#" href="page.html"
-                data-toggle="dropdown" className="dropdown-toggle">
-                <b className="caret"></b>
-              </a>
-              <ul className="dropdown-menu">
-                <li className='logout'><a href="#"
-                onClick={this.handleLogout}>Logout</a></li>
+          <li className="nav-item dropdown offset-md-2">
+            <a className="nav-link d-inline-flex" href="#" id="navbarDropdown"
+               role="button" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false"> {auth.user.username} <i className='fa fa-caret-down m-2'/>
+            </a>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <NavLink to="/create-art" className="dropdown-item">Create Art</NavLink>
 
-              </ul>
+              <div className="dropdown-divider"/>
+              <NavLink to="/login" onClick={this.handleLogout} id="nav-link" className="dropdown-item">logout</NavLink>
             </div>
           </li>
+
         </React.Fragment>);
     }
     return links;
