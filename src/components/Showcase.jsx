@@ -15,7 +15,6 @@ export default class Showcase extends Component {
         <div id="showcase_text">
           <div>
             <h1>Bring Unspoken <br></br> Words to Life</h1>
-            <h4>ArtCave will deliver the best art gallery stories</h4>
             <div>
               <a href="#">
                 <button

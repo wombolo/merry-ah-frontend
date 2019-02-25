@@ -77,12 +77,14 @@ export class Menu extends Component {
             className="navbar-toggler-icon">
             <i className="fa fa-bars"> </i></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <Search />
-          <ul className="navbar-nav mr-auto offset-1 offset-md-2">
+        <div id="search">
+          <div className=" collapse navbar-collapse" id="navbarSupportedContent">
+            <Search />
+          </div>
+          </div>
+        <ul className="navbar-nav mr-auto">
             {this.headerLinks(this.props.auth)}
-          </ul>
-        </div>
+        </ul>
       </nav>
     );
   }

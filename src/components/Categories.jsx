@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import painting from '../assets/images/painting.jpg';
 import sketch from '../assets/images/sketch.jpg';
 import mosaic from '../assets/images/mosaic.jpg';
-import sculpture from '../assets/images/welcome.jpeg';
+import sculpture from '../assets/images/sculpture.jpg';
 import architecture from '../assets/images/architecture.jpg';
 import poetry from '../assets/images/poetry.jpg';
 
