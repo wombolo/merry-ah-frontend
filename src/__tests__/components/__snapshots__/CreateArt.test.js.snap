@@ -36,7 +36,7 @@ exports[`CreateArt Component should match snapshot 1`] = `
           Category
         </label>
         <select
-          className="form-control"
+          className="form-control col-8"
           name="categoryId"
           onChange={[Function]}
           required={true}
