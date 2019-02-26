@@ -88,14 +88,7 @@ describe('Book Reducer', () => {
     const action = {
       type: actionTypes.EDIT_COMMENT_SUCCESS,
     };
-    const comment = [{
-      id: 1,
-      body: 'comment',
-    }, {
-      id: 2,
-      body: 'comment',
-    }]
-    const newState = commentReducer(comment, [...comment, action]);
-    expect(newState[0].body).toEqual('comment');
+    const newState = commentReducer({}, action);
+    expect(newState.isEditing).toEqual(false);
   });
 });

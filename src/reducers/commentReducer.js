@@ -1,4 +1,3 @@
-/* eslint-disable require-jsdoc */
 import {
   CREATE_COMMENT,
   GET_COMMENTS,
@@ -17,7 +16,11 @@ const initialState = {
   isFetching: true,
   comments: [],
 };
-
+/**
+ * @param {object} state
+ * @param {object} action
+ *  @returns {object} state
+ */
 export default function (state = initialState, action) {
   switch (action.type) {
     case GET_COMMENT_REQUEST:
@@ -82,7 +85,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isEditing: false,
-        comments: [action.payload, ...state.comments],
+        comments: action.payload,
       };
     default:
       return state;

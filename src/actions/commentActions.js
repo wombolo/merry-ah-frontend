@@ -10,7 +10,6 @@ import {
   CREATE_COMMENT_SUCCESS,
   EDIT_COMMENT_FAILURE,
   EDIT_COMMENT_REQUEST,
-  EDIT_COMMENT_SUCCESS,
 } from './types';
 import { basePath } from '../utils/basePath';
 import Notify from '../utils/Notify';
@@ -55,7 +54,7 @@ export const getComments = (artId, lastId, limit) => async (dispatch) => {
       );
     dispatch(getCommentSuccess(res.data));
   } catch (err) {
-    // dispatch(setCommentError(err.response.data.messages));
+    Notify.notifyError(err.response.data.messages);
   }
 };
 
@@ -86,21 +85,19 @@ const editCommentRequest = () => ({
   type: EDIT_COMMENT_REQUEST,
 });
 
-const editCommentSuccess = comment => ({
-  type: EDIT_COMMENT_SUCCESS,
-  comment,
-});
-
 const editCommentFailure = () => ({
   type: EDIT_COMMENT_FAILURE,
 });
-export const editComment = (commentId, comment) => async (dispatch) => {
+export const editComment = editCommentData => async (dispatch) => {
   dispatch(editCommentRequest());
+  const {
+    commentId, body, artId, lastId, limit,
+  } = editCommentData;
   try {
-    const res = await axios.put(
-      `${basePath}/arts/comments/${commentId}`, comment,
+    await axios.put(
+      `${basePath}/arts/comments/${commentId}`, { body },
     );
-    dispatch(editCommentSuccess(res.data));
+    dispatch(getComments(artId, lastId, limit));
     Notify.notifySuccess('comment edited');
   } catch (err) {
     dispatch(editCommentFailure());
