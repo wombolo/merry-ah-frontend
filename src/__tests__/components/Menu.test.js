@@ -11,6 +11,7 @@ let wrapper;
 let props = {
   auth: {
     isAuthenticated: true,
+    user: { username: 'Juliet' },
   },
 };
 describe('Menu Component', () => {
@@ -28,8 +29,8 @@ describe('Menu Component', () => {
     it('should have one button element', () => {
       expect(wrapper.find('button').length).toEqual(1);
     });
-    it('it should handle log out ', () => {
-      expect(wrapper.find('#nav-link').at(0).text()).toEqual('logout');
+    it('it should display the name of logged in user', () => {
+      expect(wrapper.find('#nav-link').at(0).text()).toEqual('Juliet');
     });
     it('it should display login for non logged in users ', () => {
       props = {

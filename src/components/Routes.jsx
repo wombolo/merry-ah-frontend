@@ -10,11 +10,13 @@ import PrivateRoute from './PrivateRoute.jsx';
 import GuestRoute from './GuestRoute.jsx';
 import SignUp from './authentication/SignUp.jsx';
 import SingleArt from './SingleArt.jsx';
+import VerifySocialAuthToken from './VerifySocialAuthToken.jsx';
 
 const Routes = () => (
     <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/art/:category" component={DisplayArt}></Route>
+        <Route path="/auth" component={VerifySocialAuthToken}></Route>
         <GuestRoute exact path="/login" component={Login}></GuestRoute>
         <GuestRoute exact path="/register" component={SignUp}> </GuestRoute>
         <Route path="/single-art" component={SingleArt}></Route>

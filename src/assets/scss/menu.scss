@@ -12,6 +12,7 @@ nav {
 	font-size: 1.5em;
 	font-weight: bold;
 	font-family: 'Pacifico', cursive;
+	
 }
 
 a {
@@ -19,8 +20,25 @@ a {
     font-size: 18px;
 	font-family: 'Gloria Hallelujah', cursive;
 }
+nav#nav {
+	top:0;
+	position: fixed;
+	width: 100%;
+}
 
+header nav {
+	float: right;
+	margin-top: -50px;
+}
 a:hover {
 	color: #06A5FF;
 	text-decoration: none !important;
+}
+
+.header-icons{
+	font-family: 'poppins', cursive;
+	color: black;
+}
+li .logout{
+	text-align: center;
 }

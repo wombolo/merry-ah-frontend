@@ -26,40 +26,76 @@ exports[`Menu Component should match snapshot 1`] = `
     </span>
   </button>
   <div
-    className="collapse navbar-collapse"
-    id="navbarSupportedContent"
+    id="search"
   >
-    <Search />
-    <ul
-      className="navbar-nav mr-auto offset-1 offset-md-2"
+    <div
+      className=" collapse navbar-collapse"
+      id="navbarSupportedContent"
     >
-      <li
-        className="nav-item offset-md-5"
-      >
-        <NavLink
-          activeClassName="active"
-          aria-current="page"
-          to="/notify"
-        >
-          <i
-            className="fa fa-bell"
-          />
-        </NavLink>
-      </li>
-      <li
-        className="nav-item offset-md-5"
-      >
-        <NavLink
-          activeClassName="active"
-          aria-current="page"
-          id="nav-link"
-          onClick={[Function]}
-          to="/login"
-        >
-          logout
-        </NavLink>
-      </li>
-    </ul>
+      <Search />
+    </div>
   </div>
+  <ul
+    className="navbar-nav mr-auto"
+  >
+    <li
+      className="nav-item offset-md-5"
+    >
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        to="/notify"
+      >
+        <img
+          alt=""
+          src="test-file-stub"
+        />
+      </NavLink>
+    </li>
+    <li
+      className="nav-item offset-md-5"
+    >
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        id="nav-link"
+        to="/profile"
+      >
+        Juliet
+      </NavLink>
+    </li>
+    <li
+      className="nav-item offset-md-1"
+    >
+      <div
+        className="dropdown"
+      >
+        <a
+          className="dropdown-toggle"
+          data-target="#"
+          data-toggle="dropdown"
+          href="page.html"
+        >
+          <b
+            className="caret"
+          />
+        </a>
+        <ul
+          className="dropdown-menu"
+        >
+          <li
+            className="logout"
+          >
+            <a
+              href="#"
+              onClick={[Function]}
+            >
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
 </nav>
 `;
