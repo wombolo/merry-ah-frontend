@@ -1,23 +1,11 @@
 import axios from 'axios';
 import {
-  ADD_FILE,
-  REMOVE_FILE,
   GET_CATEGORIES_FILES,
-  SET_FILE_ERROR
+  SET_FILE_ERROR,SET_UPLOAD_SUCCESS
 } from './types';
 
 import Notify from '../utils/Notify';
 import { basePath } from '../utils/basePath';
-
-export const addFile = (payload) => ({
-  type: ADD_FILE,
-  payload
-});
-
-export const removeFile = (payload) => ({
-  type: REMOVE_FILE,
-  payload
-});
 
 export const setCategories = (payload) => ({
   type: GET_CATEGORIES_FILES,
@@ -33,18 +21,24 @@ export const getCategories = () => async (dispatch) => {
   }
 };
 
+export const setUploadSuccess = () => ({
+  type: SET_UPLOAD_SUCCESS,
+});
+
 export const setFileError = error => ({
   type: SET_FILE_ERROR,
   payload: error,
 });
 
-export const handleUploadImages = (images, payload) => async (dispatch) =>  {
+export const handleUploadImages = (payload) => async (dispatch) =>  {
   let imageURLs = [];
+  dispatch(setUploadSuccess());
+
+  const {files: images} = payload;
 
   const uploads = await images.map(async (image)=> {
-
     const formData = new FormData();
-    formData.append("file", image.file);
+    formData.append("file", image);
     formData.append("upload_preset", "artcave_articles"); // Replace the preset name with your own
     formData.append("api_key", "199196371633358"); // Replace API key with your own Cloudinary API key
     formData.append("timestamp", (Date.now() / 1000) | 0);
@@ -58,7 +52,6 @@ export const handleUploadImages = (images, payload) => async (dispatch) =>  {
       url: response.data.secure_url,
       extension: response.data.format,
     });
-
     return imageURLs;
   });
 
@@ -75,7 +68,7 @@ export const handleUploadImages = (images, payload) => async (dispatch) =>  {
           "Content-Type": "application/json",
           "x-access-token": payload.accessToken
         }});
-    window.location.replace('/');
+    dispatch(window.location.replace(`/arts/${postToBackEnd.data.data.slugifiedTitle}`));
   }
   catch (error) {
     const errMessage = `${error.response.data.messages}. Try Again`;

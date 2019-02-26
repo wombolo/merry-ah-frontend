@@ -5,55 +5,30 @@ import {
 import {createArt} from '../__mocks__/createArtMock';
 
 
-it('should handle action of type ADD_FILE', () => {
-  const action = {
-    type: ADD_FILE,
-    payload: createArt.image1
-  };
-  const newState = artReducer({
-    files: [],
-    },
-    action);
-
-  expect(newState.files[0]).toEqual(action.payload);
-});
-
-
-it('should handle action of type REMOVE_FILE single image pre-existing', () => {
-  const action = {
-    type: REMOVE_FILE,
-    payload: createArt.image1
-  };
-
-  const newState = artReducer({
-    files: [createArt.image1],
-  }, action);
-  expect(newState.files.length).toEqual(0);
-});
-
-it('should handle action of type REMOVE_FILE multiple images pre-existing', () => {
-  const action = {
-    type: REMOVE_FILE,
-    payload: createArt.image1
-  };
-
-  const newState = artReducer({
-    files: [createArt.image2,createArt.image1],
-  }, action);
-
-  expect(newState.files.length).toEqual(1);
-});
-
-it('should handle type SET_USER_REQUEST', () => {
-  const action = {
-    type: SET_USER_REQUEST,
-    payload: {
-      isLoading: true,
-    },
-  };
-  const newState = artReducer(false, action);
-  expect(newState.isLoading).toBe(true);
-});
+// it('should handle action of type REMOVE_FILE single image pre-existing', () => {
+//   const action = {
+//     type: REMOVE_FILE,
+//     payload: createArt.image1
+//   };
+//
+//   const newState = artReducer({
+//     files: [createArt.image1],
+//   }, action);
+//   expect(newState.files.length).toEqual(0);
+// });
+//
+// it('should handle action of type REMOVE_FILE multiple images pre-existing', () => {
+//   const action = {
+//     type: REMOVE_FILE,
+//     payload: createArt.image1
+//   };
+//
+//   const newState = artReducer({
+//     files: [createArt.image2,createArt.image1],
+//   }, action);
+//
+//   expect(newState.files.length).toEqual(1);
+// });
 
 
 it('should handle type GET_CATEGORIES_FILES', () => {

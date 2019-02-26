@@ -2,45 +2,68 @@
 /* eslint-disable no-restricted-globals */
 import 'babel-polyfill';
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import sinon from 'sinon';
 import { CreateArt, mapStateToProps } from '../../components/CreateArt.jsx';
 import {createArtProps as props} from '../__mocks__/propsMock';
 
-describe('Elements in page', () => {
-  let wrapper;
+let wrapper;
 
-  beforeEach(() => {
-    wrapper = mount(
-      <CreateArt {...props}/>,
-    );
-  });
-  // afterEach(() => {
-  //   wrapper.unmount();
-  // });
-
-  it('map state to props', () => {
-    const mock = {
-      artProps:{
-        files: [],
-        isLoading: true,
-        categories:[],
-        error: ''
-      }
-    };
-    const state = mapStateToProps(mock);
-    // expect(state).toEqual(mock);
+describe('CreateArt Component', () => {
+  it('should match snapshot', () => {
+    wrapper = shallow(<CreateArt {...props}/>);
+    expect(wrapper).toMatchSnapshot();
   });
 
-  it('should have one button', () => {
-    expect(wrapper.find('button').length).toEqual(1);
-  });
+  describe('Elements', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <CreateArt {...props} />,
+      );
+    });
+
+    it('map state to props', () => {
+      const state = mapStateToProps({});
+      expect(state).toEqual({});
+    });
 
 
-  it('should render', () => {
-    const props2 = {
-      ...props,
-    };
-    wrapper = mount(<CreateArt {...props2}/>);
-    expect(wrapper.find('button')).toEqual({});
+    it('should empty the form on submit', () => {
+      wrapper.find('form').simulate('submit');
+      wrapper.update();
+      expect(wrapper.find('.title').prop('value')).toEqual('');
+    });
+
+    it('should have one button element', () => {
+      expect(wrapper.find('button').length).toEqual(1);
+    });
+
+    it('should call addFileToState()', function () {
+      sinon.spy(wrapper.instance(), 'addFileToState');
+      wrapper.instance().addFileToState();
+      expect(wrapper.instance().addFileToState.calledOnce)
+        .toEqual(true);
+    });
+
+    it('should calls removeFileFromState()', function () {
+      const state = {
+        file : [{ upload: { uuid: 100 }}]
+      };
+      sinon.spy(wrapper.instance(), 'removeFileFromState');
+      wrapper.instance().removeFileFromState(state.file[0].upload);
+      expect(wrapper.instance().removeFileFromState.calledOnce)
+        .toEqual(true);
+    });
+
+    it('should calls Notify.notifyError()', function () {
+      const state = {
+        file : [{ upload: { uuid: 100 }}]
+      };
+      sinon.spy(wrapper.instance(), 'removeFileFromState');
+      wrapper.instance().removeFileFromState(state.file[0].upload);
+      expect(wrapper.instance().removeFileFromState.calledOnce)
+        .toEqual(true);
+    });
   });
 });
+

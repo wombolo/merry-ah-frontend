@@ -10,3 +10,4 @@ export const ADD_FILE = 'ADD_FILE';
 export const REMOVE_FILE = 'REMOVE_FILE';
 export const GET_CATEGORIES_FILES = 'GET_CATEGORIES_FILES';
 export const SET_FILE_ERROR = 'SET_FILE_ERROR';
+export const SET_UPLOAD_SUCCESS = 'SET_UPLOAD_SUCCESS';

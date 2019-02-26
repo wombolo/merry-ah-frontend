@@ -29,8 +29,6 @@ const createArtProps = {
   history: {
     push: () => null,
   },
-  addFile : () => null,
-  removeFile: () => null,
   handleUploadImages: () => null,
   getCategories: () => null
 };

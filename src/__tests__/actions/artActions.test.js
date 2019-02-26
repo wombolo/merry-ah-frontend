@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import 'babel-polyfill';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -6,44 +5,64 @@ import moxios from 'moxios';
 import localStorageMock from '../__mocks__/localStorageMock';
 import {createArt} from '../__mocks__/createArtMock';
 import {
-  addFile, removeFile, setCategories, getCategories, handleUploadImages
+  setCategories, getCategories, handleUploadImages
 } from '../../actions/artActions';
-import basePath from '../../utils/basePath';
+import { SET_UPLOAD_SUCCESS } from '../../actions/types';
+import { basePath } from '../../utils/basePath';
+import sinon from 'sinon';
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+sinon.stub(window.location, 'replace');
+const mockStore = configureMockStore([thunk]);
 window.localStorage = localStorageMock;
 let store;
 
-beforeEach(() => {
-  moxios.install();
-  store = mockStore({});
-});
-afterEach(() => moxios.uninstall());
+const uploadPayload = {
+  categoryId: 1,
+  description: "qwert",
+  price: 0,
+  title: "123",
+  files: [ createArt.image1],
+};
 
-it('creates ADD_FILE', async () => {
-  const action = await store.dispatch(addFile(createArt.image1));
-  expect(store.getActions()[0].type).toEqual(action.type);
-});
+describe('Art actions', () => {
+  beforeEach(() => {
+    moxios.install();
+    store = mockStore({});
+  });
+  afterEach(() => moxios.uninstall());
 
-it('creates REMOVE_FILE', async () => {
-  const action = await store.dispatch(removeFile(createArt.image1));
-  expect(store.getActions()[0].type).toEqual(action.type);
-});
-
-it('creates GET_CATEGORIES_FILES', async () => {
-  const action = store.dispatch(setCategories(store.dispatch(getCategories())));
-  expect(store.getActions()[0].type).toEqual(action.type);
-});
-
-
-it('Post article successful', () => {
-  moxios.stubRequest(`${basePath}/arts`, {
-    status: 201,
-    response: { messages: 'Article created successfully' },
+  it('creates GET_CATEGORIES_FILES', async () => {
+    const action = store.dispatch(setCategories(store.dispatch(getCategories())));
+    expect(store.getActions()[0].type).toEqual(action.type);
   });
 
-  store.dispatch(handleUploadImages()).then(() => {
-    expect(window.location).toEqual('/');
+  it('creates SET_UPLOAD_SUCCESS action', async (done) => {
+    moxios.stubRequest(`https://api.cloudinary.com/v1_1/wombolo/image/upload`, {
+      status: 201,
+    });
+
+    moxios.wait(() => {
+      moxios.stubRequest(`${basePath}/arts`, {
+        status: 'Ok',
+        code: 201,
+        messages: 'Article created successfully',
+        data:
+          { artId: 35,
+            artTitle: 'Syntax Podcasts',
+            slugifiedTitle: 'syntax-podcasts-4gl0se',
+            artDescription: 'The Syntax Podcasts isn\'t suitable for all ages',
+            artFeaturedImg:
+              'https://farm3.staticflickr.com/2817/33968464326_a6f9cbc754_k',
+            artCategoryId: 1,
+            visited: 0,
+            followersNotified: 'Message sent' } }
+      );
+
+      const expectedActions = [{ type: SET_UPLOAD_SUCCESS}];
+      store.dispatch(handleUploadImages(uploadPayload));
+      expect(store.getActions()).toEqual(expectedActions);
+      done()
+    });
+
   });
 });

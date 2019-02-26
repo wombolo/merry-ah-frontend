@@ -7,7 +7,7 @@
     "start": "node server.js",
     "start:dev": "webpack-dev-server --open --config ./webpack/webpack.dev.js",
     "build": "webpack --config ./webpack/webpack.prod.js",
-    "test": "jest --config=jest.config.json --env=jsdom  --coverage --colors",
+    "test": "jest --config=jest.config.json --env=jsdom  --coverage --colors -u",
     "test:watch": "jest --watch",
     "heroku-prebuild": "npm run-script install",
     "heroku-postbuild": "npm run-script build"
@@ -79,7 +79,7 @@
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
-    "sinon": "^7.2.3",
+    "sinon": "^7.2.4",
     "style-loader": "^0.23.1",
     "sweetalert": "^2.1.2",
     "transfer-webpack-plugin": "^0.1.4",

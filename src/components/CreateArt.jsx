@@ -3,7 +3,7 @@ import DropzoneComponent from 'react-dropzone-component';
 import { connect } from 'react-redux';
 import CKEditor from 'ckeditor4-react';
 import {
-  addFile, removeFile, handleUploadImages, getCategories
+  handleUploadImages, getCategories
 } from '../actions/artActions';
 import Notify from '../utils/Notify';
 import PropTypes from 'prop-types';
@@ -17,16 +17,37 @@ import { withRouter } from 'react-router-dom';
 export class CreateArt extends Component {
 
   state={
+    files: [],
     description:'',
     title: '',
     categoryId: '',
     price: 0,
-    accessToken:localStorage.getItem('authToken')
+    accessToken:localStorage.getItem('authToken'),
+    isLoading: true,
+    nowUploading:false,
+    numberOfFiles: 0
   };
 
   componentDidMount() {
     this.props.getCategories();
   }
+
+  addFileToState =(file)=>{
+    let emptyFiles = false;
+    if (this.state.numberOfFiles > 1){
+      emptyFiles = false;
+    }
+    this.setState({files: this.state.files.concat(file), isLoading: emptyFiles });
+  };
+
+  removeFileFromState =(fileId)=>{
+    let emptyFiles = false;
+    if (this.state.files.length < 2){
+      emptyFiles = true;
+    }
+    this.setState({files: this.state.files.filter( file => file.upload.uuid !== fileId), isLoading: emptyFiles});
+
+  };
 
   handleChange = (event) => {
     this.setState({[ event.target.name] : event.target.value });
@@ -38,20 +59,36 @@ export class CreateArt extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-
-    const files = this.props.artProps.files;
-    if (files){
-      const response = await this.props.handleUploadImages(files, this.state);
-    }
+    this.setState({ isLoading: true, nowUploading: true });
+    await this.props.handleUploadImages(this.state);
   };
+  eventHandlers = () => {
+   let { numberOfFiles } = this.state;
+    return {
+      addedfile: (file) => {
+        this.setState({ numberOfFiles: numberOfFiles++ })
+        if (numberOfFiles <= 7){
+          this.addFileToState(file);
+        }
+      },
+      removedfile: (file) => {
+        this.setState({ numberOfFiles: numberOfFiles-- })
+        this.removeFileFromState(file.upload.uuid);
+      },
 
+      maxfilesreached:(files) =>{
+        Notify.notifyError('Maximum files reached')
+      },
+    };
+  }
   /**
    * @param {function} render
    *  @returns {JSX} jsx
    */
   render() {
-    const { files, categories, isLoading } = this.props.artProps;
-    let numberOfFiles = 0;
+    const { categories } = this.props.artProps;
+    const { isLoading, nowUploading } = this.state;
+
 
     const componentConfig = {
       iconFiletypes: ['.mp4', '.mov', 'images'],
@@ -70,23 +107,6 @@ export class CreateArt extends Component {
       addRemoveLinks: true,
     };
 
-    const eventHandlers = {
-      addedfile: (file) => {
-        numberOfFiles++;
-
-        console.log('file:', file);
-        if (numberOfFiles <= 7){
-          this.props.addFile({id: file.upload.uuid, file});
-        }
-      },
-      removedfile: (file) => {
-        this.props.removeFile({id: file.upload.uuid})
-      },
-
-      maxfilesreached:(files) =>{
-        Notify.notifyError('Maximum files reached')
-      },
-    };
 
     return (
       <div className="container mt-5 pt-5">
@@ -98,12 +118,13 @@ export class CreateArt extends Component {
               <input type="text" className="form-control title"
                      onChange={this.handleChange} name='title'
                      required={true}
-                     placeholder="Enter Title"/>
+                     placeholder="Enter Title" value={this.state.title}
+              />
             </div>
 
             <div className="form-group">
               <label>Category</label>
-              <select className="form-control" name='categoryId' onChange={this.handleChange} required={true}>
+              <select className="form-control col-8" name='categoryId' onChange={this.handleChange} required={true}>
                 <option>Select A Category</option>
                 {categories.map(category =>{
                   return (
@@ -127,7 +148,7 @@ export class CreateArt extends Component {
               <div className=''>
                 <DropzoneComponent
                   config={componentConfig}
-                  eventHandlers={eventHandlers}
+                  eventHandlers={this.eventHandlers()}
                   djsConfig={djsConfig}
                 />
               </div>
@@ -145,7 +166,12 @@ export class CreateArt extends Component {
                 Create
               </button>
             </div>
-          </div>
+
+
+            <div className={`alert alert-success ${nowUploading ? 'd-block' : 'd-none'} `}>
+              Art is now being uploaded. Please be patient
+            </div>
+            </div>
         </form>
       </div>
     );
@@ -154,8 +180,6 @@ export class CreateArt extends Component {
 CreateArt.propTypes = {
   artProps: PropTypes.shape({}).isRequired,
   history: PropTypes.shape({}).isRequired,
-  addFile: PropTypes.func.isRequired,
-  removeFile: PropTypes.func.isRequired,
   handleUploadImages: PropTypes.func.isRequired,
   getCategories: PropTypes.func.isRequired
 };
@@ -165,5 +189,5 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {
-  addFile, removeFile, handleUploadImages, getCategories
+  handleUploadImages, getCategories
 })(withRouter(CreateArt));
