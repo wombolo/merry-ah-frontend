@@ -46,9 +46,6 @@ class Comment extends Component {
   }
 
   handleEdit = (commentId) => {
-    // const commentData = {
-    //   body: this.state.editBody,
-    // };
     const editCommentData = {
       commentId,
       body: this.state.editBody,
@@ -56,7 +53,6 @@ class Comment extends Component {
       lastId: 200,
       limit: 10,
     };
-    // this.props.editComment(commentId, commentData);
     this.props.editComment(editCommentData);
   };
 
