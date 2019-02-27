@@ -19,7 +19,7 @@ const Routes = () => (
         <Route path="/auth" component={VerifySocialAuthToken}></Route>
         <GuestRoute exact path="/login" component={Login}></GuestRoute>
         <GuestRoute exact path="/register" component={SignUp}></GuestRoute>
-        <GuestRoute exact path="/arts/:slug" component={SingleArt}></GuestRoute>
+        <Route exact path="/arts/:slug" component={SingleArt}></Route>
         <PrivateRoute path="/profile" component={Profile}></PrivateRoute>
         <Route component={NotFound}></Route>
     </Switch>
