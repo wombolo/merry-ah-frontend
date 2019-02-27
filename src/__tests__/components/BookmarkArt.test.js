@@ -12,9 +12,6 @@ describe('Bookmark Component', () => {
     <MemoryRouter><BookmarkArt {...bookmarkProps}/></MemoryRouter>,
     );
   });
-  it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
   it('should call renderBookmarkMethod', () => {
     const bookMarkArtInstance = wrapper.find('BookmarkArt');
     sinon.spy(bookMarkArtInstance.instance(), 'renderBookmartArt');
