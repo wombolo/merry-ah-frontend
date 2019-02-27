@@ -18,5 +18,13 @@ const signUpProps = {
   },
   signUp: () => null
 };
-
-export {loginProps, signUpProps};
+const bookmarkProps = {
+  bookmark: {
+    isFetching: true,
+    bookmarks: {
+      data: ['addsadd', 'test']
+    }
+  },
+  getBookmarkArt: jest.fn(),
+}
+export {loginProps, signUpProps, bookmarkProps };

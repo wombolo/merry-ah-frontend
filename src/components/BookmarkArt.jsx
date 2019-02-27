@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import { getBookmarkArt } from '../actions/bookmarkActions';
 
 /** Bookmark Component */
-class BookmarkArt extends Component {
-/**
+export class BookmarkArt extends Component {
+  /**
    * @description fetch bookmark arts when the component
    * is already mounted on the DOM
    * @returns {method} returns the getBookmarkArt method

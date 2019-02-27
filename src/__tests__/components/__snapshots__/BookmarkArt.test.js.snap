@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bookmark Component should match snapshot 1`] = `
+<MemoryRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "2q7vyy",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "2q7vyy",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <BookmarkArt
+      bookmark={
+        Object {
+          "bookmarks": Object {
+            "data": Array [
+              "addsadd",
+              "test",
+            ],
+          },
+          "isFetching": true,
+        }
+      }
+      getBookmarkArt={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="bookmark"
+        >
+          <p>
+            Loading Bookmarks....
+          </p>
+        </div>
+      </div>
+    </BookmarkArt>
+  </Router>
+</MemoryRouter>
+`;
