@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { signUp } from '../../actions/authActions';
 import Notify from "../../utils/Notify";
 import validatePassword from "../../utils/validatePassword";
+import SocialAuth from '../SocialAuth.jsx';
 
 /**
  * @param {function} event
@@ -12,9 +13,9 @@ import validatePassword from "../../utils/validatePassword";
  */
 export class SignUp extends Component {
   state = {
-    firstName:'',
-    lastName:'',
-    username:'',
+    firstName: '',
+    lastName: '',
+    username: '',
     email: '',
     confirm_email: '',
     password: '',
@@ -33,7 +34,7 @@ export class SignUp extends Component {
       userType: this.state.userType,
     };
 
-    if (!validatePassword(userData.password)){
+    if (!validatePassword(userData.password)) {
       Notify.notifyError('Please use a stronger password that contains a number and is 5 letters long');
     }
     else {
@@ -54,6 +55,10 @@ export class SignUp extends Component {
    *  @returns {JSX} jsx
    */
   render() {
+    const providers = [
+      { id: 1, name: 'facebook', class: 'auth-icons facebook-square mr-1' },
+      { id: 2, name: 'twitter', class: 'auth-icons twitter-square mr-1' },
+      { id: 3, name: 'google', class: 'auth-icons google-plus-square' }];
     return (
       <div id="page-background">
         <div className="container">
@@ -76,46 +81,46 @@ export class SignUp extends Component {
                   <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                       <input type="text" placeholder="Firstname" className="my-form-control firstName"
-                             name="firstName" required={true}
-                             onChange={this.handleChange}
-                             value={this.state.firstName}
+                        name="firstName" required={true}
+                        onChange={this.handleChange}
+                        value={this.state.firstName}
                       />
                     </div>
                     <div className="form-group">
                       <input type="text" placeholder="Lastname" className="my-form-control"
-                             name="lastName" required={true}
-                             onChange={this.handleChange}
-                             value={this.state.lastName}/>
+                        name="lastName" required={true}
+                        onChange={this.handleChange}
+                        value={this.state.lastName} />
                     </div>
 
                     <div className="form-group">
                       <input type="text" placeholder="Username" className="my-form-control"
-                             name="username" required={true}
-                             onChange={this.handleChange}
-                             value={this.state.username}/>
+                        name="username" required={true}
+                        onChange={this.handleChange}
+                        value={this.state.username} />
                     </div>
 
                     <div className="form-group">
                       <input type="email" placeholder="Email" className="my-form-control"
-                             name="email" required={true}
-                             onChange={this.handleChange}
-                             value={this.state.email}
+                        name="email" required={true}
+                        onChange={this.handleChange}
+                        value={this.state.email}
                       />
                     </div>
 
                     <div className="form-group">
                       <input type="email" placeholder="Confirm Email" className="my-form-control"
-                             name="confirm_email" required={true}
-                             onChange={this.handleChange}
-                             value={this.state.confirm_email}
+                        name="confirm_email" required={true}
+                        onChange={this.handleChange}
+                        value={this.state.confirm_email}
                       />
                     </div>
 
                     <div className="form-group">
                       <input type="password" placeholder="Password" className="my-form-control"
-                             name="password" required={true}
-                             onChange={this.handleChange}
-                             value={this.state.password}
+                        name="password" required={true}
+                        onChange={this.handleChange}
+                        value={this.state.password}
                       />
                     </div>
 
@@ -123,16 +128,16 @@ export class SignUp extends Component {
                       <label className="form-check-label">Select a User Account Type</label>
                       <div className="form-check">
                         <input type="radio" value="artist" className="form-check-input"
-                               name="userType" required={true}
-                               onChange={this.handleChange}/>
+                          name="userType" required={true}
+                          onChange={this.handleChange} />
 
                         <label className="form-check-label">Artist</label>
                       </div>
 
                       <div className="form-check">
                         <input type="radio" value="user" className="form-check-input"
-                               name="userType"
-                               onChange={this.handleChange}/>
+                          name="userType"
+                          onChange={this.handleChange} />
 
                         <label className="form-check-label">User</label>
                       </div>
@@ -153,9 +158,12 @@ export class SignUp extends Component {
 
                 <div className="row pb-3">
                   <div className="col-4 offset-4 text-right d-inline-flex pl-2 pr-2">
-                    <div className="auth-icons facebook-square mr-1">&nbsp;</div>
-                    <div className="auth-icons twitter-square mr-1">&nbsp;</div>
-                    <div className="auth-icons google-plus-square">&nbsp;</div>
+                    {providers.map(provider => <SocialAuth
+                      provider={provider.name}
+                      key={provider.id}
+                      myClass={provider.class}
+                    />)
+                    }
                   </div>
                 </div>
               </div>
@@ -164,16 +172,16 @@ export class SignUp extends Component {
           </div>
         </div>
       </div>
-  );
+    );
   }
-  }
-  SignUp.propTypes = {
-    auth: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-    signUp: PropTypes.func.isRequired,
-  };
-  export const mapStateToProps = state => ({
-    auth: state.auth,
-  });
+}
+SignUp.propTypes = {
+  auth: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  signUp: PropTypes.func.isRequired,
+};
+export const mapStateToProps = state => ({
+  auth: state.auth,
+});
 
-  export default connect(mapStateToProps, { signUp })(withRouter(SignUp));
+export default connect(mapStateToProps, { signUp })(withRouter(SignUp));

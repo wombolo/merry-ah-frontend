@@ -221,6 +221,40 @@ it('should reset slides if activeList is 2', () => {
     ],
     activeList: [
       {
+        objectID: 7,
+        url: '../assets/images/7.jpg',
+        title: 'Best Coder alive',
+        category: 'mosaic',
+      },
+      {
+        objectID: 8,
+        url: '../assets/images/8.jpg',
+        title: 'Fifa e-world cup',
+        category: 'mosaic',
+      },
+      {
+        objectID: 9,
+        url: '../assets/images/9.jpg',
+        title: 'Perfection at its peak',
+        category: 'mosaic',
+      },
+    ],
+  };
+  const action = {
+    type: SET_NEXT_SLIDE,
+  };
+
+  const newState = featureReducer(initialState, action);
+  expect(initialState.activeList.length).toEqual(3);
+  expect(newState.activeList.length).toEqual(3);
+  expect(newState.activeList[0]).toEqual(initialState.artList[7]);
+  expect(newState.activeList[1]).toEqual(initialState.artList[8]);
+  expect(newState.activeList[2]).toEqual(initialState.artList[0]);
+});
+it('should reset slides at last index', () => {
+  const initialState = {
+    artList: [
+      {
         objectID: 1,
         url: '../assets/images/1.jpg',
         title: 'Do you love art',
@@ -232,14 +266,76 @@ it('should reset slides if activeList is 2', () => {
         title: 'Cirrhosis of the sky',
         category: 'freehand_sketch',
       },
+      {
+        objectID: 3,
+        url: '../assets/images/3.jpg',
+        title: 'Walkers Short Bread',
+        category: 'mosaic',
+      },
+      {
+        objectID: 4,
+        url: '../assets/images/4.jpg',
+        title: 'How to have a blast',
+        category: 'mosaic',
+      },
+      {
+        objectID: 5,
+        url: '../assets/images/5.jpg',
+        title: 'Debugging best practices',
+        category: 'mosaic',
+      },
+      {
+        objectID: 6,
+        url: '../assets/images/6.jpg',
+        title: 'Fast and furious remake',
+        category: 'mosaic',
+      },
+      {
+        objectID: 7,
+        url: '../assets/images/7.jpg',
+        title: 'Best Coder alive',
+        category: 'mosaic',
+      },
+      {
+        objectID: 8,
+        url: '../assets/images/8.jpg',
+        title: 'Fifa e-world cup',
+        category: 'mosaic',
+      },
+      {
+        objectID: 9,
+        url: '../assets/images/9.jpg',
+        title: 'Perfection at its peak',
+        category: 'mosaic',
+      },
+    ],
+    activeList: [
+      {
+        objectID: 8,
+        url: '../assets/images/8.jpg',
+        title: 'Fifa e-world cup',
+        category: 'mosaic',
+      },
+      {
+        objectID: 9,
+        url: '../assets/images/9.jpg',
+        title: 'Perfection at its peak',
+        category: 'mosaic',
+      },
+      {
+        objectID: 1,
+        url: '../assets/images/1.jpg',
+        title: 'Do you love art',
+        category: 'painting',
+      },
     ],
   };
   const action = {
     type: SET_NEXT_SLIDE,
   };
-  
+
   const newState = featureReducer(initialState, action);
-  expect(initialState.activeList.length).toEqual(2);
+  expect(initialState.activeList.length).toEqual(3);
   expect(newState.activeList.length).toEqual(3);
   expect(newState.activeList[0]).toEqual(initialState.artList[0]);
   expect(newState.activeList[1]).toEqual(initialState.artList[1]);
