@@ -15,13 +15,14 @@ import './assets/scss/footer.scss';
 import './assets/scss/featuredarts.scss';
 import './assets/scss/showcase.scss';
 import './assets/scss/categories.scss';
+import './assets/scss/single-art.scss';
 import './assets/scss/sideBar.scss';
 import './assets/scss/profile.scss';
 
 
 ReactDOM.render(
-    <Provider store={store}>
-    <App />
-    </Provider>,
-    document.getElementById('app'),
+  <Provider store={store}>
+      <App />
+  </Provider>,
+  document.getElementById('app'),
 );

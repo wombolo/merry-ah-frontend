@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { basePath } from '../utils/basePath';
-import { GET_SINGLE_ART, SET_USER_ERROR } from './types';
+import { GET_SINGLE_ART, SET_USER_ERROR, DELETE_SINGLE_ART } from './types';
 import Notify from '../utils/Notify';
 
 export const setUserError = error => ({
@@ -24,17 +24,22 @@ export const getSingleArt = slug => async (dispatch) => {
 };
 
 export const deleteSingleArt = slug => async (dispatch) => {
+
   try {
-    const art = await axios.delete(`${basePath}/arts/${slug}`,
+    await axios.delete(`${basePath}/arts/${slug}`,
       {
         headers: {
-          "x-access-token": localStorage.getItem('authToken')
-        }
+          'x-access-token': localStorage.getItem('authToken'),
+        },
       });
+    console.log('---->>>');
+
+    dispatch(() => ({ type: DELETE_SINGLE_ART }));
     await Notify.notifySuccess('Art deleted successfully');
     window.location.replace('/arts');
-
   } catch (error) {
-    Notify.notifyError('Unable to complete this request. Please try again later.');
+    Notify.notifyError(
+      'Unable to complete this request. Please try again later.',
+    );
   }
 };
