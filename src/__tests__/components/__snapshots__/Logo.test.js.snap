@@ -4,15 +4,14 @@ exports[`Logo Component should match snapshot 1`] = `
 <NavLink
   activeClassName="active"
   aria-current="page"
-  className="navbar-brand col-lg-2 logo pull-left w-50 p-0"
+  className="navbar-brand col-lg-2 logo pull-left w-50"
   id="brand-logo"
   to="/"
 >
   <img
     alt="logo"
-    className="w-25"
+    className="w-50"
     src="../assets/images/artcave-logo.png"
   />
-  artCave
 </NavLink>
 `;
