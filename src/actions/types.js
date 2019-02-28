@@ -5,3 +5,4 @@ export const SET_USER_REQUEST = 'SET_USER_REQUEST';
 export const SET_INIT_SLIDE = 'SET_INIT_SLIDE';
 export const SET_NEXT_SLIDE = 'SET_NEXT_SLIDE';
 export const SET_PREVIOUS_SLIDE = 'SET_PREVIOUS_SLIDE';
+export const SET_ALL_ART = 'SET_ALL_ART';
