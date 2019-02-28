@@ -38,6 +38,9 @@ exports[`Routes Component should match snapshot 1`] = `
   <Connect(GuestRoute)
     component={[Function]}
     path="/complete-password-reset"
+  <Connect(PrivateRoute)
+    component={[Function]}
+    path="/create-art"
   />
   <Route
     component={[Function]}

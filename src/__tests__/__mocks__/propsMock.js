@@ -24,4 +24,18 @@ const signUpProps = {
   signUp: () => null,
 };
 
-export { loginProps, signUpProps };
+const createArtProps = {
+  artProps: {
+    files: [],
+    isLoading: true,
+    categories: [],
+    error: '',
+  },
+  history: {
+    push: () => null,
+  },
+  handleUploadImages: () => null,
+  getCategories: () => null,
+};
+
+export { loginProps, signUpProps, createArtProps };

@@ -12,6 +12,7 @@ import ForgotPassword from './ForgotPassword.jsx';
 import CompletePasswordReset from './CompletePasswordReset.jsx';
 import SignUp from './authentication/SignUp.jsx';
 import VerifySocialAuthToken from './VerifySocialAuthToken.jsx';
+import CreateArt from './CreateArt.jsx';
 
 const Routes = () => (
     <Switch>
@@ -25,6 +26,7 @@ const Routes = () => (
         component={ForgotPassword}></GuestRoute>
         <GuestRoute path="/complete-password-reset"
         component={CompletePasswordReset}></GuestRoute>
+        <PrivateRoute path="/create-art" component={CreateArt}/>
         <Route component={NotFound}></Route>
     </Switch>
 );

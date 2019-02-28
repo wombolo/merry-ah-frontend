@@ -11,7 +11,7 @@ exports[`Logo Component should match snapshot 1`] = `
   <img
     alt="logo"
     className="w-25"
-    src="../assets/images/artcave-logo.png"
+    src="test-file-stub"
   />
   artCave
 </NavLink>
