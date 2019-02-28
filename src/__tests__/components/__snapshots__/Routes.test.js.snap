@@ -11,6 +11,10 @@ exports[`Routes Component should match snapshot 1`] = `
     component={[Function]}
     path="/art/:category"
   />
+  <Route
+    component={[Function]}
+    path="/auth"
+  />
   <Connect(GuestRoute)
     component={[Function]}
     exact={true}

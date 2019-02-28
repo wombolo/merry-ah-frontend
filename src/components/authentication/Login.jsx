@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { loginUser } from '../../actions/authActions';
+import SocialAuth from '../SocialAuth.jsx';
 
 /**
  * @param {function} event
@@ -33,6 +34,10 @@ export class Login extends Component {
    *  @returns {JSX} jsx
    */
   render() {
+    const providers = [
+      { id: 1, name: 'facebook', class: 'auth-icons facebook-square mr-1' },
+      { id: 2, name: 'twitter', class: 'auth-icons twitter-square mr-1' },
+      { id: 3, name: 'google', class: 'auth-icons google-plus-square' }];
     return (
       <div id="page-background">
         <div className="container">
@@ -102,10 +107,12 @@ export class Login extends Component {
                 <div className="row pb-3">
                   <div
                   className="col-4 offset-4 text-right d-inline-flex pl-2 pr-2">
-                    <div
-                    className="auth-icons facebook-square mr-1">&nbsp;</div>
-                    <div className="auth-icons twitter-square mr-1">&nbsp;</div>
-                    <div className="auth-icons google-plus-square">&nbsp;</div>
+                    {providers.map(provider => <SocialAuth
+                      provider={provider.name}
+                      key={provider.id}
+                      myClass={provider.class}
+                    />)
+                    }
                   </div>
                 </div>
               </div>
