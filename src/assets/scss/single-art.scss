@@ -1,0 +1,243 @@
+$primary-color: #06a5ff;
+$regular-font: 'Poppins';
+
+.single-art-banner {
+  height: 400px;
+  background-image: url(../images/single-art.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-attachment: fixed;
+  padding: 50px;
+  padding-top: 150px;
+}
+
+.label {
+  position: absolute;
+  background-color: $primary-color;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 13px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.art-details .title {
+  padding-top: 40px;
+  color: #ffffff;
+}
+
+.clear {
+  clear: both;
+}
+
+.thumbnails {
+  margin-top: 20px;
+}
+
+.thumbnail {
+  float: left;
+  margin-right: 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.thumbnail img {
+  height: 100px;
+}
+
+#single-art-content {
+  padding: 50px;
+}
+
+.art-left {
+  width: 65%;
+  float: left;
+}
+
+.art-right {
+  width: 30%;
+  float: right;
+}
+
+.art-reactions ul li {
+  display: inline;
+  margin-right: 40px;
+}
+
+.art-reactions ul li span {
+  margin-right: 5px;
+}
+
+.videoPreview {
+  height: 400px;
+  background-image: url(../images/video-preview.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.25);
+}
+
+.art-description {
+  margin-top: 30px;
+  font-family: 'PT Serif', serif;
+}
+
+.rate-section {
+  margin-top: 30px;
+}
+
+.comment-section, .sub-comments {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.comment-section textarea {
+  background-color: #eeeeee;
+  width: 500px;
+  height: 150px;
+  padding: 10px;
+  border: none;
+  resize: none;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.comment-button {
+  background: $primary-color;
+  width: auto;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  color: #ffffff;
+  border: 1px solid transparent;
+  margin-bottom: 15px;
+  padding: 7px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: $regular-font;
+  font-size: 14px;
+  transition: 0.3s all;
+}
+
+.comment-button:hover {
+  background-color: #ffffff;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+}
+
+.comment-thumbnail {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 15px;
+}
+
+.single-comment-details h6 {
+  margin-bottom: 0;
+  font-size: 15px;
+}
+
+.single-comment-details small {
+  color: #aaaaaa;
+  font-size: 12px;
+}
+
+.single-comment-details p small {
+  margin-left: 10px;
+}
+
+.single-comment-details p a {
+  font-family: $regular-font;
+  font-size: 12px;
+}
+
+.art-right-cards {
+  margin-top: 22px;
+}
+
+.art-right-cards .item {
+  width: 300px;
+  height: 200px;
+  background-blend-mode: multiply;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 5px;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-props {
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 20px;
+}
+
+.card-label {
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.card-date {
+  margin-top: 6px;
+  margin-left: 180px;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/** Responsiveness **/
+
+@media (max-width: 500px) {
+  .single-art-banner {
+    width: 100%;
+    height: 350px;
+    padding: 30px;
+    padding-top: 150px;
+  }
+
+  .art-left, .art-right {
+    width: 100%;
+    float: unset;
+  }
+  
+  .comment-section textarea {
+    width: 100%;
+  }
+
+  #single-art-content {
+    padding: 30px;
+  }
+
+  .thumbnail img {
+    height: 40px;
+  }
+
+  .art-details .title h2 {
+    font-size: 22px;
+  }
+
+  .art-details .title h6 {
+    font-size: 13px;
+  }
+
+  .art-details .title {
+    padding-top: 50px;
+  }
+
+  .thumbnails {
+    margin-top: 30px;
+  }
+
+  .videoPreview {
+    height: 300px;
+  }
+
+  .art-reactions ul li {
+    margin-right: 10px;
+  }
+
+  .art-right-cards .item {
+    width: 100%;
+  }
+}

@@ -16,6 +16,7 @@ import './assets/scss/forgotPassword.scss';
 import './assets/scss/featuredarts.scss';
 import './assets/scss/showcase.scss';
 import './assets/scss/categories.scss';
+import './assets/scss/single-art.scss';
 import './assets/scss/sideBar.scss';
 import './assets/scss/profile.scss';
 import './assets/scss/createArt.scss';

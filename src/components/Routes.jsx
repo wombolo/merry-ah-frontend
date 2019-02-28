@@ -11,6 +11,7 @@ import GuestRoute from './GuestRoute.jsx';
 import ForgotPassword from './ForgotPassword.jsx';
 import CompletePasswordReset from './CompletePasswordReset.jsx';
 import SignUp from './authentication/SignUp.jsx';
+import SingleArt from './SingleArt.jsx';
 import VerifySocialAuthToken from './VerifySocialAuthToken.jsx';
 import CreateArt from './CreateArt.jsx';
 
@@ -20,7 +21,8 @@ const Routes = () => (
         <Route path="/art/:category" component={DisplayArt}></Route>
         <Route path="/auth" component={VerifySocialAuthToken}></Route>
         <GuestRoute exact path="/login" component={Login}></GuestRoute>
-        <GuestRoute exact path="/register" component={SignUp}> </GuestRoute>
+        <GuestRoute exact path="/register" component={SignUp}></GuestRoute>
+        <Route exact path="/arts/:slug" component={SingleArt}></Route>
         <PrivateRoute path="/profile" component={Profile}></PrivateRoute>
         <GuestRoute path="/forgot-password"
         component={ForgotPassword}></GuestRoute>
