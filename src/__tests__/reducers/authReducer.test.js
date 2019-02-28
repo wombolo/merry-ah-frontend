@@ -1,7 +1,8 @@
 import authReducer from '../../reducers/authReducer';
 import {
-  SET_CURRENT_USER, SET_USER_ERROR, SET_USER_REQUEST,
+  SET_CURRENT_USER, SET_USER_ERROR, SET_USER_REQUEST, RESET_PASSWORD_EMAIL,
 } from '../../actions/types';
+import { loginMockData as mockData } from '../__mocks__/userMock';
 
 it('should handle action handle action of type GET_PRODUCTS', () => {
   const action = {
@@ -34,4 +35,13 @@ it('should handle type SET_USER_REQUEST', () => {
   };
   const newState = authReducer(false, action);
   expect(newState.isLoading).toBe(true);
+});
+it('should handle type RESET_PASSWORD_EMAIL', () => {
+  const { resetEmailResponse } = mockData;
+  const action = {
+    type: RESET_PASSWORD_EMAIL,
+    payload: resetEmailResponse,
+  };
+  const newState = authReducer({}, action);
+  expect(newState.response).toEqual(action.payload);
 });

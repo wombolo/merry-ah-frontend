@@ -6,7 +6,12 @@ const loginProps = {
   history: {
     push: () => null,
   },
-  signUp: () => null
+  sendResetPasswordEmail: () => null,
+  completePasswordReset: () => null,
+  location: {
+    search: {},
+  },
+  signUp: () => null,
 };
 
 const signUpProps = {
@@ -16,7 +21,7 @@ const signUpProps = {
   history: {
     push: () => null,
   },
-  signUp: () => null
+  signUp: () => null,
 };
 
-export {loginProps, signUpProps};
+export { loginProps, signUpProps };

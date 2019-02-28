@@ -6,10 +6,19 @@ import jwt_decode from 'jwt-decode';
 import moxios from 'moxios';
 import Axios from 'axios';
 import localStorageMock from '../__mocks__/localStorageMock';
-import {loginMockData as mockData, signUpMockData} from '../__mocks__/userMock';
-import { SET_CURRENT_USER, SET_USER_ERROR } from '../../actions/types';
+import { loginMockData as mockData, signUpMockData } from '../__mocks__/userMock';
 import {
-  setCurrentUser, setUserRequest, setUserError, loginUser,
+  SET_CURRENT_USER,
+  SET_USER_ERROR,
+  RESET_PASSWORD_EMAIL
+} from '../../actions/types';
+import {
+  setCurrentUser,
+  setUserRequest,
+  setUserError,
+  loginUser,
+  setPasswordResetEmail,
+  sendResetPasswordEmail,
 } from '../../actions/authActions';
 import basePath from '../../utils/basePath';
 
@@ -73,9 +82,63 @@ it('creates SET_USER_ERROR', async () => {
   expect(store.getActions()[0].type).toEqual(expectedActions.type);
   expect(store.getActions()[0].payload).toEqual('holy moly');
 });
-
-
-
+it('creates RESET_PASSWORD_EMAIL', async () => {
+  const { resetEmailResponse } = mockData;
+  moxios.stubRequest(`${basePath}/api/v1/auth/forgot-password`, {
+    status: 200,
+    resetEmailResponse,
+  });
+  const expectedActions = { type: RESET_PASSWORD_EMAIL };
+  await store.dispatch(setPasswordResetEmail(resetEmailResponse));
+  expect(store.getActions()[0].type).toEqual(expectedActions.type);
+  expect(store.getActions()[0].payload).toEqual(resetEmailResponse);
+});
+it('sends password reset mail', (done) => {
+  const { resetEmail, resetEmailResponse } = mockData;
+  moxios.stubRequest(`${basePath}/api/v1/auth/forgot-password`, {
+    status: 200,
+    response: resetEmailResponse,
+  });
+  const expectedActions = [{
+    type: RESET_PASSWORD_EMAIL,
+    response: resetEmailResponse.data,
+  }];
+  Axios.post(`${basePath}/api/v1/auth/forgot-password`, resetEmail)
+    .then(res => expect(resetEmailResponse.data.token).toBe(res.data.data.token));
+  store.dispatch(sendResetPasswordEmail(resetEmail));
+  expect(resetEmailResponse.data.token).toBeTruthy();
+  expect(expectedActions[0].response.messages).toEqual(resetEmail.messages);
+  done();
+});
+it('completes password reset', (done) => {
+  const { passwordReset, resetEmailResponse, passwordResetResponse } = mockData;
+  moxios.stubRequest(`${basePath}/api/v1/auth/forgot-password`, {
+    status: 200,
+    response: passwordResetResponse,
+  });
+  Axios.put(`${basePath}/api/v1/auth/forgot-password`, passwordReset, {
+    headers: {
+      'x-access-token': resetEmailResponse.data.token,
+    },
+  })
+    .then(() => expect(passwordResetResponse.messages)
+      .toBe('Password successfully updated'));
+  done();
+});
+it('should not complete password reset', async (done) => {
+  const { passwordReset, noTokenError } = mockData;
+  moxios.stubRequest(`${basePath}/api/v1/auth/forgot-password`, {
+    status: 401,
+    response: noTokenError,
+  });
+  try {
+    await Axios.put(`${basePath}/api/v1/auth/forgot-password`, passwordReset);
+  } catch (err) {
+    expect(noTokenError.message).toBe(err.response.data.message);
+    store.dispatch(setUserError(err.response.data.message));
+  }
+  done();
+});
 it('creates SET_USER_REQUEST on signup', async () => {
   const action = await store.dispatch(setUserRequest());
   expect(store.getActions()[0].type).toEqual(action.type);
@@ -112,9 +175,6 @@ it('Simulate Sign up', (done) => {
   expect(expectedActions[0].user.registeredEmail).toEqual(signUpData.email);
   done();
 });
-
-
-
 it('creates SET_USER_ERROR on signup', async () => {
   moxios.stubRequest(`${basePath}/api/v1/auth/signup`, {
     status: 400,

@@ -4,7 +4,10 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'babel-polyfill', './src/index.jsx', 'font-awesome/scss/font-awesome.scss'],
+    'babel-polyfill',
+    './src/index.jsx',
+    'font-awesome/scss/font-awesome.scss',
+  ],
   module: {
     rules: [
       {

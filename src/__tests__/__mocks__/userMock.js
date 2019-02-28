@@ -16,15 +16,44 @@ const loginMockData = {
     email: 'email1@gmail.com',
     password: 'abcdefgh',
   },
+  resetEmail: {
+    email: 'danny@gmail.com',
+  },
+  resetEmailResponse: {
+    status: 'Ok',
+    code: 200,
+    messages: 'Email sent successfully',
+    data: {
+      token:
+      `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6
+      MTQsImVtYWlsIjoiZGFuaWVsY2hpZGllYmVsZUBnbWFpbC
+      5jb20iLCJ1c2VybmFtZSI6IkRhbm55IiwiaWF0IjoxNTUw
+      NDUxNjcxLCJleHAiOjE1NTA0NTUyNzF9.Eyvu6ppkXzUHO
+      u2xXwxQzNyh8hmeege7TVUP1YIp1Yg`,
+    },
+  },
+  passwordReset: {
+    password: 'qwertyuiop',
+    confirmPassword: 'qwertyuiop',
+  },
+  passwordResetResponse: {
+    status: 'Ok',
+    code: 200,
+    messages: 'Password successfully updated',
+  },
+  noTokenError: {
+    status: 'error',
+    message: 'No token provided',
+  },
 };
 
 const signUpMockData = {
   authResponse: {
-    "status": "Ok",
-    "code": 201,
-    "messages": "User created successfully and verification link sent to your Email",
-    "data": {
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJlZ2lzdGVyZWRVc2VybmFtZSI6InNsaWNrMDA3IiwicmVnaXN0ZXJlZEVtYWlsIjoiZG1vcm9kb2x1QGljbG91ZC5jb21tbSIsInVzZXJTaWdudXBUeXBlIjoiYXJ0aXN0IiwidXNlclR5cGUiOiJhcnRpc3QiLCJpc0FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNTUwMTYyNzQ2LCJleHAiOjE1NTAxOTg3NDZ9.DprH5C0k5dU0zwU7xIzThk0P-Wo6rRdbeshZ0_qehS0"
+    status: "Ok",
+    code: 201,
+    messages: "User created successfully and verification link sent to your Email",
+    data: {
+      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInJlZ2lzdGVyZWRVc2VybmFtZSI6InNsaWNrMDA3IiwicmVnaXN0ZXJlZEVtYWlsIjoiZG1vcm9kb2x1QGljbG91ZC5jb21tbSIsInVzZXJTaWdudXBUeXBlIjoiYXJ0aXN0IiwidXNlclR5cGUiOiJhcnRpc3QiLCJpc0FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNTUwMTYyNzQ2LCJleHAiOjE1NTAxOTg3NDZ9.DprH5C0k5dU0zwU7xIzThk0P-Wo6rRdbeshZ0_qehS0"
     }
   },
   signUpData: {

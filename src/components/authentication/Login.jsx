@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { loginUser } from '../../actions/authActions';
 import SocialAuth from '../SocialAuth.jsx';
 
@@ -13,6 +13,7 @@ export class Login extends Component {
   state = {
     email: '',
     password: '',
+    resetEmail: '',
   };
 
   handleSubmit = (event) => {
@@ -97,9 +98,12 @@ export class Login extends Component {
                     </div>
                   </form>
                   <p>
-                    <a href={'#'}
-                       className="text-center text-light text-poppins">
-                       Forgot Password?</a>
+                    <Link
+                      to="/forgot-password"
+                      className="text-center text-light text-poppins"
+                    >
+                      Forgot Password?
+                    </Link>
                   </p>
 
                   <p className="text-center text-light">Login with Social</p>
@@ -133,4 +137,5 @@ export const mapStateToProps = state => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { loginUser })(withRouter(Login));
+export default connect(mapStateToProps,
+  { loginUser })(withRouter(Login));
