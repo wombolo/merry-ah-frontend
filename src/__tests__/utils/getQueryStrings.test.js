@@ -5,8 +5,8 @@ it('should return an object with query strings ', () => {
   const response = getQueryStrings(url);
   expect(response.token).toEqual('mytoken');
 });
-it('should return false ', () => {
+it('should return empty object ', () => {
   const url = 'sdsdsds';
   const response = getQueryStrings(url);
-  expect(response).toEqual(false);
+  expect(response).toEqual({});
 });

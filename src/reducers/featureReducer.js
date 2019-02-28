@@ -24,12 +24,6 @@ function featureReducer(state = initialState, action) {
       };
     }
     case SET_NEXT_SLIDE: {
-      if (state.activeList.length === 2) {
-        return {
-          ...state,
-          activeList: state.artList.slice(0, 3),
-        };
-      }
       const secondItem = state.activeList[1].objectID;
 
       /**
@@ -38,6 +32,26 @@ function featureReducer(state = initialState, action) {
        */
       const found = state.artList
         .findIndex(element => element.objectID === secondItem);
+      const lastItemActiveList = state.activeList[state.activeList.length - 1];
+      const lastItemArtList = state.artList[state.artList.length - 1];
+
+      if (lastItemActiveList.objectID === lastItemArtList.objectID) {
+        return {
+          ...state,
+          activeList: [
+            ...state.artList.slice(found, found + 3),
+            state.artList[0],
+          ],
+        };
+      }
+
+      if (state.activeList[2].objectID === state.artList[0].objectID) {
+        return {
+          ...state,
+          activeList: state.artList.slice(0, 3),
+        };
+      }
+
       return {
         ...state,
         activeList: state.artList.slice(found, found + 3),

@@ -1,17 +1,17 @@
 const getQueryStrings = (url) => {
-  const obj = {};
-  if (url.indexOf('?') < 0) {
-    return false;
-  }
+  const queryStringObj = {};
   if (!url) {
-    return false;
+    return {};
+  }
+  if (url.indexOf('?') < 0) {
+    return {};
   }
   const getParams = url.split('?')[1].split('&');
   getParams.forEach((element) => {
     const [key, value] = element.split('=');
-    obj[key] = value;
+    queryStringObj[key] = value;
   });
-  return obj;
+  return queryStringObj;
 };
 
 export default getQueryStrings;
