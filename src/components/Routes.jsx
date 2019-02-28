@@ -14,6 +14,7 @@ import SignUp from './authentication/SignUp.jsx';
 import SingleArt from './SingleArt.jsx';
 import VerifySocialAuthToken from './VerifySocialAuthToken.jsx';
 import CreateArt from './CreateArt.jsx';
+import BookmarkArt from './BookmarkArt.jsx';
 
 const Routes = () => (
     <Switch>
@@ -30,6 +31,7 @@ const Routes = () => (
         <GuestRoute path="/complete-password-reset"
         component={CompletePasswordReset}></GuestRoute>
         <PrivateRoute path="/create-art" component={CreateArt}/>
+        <PrivateRoute path="/bookmark" component={BookmarkArt}></PrivateRoute>
         <Route component={NotFound}></Route>
     </Switch>
 );

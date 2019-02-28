@@ -20,6 +20,7 @@ import './assets/scss/single-art.scss';
 import './assets/scss/sideBar.scss';
 import './assets/scss/profile.scss';
 import './assets/scss/createArt.scss';
+import './assets/scss/bookmarkArt.scss';
 
 
 ReactDOM.render(
