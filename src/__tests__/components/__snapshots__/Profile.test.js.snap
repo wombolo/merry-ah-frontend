@@ -1,7 +1,295 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Profile Component should match snapshot 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+exports[`ProfileBanner Component should match snapshot 1`] = `
+<MemoryRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "phq0ko",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "phq0ko",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Profile
+      auth={
+        Object {
+          "user": Object {
+            "id": 7,
+          },
+        }
+      }
+      editProfile={[Function]}
+      getUserArts={[Function]}
+      getUserProfile={[Function]}
+      user={
+        Object {
+          "isGettingArts": false,
+          "userArts": Array [
+            Object {
+              "Category": Object {
+                "categoryName": "Poetry",
+              },
+              "description": "some descriptions",
+              "featuredImg": "image.url",
+              "slug": "isuguixu",
+              "title": "some title",
+            },
+          ],
+          "userProfile": Object {
+            "id": 7,
+            "profile": Object {
+              "bio": "my bio",
+              "firstName": "Juliet",
+              "imgURL": "img.URL",
+              "lastName": "Ezekwe",
+            },
+            "userType": "artist",
+          },
+        }
+      }
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-2 p-0"
+        >
+          <SideBar>
+            <div
+              className="wrapper"
+            >
+              <nav
+                id="sidebar"
+              >
+                <ul
+                  className="list-unstyled components"
+                >
+                  <li
+                    className="active"
+                  >
+                    <a
+                      className="side"
+                    >
+                      <i
+                        className="fa fa-user"
+                      />
+                       My Page
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="side"
+                    >
+                      <i
+                        className="fa fa-cog"
+                      />
+                       Settings
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <div
+                className="clear-fix"
+              />
+            </div>
+          </SideBar>
+        </div>
+        <div
+          className="col-md-10 p-0"
+        >
+          <ProfileBanner
+            user={
+              Object {
+                "isGettingArts": false,
+                "userArts": Array [
+                  Object {
+                    "Category": Object {
+                      "categoryName": "Poetry",
+                    },
+                    "description": "some descriptions",
+                    "featuredImg": "image.url",
+                    "slug": "isuguixu",
+                    "title": "some title",
+                  },
+                ],
+                "userProfile": Object {
+                  "id": 7,
+                  "profile": Object {
+                    "bio": "my bio",
+                    "firstName": "Juliet",
+                    "imgURL": "img.URL",
+                    "lastName": "Ezekwe",
+                  },
+                  "userType": "artist",
+                },
+              }
+            }
+          >
+            <div
+              className="col-md-12 p-0"
+            >
+              <div
+                className="profile-banner"
+              >
+                <div
+                  id="profile-image"
+                >
+                  <div
+                    style={
+                      Object {
+                        "backgroundImage": "url(img.URL)",
+                        "backgroundPosition": "center center",
+                        "backgroundSize": "cover",
+                        "borderRadius": "50%",
+                        "height": "215px",
+                        "left": "2em",
+                        "position": "absolute",
+                        "width": "215px",
+                      }
+                    }
+                  >
+                    <h2
+                      style={
+                        Object {
+                          "margin": "2.5em 0px 0px 7em",
+                        }
+                      }
+                    >
+                      Juliet
+                      Ezekwe
+                       
+                    </h2>
+                  </div>
+                </div>
+                <Link
+                  replace={false}
+                  to="/profile/edit-profile"
+                >
+                  <a
+                    href="/profile/edit-profile"
+                    onClick={[Function]}
+                  >
+                    <button
+                      className="btn btn-primary btn-lg"
+                      id="edit-button"
+                      style={
+                        Object {
+                          "cursor": "pointer",
+                        }
+                      }
+                    >
+                      Edit Profile
+                    </button>
+                  </a>
+                </Link>
+              </div>
+              <div
+                className="row"
+              >
+                <div
+                  className="col-md-8"
+                >
+                   
+                </div>
+                <div
+                  className="col-md-4"
+                >
+                  <div
+                    id="aside"
+                  >
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="col-3 aside"
+                      >
+                         
+                        <strong>
+                          1
+                        </strong>
+                        <i
+                          className="aside-text"
+                        >
+                           Artworks
+                        </i>
+                         
+                      </div>
+                      <div
+                        className="col-3 aside"
+                      >
+                         
+                        <strong>
+                          253
+                        </strong>
+                        <i
+                          className="aside-text"
+                        >
+                           Followers
+                        </i>
+                      </div>
+                      <div
+                        className="col-3 aside"
+                      >
+                         
+                        <strong>
+                          93
+                        </strong>
+                        <i
+                          className="aside-text"
+                        >
+                           Following
+                        </i>
+                      </div>
+                      <div
+                        className="col-3 aside"
+                      >
+                         
+                        <strong>
+                          5
+                        </strong>
+                        <br />
+                        <i
+                          className="aside-text"
+                        >
+                           Sold
+                        </i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ProfileBanner>
+          <Switch />
+        </div>
+      </div>
+    </Profile>
+  </Router>
+</MemoryRouter>
 `;

@@ -37,7 +37,7 @@ export class Menu extends Component {
           </li>
           <li className="nav-item offset-md-5">
             <NavLink to="/profile"
-              id="nav-link">{auth.user.username}</NavLink>
+              id="nav-link">{auth.user.username.split(' ')[0]}</NavLink>
           </li>
           <li className="nav-item offset-md-1">
             <div className="dropdown">

@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileEdit Component should match snapshot 1`] = `
+<MemoryRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "ghr02j",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "ghr02j",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ProfileEdit
+      auth={
+        Object {
+          "user": Object {
+            "id": 7,
+          },
+        }
+      }
+      editProfile={[Function]}
+      getUserArts={[Function]}
+      getUserProfile={[Function]}
+      user={
+        Object {
+          "isGettingArts": false,
+          "userArts": Array [
+            Object {
+              "Category": Object {
+                "categoryName": "Poetry",
+              },
+              "description": "some descriptions",
+              "featuredImg": "image.url",
+              "slug": "isuguixu",
+              "title": "some title",
+            },
+          ],
+          "userProfile": Object {
+            "id": 7,
+            "profile": Object {
+              "bio": "my bio",
+              "firstName": "Juliet",
+              "imgURL": "img.URL",
+              "lastName": "Ezekwe",
+            },
+            "userType": "artist",
+          },
+        }
+      }
+    >
+      <div
+        className="p-2 m-3 col-12"
+      >
+        <div
+          className="row container"
+          id="art-list"
+        >
+          <p
+            className="profile-header col-6 offset-3 text-center mt-5"
+          >
+            Update Profile
+          </p>
+          <form
+            className="col-md-8 offset-2"
+          >
+            <div
+              className="form-group row"
+            >
+              <label
+                className="col-sm-2 col-form-label"
+                htmlFor="bio"
+              >
+                Biography
+              </label>
+              <div
+                className="col-sm-10"
+              >
+                <input
+                  className="form-control"
+                  id="bio"
+                  placeholder="Bio"
+                  type="text"
+                />
+              </div>
+            </div>
+            <fieldset
+              className="form-group"
+            >
+              <div
+                className="row"
+              >
+                <legend
+                  className="col-form-label col-sm-2 pt-1"
+                >
+                  User Type
+                </legend>
+                <div
+                  className="col-sm-10"
+                >
+                  <div
+                    className="form-check"
+                  >
+                    <input
+                      className="form-check-input"
+                      id="userType"
+                      name="gridRadios"
+                      type="radio"
+                      value="artist"
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="userType"
+                    >
+                      Artist
+                    </label>
+                  </div>
+                  <div
+                    className="form-check disabled"
+                  >
+                    <input
+                      className="form-check-input"
+                      id="userType"
+                      name="gridRadios"
+                      type="radio"
+                      value="user"
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="userType"
+                    >
+                      User
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <div
+              className="form-group row"
+            >
+              <label
+                className="col-sm-2 col-form-label"
+                htmlFor="image"
+              >
+                Image
+              </label>
+              <div
+                className="col-sm-10"
+              >
+                <input
+                  className="form-control"
+                  id="image"
+                  placeholder="Upload profile image"
+                  type="file"
+                />
+              </div>
+            </div>
+            <div
+              className="form-group row"
+            >
+              <button
+                className="btn btn-primary col-sm-10 offset-2"
+                type="submit"
+              >
+                Proceed
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </ProfileEdit>
+  </Router>
+</MemoryRouter>
+`;

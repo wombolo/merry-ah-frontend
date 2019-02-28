@@ -1,26 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import card1 from '../assets/images/card1.jpeg';
+import { Link } from 'react-router-dom';
 import startCount from '../utils/startCount';
 import counter from '../utils/counter';
-import like from '../assets/images/like.png';
-import comment from '../assets/images/comment.png';
+import likeCount from '../assets/images/like.png';
+import commentCount from '../assets/images/comment.png';
 /**
  * ArtList Component
  */
 /**
    * @param {function} render
    *  @returns {JSX} jsx
-   */
-const ArtList = ({ user, isGettingArts }) => (
-      <div className="row" id="art-list">
-        <p className="profile-header col-12">My Works</p>
-        { !isGettingArts && user.userArts.map((art, i) => (
-            <div key={i} className="col-3">
+*/
+const ArtList = ({ user }) => (
+     <div className='p-2 m-3 col-12'>
+
+      <div className="row container" id="art-list">
+        <p className="profile-header col-12 mt-5">My Works</p>
+        { !user.isGettingArts && user.userArts.map((art, i) => (
+            <div key={i} className="col-md-3 col-sm-12">
               <div
                 className="my-card"
                 style={{
-                  backgroundImage: `url(${card1})`,
+                  backgroundImage: `url(${art.featuredImg})`,
                   backgroundColor: 'rgba(0, 0, 0, 0.5)',
                 }}
               >
@@ -29,10 +31,10 @@ const ArtList = ({ user, isGettingArts }) => (
                   <div className="card-title">
                     <h6>
                       {' '}
-                      <a href=""> {art.title}</a>{' '}
+                      <Link to={`/arts/${art.slug}`}> {art.title}</Link>{' '}
                     </h6>
                     <p>
-                    {art.description}
+                    {art.description.replace('<p>', '').replace('</p>', '')}
                     </p>
                   </div>
                 </div>
@@ -40,10 +42,12 @@ const ArtList = ({ user, isGettingArts }) => (
               <div className="card-footer">
                 <div className="comments">
                   <p>
-                    <img src={like} alt="" /> {counter(art.LikesCount)}{' '}
+                    <img src={likeCount}
+                    alt="" /> {counter(art.LikesCount)}{' '}
                   </p>
                   <p>
-                    <img src={comment} alt="" /> {counter(art.CommentsCount)}{' '}
+                    <img src={commentCount}
+                    alt="" /> {counter(art.CommentsCount)}{' '}
                   </p>
                 </div>
                 <div className="ratings">
@@ -53,10 +57,14 @@ const ArtList = ({ user, isGettingArts }) => (
             </div>
         ))}
         </div>
+
+        </div>
 );
 
 ArtList.propTypes = {
-  user: PropTypes.object.isRequired,
-  isGettingArts: PropTypes.bool.isRequired,
+  user: PropTypes.shape({
+    userArts: PropTypes.array,
+    isGettingArts: PropTypes.bool.isRequired,
+  }),
 };
 export default ArtList;

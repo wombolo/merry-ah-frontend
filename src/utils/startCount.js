@@ -1,12 +1,13 @@
 import React from 'react';
 import emptyStar from '../assets/images/empty-star.png';
-import star from '../assets/images/star.png';
+import starRating from '../assets/images/star.png';
 
 const starCount = (count) => {
-  if (Math.floor(Number((count))) === 1) {
+  const number = Number(count);
+  if (number === 1) {
     return (
       <React.Fragment>
-        <img src={star} alt="" />
+        <img src={starRating} alt="" />
         <img src={emptyStar} alt="" />
         <img src={emptyStar} alt="" />
         <img src={emptyStar} alt="" />
@@ -14,47 +15,47 @@ const starCount = (count) => {
       </React.Fragment>
     );
   }
-  if (Math.floor(Number((count))) === 2) {
+  if (number === 2) {
     return (
       <React.Fragment>
-        <img src={star} alt="" />
-        <img src={star} alt="" />
+        <img src={starRating} alt="" />
+        <img src={starRating} alt="" />
         <img src={emptyStar} alt="" />
         <img src={emptyStar} alt="" />
         <img src={emptyStar} alt="" />
       </React.Fragment>
     );
   }
-  if (Math.floor(Number((count))) === 3) {
+  if (number === 3) {
     return (
       <React.Fragment>
-        <img src={star} alt="" />
-        <img src={star} alt="" />
-        <img src={star} alt="" />
+        <img src={starRating} alt="" />
+        <img src={starRating} alt="" />
+        <img src={starRating} alt="" />
         <img src={emptyStar} alt="" />
         <img src={emptyStar} alt="" />
       </React.Fragment>
     );
   }
-  if (Math.floor(Number((count))) === 4) {
+  if (number === 4) {
     return (
       <React.Fragment>
-        <img src={star} alt="" />
-        <img src={star} alt="" />
-        <img src={star} alt="" />
-        <img src={star} alt="" />
+        <img src={starRating} alt="" />
+        <img src={starRating} alt="" />
+        <img src={starRating} alt="" />
+        <img src={starRating} alt="" />
         <img src={emptyStar} alt="" />
       </React.Fragment>
     );
   }
-  if (Math.floor(Number((count))) === 5) {
+  if (number === 5) {
     return (
       <React.Fragment>
-        <img src={star} alt="" />
-        <img src={star} alt="" />
-        <img src={star} alt="" />
-        <img src={star} alt="" />
-        <img src={star} alt="" />
+        <img src={starRating} alt="" />
+        <img src={starRating} alt="" />
+        <img src={starRating} alt="" />
+        <img src={starRating} alt="" />
+        <img src={starRating} alt="" />
       </React.Fragment>
     );
   }

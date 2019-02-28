@@ -2,7 +2,9 @@
 
 exports[`App Component should match snapshot 1`] = `
 <BrowserRouter>
-  <div>
+  <div
+    className="w-100 overflow-hidden"
+  >
     <Connect(Menu) />
     <Routes />
     <Footer />

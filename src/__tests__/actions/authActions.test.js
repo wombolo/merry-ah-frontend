@@ -74,8 +74,6 @@ it('creates SET_USER_ERROR', async () => {
   expect(store.getActions()[0].payload).toEqual('holy moly');
 });
 
-
-
 it('creates SET_USER_REQUEST on signup', async () => {
   const action = await store.dispatch(setUserRequest());
   expect(store.getActions()[0].type).toEqual(action.type);

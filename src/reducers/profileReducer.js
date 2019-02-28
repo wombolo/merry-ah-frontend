@@ -5,11 +5,15 @@ import {
   GET_USER_ART_REQUEST,
   GET_USER_ART_SUCCESS,
   GET_USER_ART_ERROR,
+  EDIT_PROFILE_REQUEST,
+  EDIT_PROFILE_SUCCESS,
+  EDIT_PROFILE_ERROR,
 } from '../actions/types';
 
 const initialState = {
   isLoading: false,
   isGettingArts: true,
+  editProfileSuccess: {},
   userProfile: {},
   userArts: [],
   error: '',
@@ -51,6 +55,20 @@ export default function (state = initialState, action) {
       return {
         error: action.payload,
         isGettingArts: false,
+      };
+    case EDIT_PROFILE_REQUEST:
+      return {
+        isLoading: true,
+      };
+    case EDIT_PROFILE_SUCCESS:
+      return {
+        editProfileSuccess: action.payload,
+        isLoading: false,
+      };
+    case EDIT_PROFILE_ERROR:
+      return {
+        error: action.payload,
+        isLoading: false,
       };
     default:
       return state;

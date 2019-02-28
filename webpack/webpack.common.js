@@ -3,6 +3,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
 module.exports = {
+  output: {
+    publicPath: '/',
+  },
   entry: [
     'babel-polyfill', './src/index.jsx', 'font-awesome/scss/font-awesome.scss'],
   module: {
