@@ -15,11 +15,13 @@ import SingleArt from './SingleArt.jsx';
 import VerifySocialAuthToken from './VerifySocialAuthToken.jsx';
 import CreateArt from './CreateArt.jsx';
 import BookmarkArt from './BookmarkArt.jsx';
+import AllArt from './AllArt.jsx';
 
 const Routes = () => (
     <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/art/:category" component={DisplayArt}></Route>
+        <Route path="/arts" component={AllArt}></Route>
         <Route path="/auth" component={VerifySocialAuthToken}></Route>
         <GuestRoute exact path="/login" component={Login}></GuestRoute>
         <GuestRoute exact path="/register" component={SignUp}></GuestRoute>

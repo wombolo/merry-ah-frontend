@@ -1,7 +1,8 @@
-import { GET_SINGLE_ART } from '../actions/types';
+import { GET_SINGLE_ART, SET_ALL_ART } from '../actions/types';
 
 const initialState = {
   isLoading: true,
+  arts: [],
 };
 
 /**
@@ -10,7 +11,7 @@ const initialState = {
  * @param {object} action
  * @returns {object} state
  */
-export default function (state = initialState, action) {
+export default (state = initialState, action) => {
   switch (action.type) {
     case GET_SINGLE_ART:
       return {
@@ -18,7 +19,14 @@ export default function (state = initialState, action) {
         isLoading: false,
       };
 
+    case SET_ALL_ART:
+      return {
+        ...state,
+        arts: state.arts.concat(action.payload),
+        isLoading: false,
+      };
+
     default:
       return state;
   }
-}
+};

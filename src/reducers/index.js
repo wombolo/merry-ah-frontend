@@ -15,4 +15,5 @@ export default combineReducers({
   art: artsReducer,
   comment: commentReducer,
   user: profileReducer,
+  allArts: artsReducer,
 });

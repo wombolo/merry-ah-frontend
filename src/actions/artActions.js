@@ -1,15 +1,16 @@
 import axios from 'axios';
 import {
   GET_CATEGORIES_FILES,
-  SET_FILE_ERROR,SET_UPLOAD_SUCCESS
+  SET_FILE_ERROR, SET_UPLOAD_SUCCESS,
+  SET_ALL_ART,
 } from './types';
 
 import Notify from '../utils/Notify';
 import { basePath } from '../utils/basePath';
 
-export const setCategories = (payload) => ({
+export const setCategories = payload => ({
   type: GET_CATEGORIES_FILES,
-  payload
+  payload,
 });
 
 export const getCategories = () => async (dispatch) => {
@@ -30,23 +31,24 @@ export const setFileError = error => ({
   payload: error,
 });
 
-export const handleUploadImages = (payload) => async (dispatch) =>  {
-  let imageURLs = [];
+export const handleUploadImages = payload => async (dispatch) => {
+  const imageURLs = [];
   dispatch(setUploadSuccess());
 
-  const {files: images} = payload;
+  const { files: images } = payload;
 
-  const uploads = await images.map(async (image)=> {
+  const uploads = await images.map(async (image) => {
     const formData = new FormData();
-    formData.append("file", image);
-    formData.append("upload_preset", "artcave_articles"); // Replace the preset name with your own
-    formData.append("api_key", "199196371633358"); // Replace API key with your own Cloudinary API key
-    formData.append("timestamp", (Date.now() / 1000) | 0);
+    formData.append('file', image);
+    formData.append('upload_preset', 'artcave_articles');
+    formData.append('api_key', '199196371633358');
+    formData.append('timestamp', (Date.now() / 1000));
 
     const response = await axios.post(
-      "https://api.cloudinary.com/v1_1/wombolo/image/upload",
+      'https://api.cloudinary.com/v1_1/wombolo/image/upload',
       formData,
-      { headers: { "X-Requested-With": "XMLHttpRequest" }});
+      { headers: { 'X-Requested-With': 'XMLHttpRequest' } },
+    );
 
     imageURLs.push({
       url: response.data.secure_url,
@@ -62,17 +64,34 @@ export const handleUploadImages = (payload) => async (dispatch) =>  {
       `${basePath}/arts/`,
       {
         ...payload,
-        media: JSON.stringify(mediaFiles[0])
+        media: JSON.stringify(mediaFiles[0]),
       },
-      { headers: {
-          "Content-Type": "application/json",
-          "x-access-token": payload.accessToken
-        }});
-    dispatch(window.location.replace(`/arts/${postToBackEnd.data.data.slugifiedTitle}`));
-  }
-  catch (error) {
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'x-access-token': payload.accessToken,
+        },
+      },
+    );
+    window.location.replace(`/arts/${postToBackEnd.data.data.slugifiedTitle}`);
+  } catch (error) {
     const errMessage = `${error.response.data.messages}. Try Again`;
     dispatch(setFileError(errMessage));
-    Notify.notifyError(errMessage)
+    Notify.notifyError(errMessage);
+  }
+};
+export const setAllArt = payload => ({
+  type: SET_ALL_ART,
+  payload,
+});
+
+export const fetchAllArt = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`${basePath}/arts/?limit=11`);
+    const { data: arts } = res.data;
+
+    dispatch(setAllArt(arts));
+  } catch (err) {
+    console.log(err);
   }
 };

@@ -13,6 +13,10 @@ exports[`Routes Component should match snapshot 1`] = `
   />
   <Route
     component={[Function]}
+    path="/arts"
+  />
+  <Route
+    component={[Function]}
     path="/auth"
   />
   <Connect(GuestRoute)

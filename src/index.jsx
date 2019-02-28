@@ -22,6 +22,7 @@ import './assets/scss/profile.scss';
 import './assets/scss/createArt.scss';
 import './assets/scss/bookmarkArt.scss';
 import './assets/scss/rating.scss';
+import './assets/scss/allArt.scss';
 
 
 ReactDOM.render(
