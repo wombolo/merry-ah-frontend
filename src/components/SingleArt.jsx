@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getSingleArt } from '../actions/artsActions';
+import Comment from './Comment.jsx';
 
 /**
  *  @returns {JSX} jsx
@@ -83,60 +84,9 @@ export class SingleArt extends Component {
                 <span className="fa fa-star-o"></span>
                 <span className="fa fa-star-o"></span>
               </div>
-              <div className="comment-section">
-                <h6>Add your comment</h6>
-                <form action="">
-                  <textarea name="" id=""placeholder="Type comment here. . .">
-                  </textarea>
-                  <button className="comment-button">Comment</button>
-                </form>
-                <div className="sub-comments">
-                  <h6>Comments</h6>
-                  <div className="single-comment">
-                    <img src="../assets/images/painting.jpg"
-                      className="comment-thumbnail" alt=""/>
-                    <div className="single-comment-details">
-                      <h6>Oluseyi Akinyiga</h6>
-                      <small>Fantastic piece of art. Keep it going</small>
-                      <p>
-                        <i className="fa fa-heart-o"></i>
-                        <small><a href="">Edit</a></small>
-                        <small><a href="">Delete</a></small>
-                      </p>
-                    </div>
-                    <div className=""></div>
-                  </div>
-                  <div className="single-comment">
-                    <img src="../assets/images/painting.jpg"
-                      className="comment-thumbnail" alt=""/>
-                    <div className="single-comment-details">
-                      <h6>Oluseyi Akinyiga</h6>
-                      <small>Fantastic piece of art. Keep it going</small>
-                      <p>
-                        <i className="fa fa-heart-o"></i>
-                        <small><a href="">Edit</a></small>
-                        <small><a href="">Delete</a></small>
-                      </p>
-                    </div>
-                    <div className="clear"></div>
-                  </div>
-                  <div className="single-comment">
-                    <img src="../assets/images/painting.jpg"
-                      className="comment-thumbnail" alt=""/>
-                    <div className="single-comment-details">
-                      <h6>Oluseyi Akinyiga</h6>
-                      <small>Fantastic piece of art. Keep it going</small>
-                      <p>
-                        <i className="fa fa-heart-o"></i>
-                        <small><a href="">Edit</a></small>
-                        <small><a href="">Delete</a></small>
-                      </p>
-                    </div>
-                    <div className="clear"></div>
-                  </div>
-                </div>
-              </div>
+              <Comment />
             </div>
+             {/* end of comment */}
             <div className="art-right">
               <div>
                 <h6>More by this Artist</h6>
@@ -170,7 +120,7 @@ export class SingleArt extends Component {
                 </div>
                 <div className="card-item">
                   <div className="item" style={
-                    { backgroundImage: 'url("../assets/images/poetry.jpg")' }
+                    { backgroundImage: 'url("../assets/images/architecture.jpg")' }
                     }>
                     <div className="card-props">
                       <p className="label card-label">Architecture</p>

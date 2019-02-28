@@ -58,6 +58,7 @@ $regular-font: 'Poppins';
 .art-right {
   width: 30%;
   float: right;
+  height: 400px;
 }
 
 .art-reactions ul li {
@@ -87,9 +88,8 @@ $regular-font: 'Poppins';
   margin-top: 30px;
 }
 
-.comment-section, .sub-comments {
+.comment-section, .comments {
   margin-top: 30px;
-  margin-bottom: 30px;
 }
 
 .comment-section textarea {
@@ -152,6 +152,12 @@ $regular-font: 'Poppins';
   font-size: 12px;
 }
 
+ .single-comment-details p button {
+  font-family: $regular-font;
+  font-size: 22px;
+  padding-top: 10px;
+  display: contents;
+}
 .art-right-cards {
   margin-top: 22px;
 }
@@ -240,4 +246,5 @@ $regular-font: 'Poppins';
   .art-right-cards .item {
     width: 100%;
   }
+}
 }
