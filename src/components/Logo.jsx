@@ -15,7 +15,7 @@ export default class Logo extends Component {
       className="navbar-brand col-lg-2 logo pull-left w-50"
       to="/" id="brand-logo">
         <img alt={'logo'} src={require('../assets/images/artcave-logo.png')}
-             className='w-50' />
+             className='w-80' />
       </NavLink>
     // <NavLink
     // className="navbar-brand col-lg-2 logo pull-left w-50"
