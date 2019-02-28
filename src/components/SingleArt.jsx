@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getSingleArt } from '../actions/artsActions';
 import Comment from './Comment.jsx';
+import { getSingleArt, deleteSingleArt } from '../actions/artsActions';
 
 /**
  *  @returns {JSX} jsx
@@ -17,12 +17,24 @@ export class SingleArt extends Component {
     this.props.getSingleArt(slug);
   }
 
+  deleteArticle = (artSlug) => {
+    if (confirm('Are you sure to delete?')) {
+      this.props.deleteSingleArt(artSlug);
+    }
+  };
+
   /**
    * @param {function} render
    *  @returns {JSX} jsx
    */
   render() {
     const { isLoading, details } = this.props.art;
+    let artistID = 0;
+
+    if (this.props.auth.user.id) {
+      artistID = this.props.auth.user.id;
+    }
+
     return (
       <div>
         {isLoading ? false
@@ -68,6 +80,29 @@ export class SingleArt extends Component {
                   <li>
                     <span>{details.visited} Views</span>
                   </li>
+                  <li>
+                      {artistID === details.artistId
+                        ? <div className="dropdown show">
+                          <a className="btn btn-secondary dropdown-toggle"
+                             href="#" role="button" id="dropdownMenuLink"
+                             data-toggle="dropdown" aria-haspopup="true"
+                             aria-expanded="false">
+                            Artist Actions
+                          </a>
+
+                          <div className="dropdown-menu"
+                               aria-labelledby="dropdownMenuLink">
+                            <a className="dropdown-item" href="#">
+                              <i className='fa fa-pencil-square-o'/> Edit
+                            </a>
+                            <a className="dropdown-item" href="#"
+                               onClick={() => this.deleteArticle(details.slug)}>
+                              <i className='fa fa-trash-o'/> Delete
+                            </a>
+                          </div>
+                        </div>
+                        : ''}
+                    </li>
                 </ul>
               </div>
               <div className="videoPreview"></div>
@@ -120,7 +155,10 @@ export class SingleArt extends Component {
                 </div>
                 <div className="card-item">
                   <div className="item" style={
-                    { backgroundImage: 'url("../assets/images/architecture.jpg")' }
+                    {
+                      backgroundImage:
+                        'url("../assets/images/architecture.jpg")',
+                    }
                     }>
                     <div className="card-props">
                       <p className="label card-label">Architecture</p>
@@ -157,6 +195,7 @@ export class SingleArt extends Component {
 
 SingleArt.propTypes = {
   getSingleArt: PropTypes.func.isRequired,
+  deleteSingleArt: PropTypes.func.isRequired,
   art: PropTypes.shape({
     isLoading: PropTypes.bool.isRequired,
     details: PropTypes.object,
@@ -166,10 +205,17 @@ SingleArt.propTypes = {
       slug: PropTypes.string.isRequired,
     }),
   }),
+  auth: PropTypes.shape({
+    user: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
 };
 
 const mapStatesToProps = state => ({
   art: state.art,
 });
 
-export default connect(mapStatesToProps, { getSingleArt })(SingleArt);
+export default connect(mapStatesToProps, {
+  getSingleArt, deleteSingleArt,
+})(SingleArt);

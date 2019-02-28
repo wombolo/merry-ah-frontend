@@ -2,14 +2,19 @@ import 'babel-polyfill';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
+import sinon from 'sinon';
 import localStorageMock from '../__mocks__/localStorageMock';
-import {createArt} from '../__mocks__/createArtMock';
+import { createArt } from '../__mocks__/createArtMock';
 import {
-  setCategories, getCategories, handleUploadImages
+  setCategories, getCategories, handleUploadImages,
 } from '../../actions/artActions';
 import { SET_UPLOAD_SUCCESS } from '../../actions/types';
 import { basePath } from '../../utils/basePath';
-import sinon from 'sinon';
+
+import {
+  deleteSingleArt,
+} from '../../actions/artsActions';
+
 
 sinon.stub(window.location, 'replace');
 const mockStore = configureMockStore([thunk]);
@@ -18,10 +23,10 @@ let store;
 
 const uploadPayload = {
   categoryId: 1,
-  description: "qwert",
+  description: 'qwert',
   price: 0,
-  title: "123",
-  files: [ createArt.image1],
+  title: '123',
+  files: [createArt.image1],
 };
 
 describe('Art actions', () => {
@@ -32,12 +37,14 @@ describe('Art actions', () => {
   afterEach(() => moxios.uninstall());
 
   it('creates GET_CATEGORIES_FILES', async () => {
-    const action = store.dispatch(setCategories(store.dispatch(getCategories())));
+    const action = store.dispatch(setCategories(
+      store.dispatch(getCategories()),
+    ));
     expect(store.getActions()[0].type).toEqual(action.type);
   });
 
   it('creates SET_UPLOAD_SUCCESS action', async (done) => {
-    moxios.stubRequest(`https://api.cloudinary.com/v1_1/wombolo/image/upload`, {
+    moxios.stubRequest('https://api.cloudinary.com/v1_1/wombolo/image/upload', {
       status: 201,
     });
 
@@ -47,7 +54,8 @@ describe('Art actions', () => {
         code: 201,
         messages: 'Article created successfully',
         data:
-          { artId: 35,
+          {
+            artId: 35,
             artTitle: 'Syntax Podcasts',
             slugifiedTitle: 'syntax-podcasts-4gl0se',
             artDescription: 'The Syntax Podcasts isn\'t suitable for all ages',
@@ -55,14 +63,27 @@ describe('Art actions', () => {
               'https://farm3.staticflickr.com/2817/33968464326_a6f9cbc754_k',
             artCategoryId: 1,
             visited: 0,
-            followersNotified: 'Message sent' } }
-      );
+            followersNotified: 'Message sent',
+          },
+      });
 
-      const expectedActions = [{ type: SET_UPLOAD_SUCCESS}];
+      const expectedActions = [{ type: SET_UPLOAD_SUCCESS }];
       store.dispatch(handleUploadImages(uploadPayload));
       expect(store.getActions()).toEqual(expectedActions);
-      done()
+      done();
+    });
+  });
+
+  it('creates DELETE_SINGLE_ART action', async (done) => {
+    moxios.stubRequest(`${basePath}/arts/`, {
+      status: 202,
     });
 
+    moxios.wait(() => {
+      const expectedActions = [];
+      store.dispatch(deleteSingleArt('some-slug'));
+      expect(store.getActions()).toEqual(expectedActions);
+      done();
+    });
   });
 });

@@ -24,7 +24,6 @@ const Routes = () => (
         <GuestRoute exact path="/login" component={Login}></GuestRoute>
         <GuestRoute exact path="/register" component={SignUp}></GuestRoute>
         <Route exact path="/arts/:slug" component={SingleArt}></Route>
-        <Route path="/single-art" component={SingleArt}></Route>
         <PrivateRoute path="/profile" component={Profile}></PrivateRoute>
         <GuestRoute path="/forgot-password"
         component={ForgotPassword}></GuestRoute>
