@@ -123,12 +123,12 @@ Profile.propTypes = {
     }),
   }),
   user: PropTypes.shape({
-    isGettingArts: PropTypes.bool.isRequired,
+    isGettingArts: PropTypes.bool,
     userProfile: PropTypes.shape({
       userType: PropTypes.string,
       profile: PropTypes.shape({
-        bio: PropTypes.string.isRequired,
-        imgURL: PropTypes.string.isRequired,
+        bio: PropTypes.string,
+        imgURL: PropTypes.string,
       }),
     }),
   }),

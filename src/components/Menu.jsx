@@ -78,7 +78,8 @@ export class Menu extends Component {
             <i className="fa fa-bars"> </i></span>
         </button>
         <div id="search">
-          <div className=" collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="
+          collapse navbar-collapse" id="navbarSupportedContent">
             <Search />
           </div>
           </div>

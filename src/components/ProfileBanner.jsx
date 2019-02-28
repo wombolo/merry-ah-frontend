@@ -88,7 +88,7 @@ ProfileBanner.propTypes = {
       profile: PropTypes.shape({
         firstName: PropTypes.string.isRequired,
         lastName: PropTypes.string.isRequired,
-        imgURL: PropTypes.string.isRequired,
+        imgURL: PropTypes.string,
       }),
     }),
   }),

@@ -93,7 +93,6 @@ export const editProfile = userDetails => async (dispatch) => {
     const image = await handleUpload(userDetails.imgURL);
     const [resolved] = await Promise.all([image]);
     userDetails.imgURL = resolved.data.secure_url;
-    console.log(userDetails)
     const res = await axios
       .put(`${basePath}/users/profile-update`, userDetails);
     const payload = res.data;
