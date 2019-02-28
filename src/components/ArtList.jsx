@@ -4,6 +4,7 @@ import star from '../assets/images/star.png';
 import emptyStar from '../assets/images/empty-star.png';
 import like from '../assets/images/like.png';
 import comment from '../assets/images/comment.png';
+import Rating from './Rating.jsx';
 /**
  * ArtList Component
  */
@@ -40,12 +41,15 @@ class ArtList extends Component {
           <p><img src={like} alt="" />   20 </p>
           <p><img src={comment} alt="" /> 200 </p>
           </div>
+          {/* <div className="ratings">
+          <img src={star} alt=""/>
+          <img src={star} alt=""/>
+          <img src={star} alt=""/>
+          <img src={emptyStar} alt=""/>
+          <img src={emptyStar} alt=""/>
+          </div> */}
           <div className="ratings">
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={star} alt=""/>
-          <img src={emptyStar} alt=""/>
-          <img src={emptyStar} alt=""/>
+            <Rating noOfStars={5} />
           </div>
         </div>
         </div>
