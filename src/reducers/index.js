@@ -5,6 +5,7 @@ import artReducer from './artReducer';
 import artsReducer from './artsReducer';
 import commentReducer from './commentReducer';
 import bookmarkReducer from './bookmarkReducer';
+import profileReducer from './profileReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   artReducer,
   art: artsReducer,
   comment: commentReducer,
+  user: profileReducer,
 });

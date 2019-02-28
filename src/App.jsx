@@ -25,7 +25,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className='w-100 overflow-hidden'>
           <Menu/>
           <Routes/>
           <Footer/>

@@ -17,7 +17,7 @@ export class Menu extends Component {
   }
 
   headerLinks = (currentUser) => {
-    const {isAuthenticated} = currentUser;
+    const { isAuthenticated } = currentUser;
 
     let links;
     if (!isAuthenticated) {
@@ -31,8 +31,8 @@ export class Menu extends Component {
           </li>
         </React.Fragment>);
     } else {
-      const { user} = currentUser;
-      const { userType} = user;
+      const { user } = currentUser;
+      const { userType } = user;
       links = (
         <React.Fragment>
           <li className="nav-item">
@@ -40,21 +40,32 @@ export class Menu extends Component {
           </li>
 
           <li className="nav-item dropdown">
-            <a className="nav-link d-inline-flex text-capitalize" href="#" id="navbarDropdown"
+            <a className="nav-link d-inline-flex text-capitalize" href="#"
+               id="navbarDropdown"
                role="button" data-toggle="dropdown" aria-haspopup="true"
-               aria-expanded="false"> {user.registeredUsername || user.username}<i className='fa fa-caret-down m-2'/>
+               aria-expanded="false">
+              {user.registeredUsername || user.username.split(' ')[0]}
+               <i className='fa fa-caret-down m-2'/>
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <NavLink to="/profile" className="dropdown-item">My Profile</NavLink>
-              <NavLink to="/create-art" className={`dropdown-item ${userType === 'artist' ? '' : 'd-none'}`}>Create Art</NavLink>
+              <NavLink to="/profile" className="dropdown-item">
+                My Profile
+              </NavLink>
+              <NavLink to="/create-art"
+                       className={`dropdown-item ${userType === 'artist' ? ''
+                         : 'd-none'}`}>
+                Create Art
+              </NavLink>
               <div className="dropdown-divider"/>
-              <NavLink to="/login" onClick={this.handleLogout} id="nav-link" className="dropdown-item">logout</NavLink>
+              <NavLink to="/login"
+                       onClick={this.handleLogout}
+                       id="nav-link" className="dropdown-item">logout</NavLink>
             </div>
           </li>
         </React.Fragment>);
     }
     return links;
-  }
+  };
 
   /**
    * @param {function} render
@@ -62,7 +73,8 @@ export class Menu extends Component {
    */
   render() {
     return (
-      <nav id="nav" className="navbar navbar-expand-lg bg-light w-100 my-nav-style">
+      <nav id="nav"
+           className="navbar navbar-expand-lg bg-light w-100 my-nav-style">
         <Logo/>
         <button
           className="navbar-toggler pull-right"
@@ -70,8 +82,8 @@ export class Menu extends Component {
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false" aria-label="Toggle navigation">
-          <span
-            className="navbar-toggler-icon"><i className="fa fa-bars"> </i></span>
+          <span className="navbar-toggler-icon">
+            <i className="fa fa-bars"> </i></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <Search/>

@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtList Component should match snapshot 1`] = `
+<MemoryRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "xq7jm3",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "xq7jm3",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ArtList
+      auth={
+        Object {
+          "user": Object {
+            "id": 7,
+          },
+        }
+      }
+      editProfile={[Function]}
+      getUserArts={[Function]}
+      getUserProfile={[Function]}
+      user={
+        Object {
+          "isGettingArts": false,
+          "userArts": Array [
+            Object {
+              "Category": Object {
+                "categoryName": "Poetry",
+              },
+              "description": "some descriptions",
+              "featuredImg": "image.url",
+              "slug": "isuguixu",
+              "title": "some title",
+            },
+          ],
+          "userProfile": Object {
+            "id": 7,
+            "profile": Object {
+              "bio": "my bio",
+              "firstName": "Juliet",
+              "imgURL": "img.URL",
+              "lastName": "Ezekwe",
+            },
+            "userType": "artist",
+          },
+        }
+      }
+    >
+      <div
+        className="p-2 m-3 col-12"
+      >
+        <div
+          className="row container"
+          id="art-list"
+        >
+          <p
+            className="profile-header col-12 mt-5"
+          >
+            My Works
+          </p>
+          <div
+            className="col-md-3 col-sm-12"
+            key="0"
+          >
+            <div
+              className="my-card"
+              style={
+                Object {
+                  "backgroundColor": "rgba(0, 0, 0, 0.5)",
+                  "backgroundImage": "url(image.url)",
+                }
+              }
+            >
+              <div
+                className="card-category"
+              >
+                Poetry
+              </div>
+              <div
+                className="card-container"
+              >
+                <div
+                  className="card-title"
+                >
+                  <h6>
+                     
+                    <Link
+                      replace={false}
+                      to="/arts/isuguixu"
+                    >
+                      <a
+                        href="/arts/isuguixu"
+                        onClick={[Function]}
+                      >
+                         
+                        some title
+                      </a>
+                    </Link>
+                     
+                  </h6>
+                  <p>
+                    some descriptions
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="card-footer"
+            >
+              <div
+                className="comments"
+              >
+                <p>
+                  <img
+                    alt=""
+                    src="test-file-stub"
+                  />
+                   
+                  <span>
+                    10k + 
+                  </span>
+                   
+                </p>
+                <p>
+                  <img
+                    alt=""
+                    src="test-file-stub"
+                  />
+                   
+                  <span>
+                    10k + 
+                  </span>
+                   
+                </p>
+              </div>
+              <div
+                className="ratings"
+              >
+                <img
+                  alt=""
+                  src="test-file-stub"
+                />
+                <img
+                  alt=""
+                  src="test-file-stub"
+                />
+                <img
+                  alt=""
+                  src="test-file-stub"
+                />
+                <img
+                  alt=""
+                  src="test-file-stub"
+                />
+                <img
+                  alt=""
+                  src="test-file-stub"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ArtList>
+  </Router>
+</MemoryRouter>
+`;

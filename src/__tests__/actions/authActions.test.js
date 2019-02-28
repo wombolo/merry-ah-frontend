@@ -6,11 +6,13 @@ import jwt_decode from 'jwt-decode';
 import moxios from 'moxios';
 import Axios from 'axios';
 import localStorageMock from '../__mocks__/localStorageMock';
-import { loginMockData as mockData, signUpMockData } from '../__mocks__/userMock';
+import {
+  loginMockData as mockData, signUpMockData,
+} from '../__mocks__/userMock';
 import {
   SET_CURRENT_USER,
   SET_USER_ERROR,
-  RESET_PASSWORD_EMAIL
+  RESET_PASSWORD_EMAIL,
 } from '../../actions/types';
 import {
   setCurrentUser,
@@ -139,6 +141,7 @@ it('should not complete password reset', async (done) => {
   }
   done();
 });
+
 it('creates SET_USER_REQUEST on signup', async () => {
   const action = await store.dispatch(setUserRequest());
   expect(store.getActions()[0].type).toEqual(action.type);

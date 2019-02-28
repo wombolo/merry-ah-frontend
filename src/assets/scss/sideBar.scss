@@ -5,16 +5,16 @@
 }
 
 #sidebar {
-    width: 250px;
+    width: 230px;
     position: fixed;
     left: 0;
     top: 70px;
     height: 100vh;
-   padding-left: 1em;
-   margin-top: 0.25em;
-   color: black;
-   transition: all 0.3s;
-   z-index: -1;
+    padding-left: 1em;
+    margin-top: 0.25em;
+    color: black;
+    transition: all 0.3s;
+    z-index: -1;
 }
 
 #sidebar.active {
@@ -46,11 +46,11 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 .toggle-bar{
-  background: rgb(250, 249, 249);
-  padding: 1em;
-  margin-top: 1.8em;
-  margin-left: 10em;
-  min-height: 100vh;
+    background: rgb(250, 249, 249);
+    padding: 1em;
+    margin-top: 1.8em;
+    margin-left: 10em;
+    min-height: 100vh;
 
 }
 
