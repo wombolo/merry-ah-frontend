@@ -95,7 +95,7 @@ exports[`Menu Component should match snapshot 1`] = `
             className="dropdown-item"
             id="nav-link"
             onClick={[Function]}
-            to="/login"
+            to="/arts"
           >
             logout
           </NavLink>

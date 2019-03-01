@@ -27,7 +27,6 @@ const bookmarkProps = {
   },
   getBookmarkArt: jest.fn(),
 }
-export {loginProps, signUpProps, bookmarkProps };
 
 const createArtProps = {
   artProps:{
@@ -43,4 +42,4 @@ const createArtProps = {
   getCategories: () => null
 };
 
-export {loginProps, signUpProps,createArtProps};
+export { signUpProps, createArtProps, loginProps, bookmarkProps };
