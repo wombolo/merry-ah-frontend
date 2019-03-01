@@ -1,7 +1,4 @@
 import axios from 'axios';
-// import dotenv from 'dotenv';
-//
-// dotenv.config();
 import {
   GET_CATEGORIES_FILES,
   SET_FILE_ERROR, SET_UPLOAD_SUCCESS,
@@ -42,16 +39,17 @@ export const handleUploadImages = payload => async (dispatch) => {
 
   const uploads = await images.map(async (image) => {
     const formData = new FormData();
-    formData.append('file', image);
-    formData.append('upload_preset', 'artcave_articles');
-    formData.append('api_key', '199196371633358');
-    formData.append('timestamp', (Date.now() / 1000) | 0);
+    formData.append("file", image);
+    formData.append("upload_preset", "artcave_articles"); // Replace the preset name with your own
+    formData.append("api_key", "199196371633358"); // Replace API key with your own Cloudinary API key
+    formData.append("timestamp", (Date.now() / 1000) | 0);
 
     const response = await axios.post(
-      'https://api.cloudinary.com/v1_1/wombolo/image/upload',
+      "https://api.cloudinary.com/v1_1/wombolo/image/upload",
       formData,
-      { headers: { 'X-Requested-With': 'XMLHttpRequest' } },
-    );
+      { headers: { "X-Requested-With": "XMLHttpRequest" }});
+
+    // console.log('response>>>', response);
 
     imageURLs.push({
       url: response.data.secure_url,
@@ -63,6 +61,7 @@ export const handleUploadImages = payload => async (dispatch) => {
   const mediaFiles = await axios.all(uploads);
 
   try {
+    payload.files = [];
     const postToBackEnd = await axios.post(
       `${basePath}/arts/`,
       {
@@ -76,7 +75,7 @@ export const handleUploadImages = payload => async (dispatch) => {
         },
       },
     );
-    window.location.replace(`/arts/${postToBackEnd.data.data.slugifiedTitle}`);
+    dispatch(window.location.replace(`/arts/${postToBackEnd.data.data.slugifiedTitle}`));
   } catch (error) {
     console.log('--->', error.response)
     const errMessage = `${error.response.data.messages}. Try Again`;
@@ -84,6 +83,8 @@ export const handleUploadImages = payload => async (dispatch) => {
     Notify.notifyError(errMessage);
   }
 };
+
+
 export const setAllArt = payload => ({
   type: SET_ALL_ART,
   payload,
