@@ -48,7 +48,7 @@ export class Menu extends Component {
               <NavLink to="/profile" className="dropdown-item">My Profile</NavLink>
               <NavLink to="/create-art" className={`dropdown-item ${userType === 'artist' ? '' : 'd-none'}`}>Create Art</NavLink>
               <div className="dropdown-divider"/>
-              <NavLink to="/login" onClick={this.handleLogout} id="nav-link" className="dropdown-item">logout</NavLink>
+              <NavLink to="/arts" onClick={this.handleLogout} id="nav-link" className="dropdown-item">logout</NavLink>
             </div>
           </li>
         </React.Fragment>);
