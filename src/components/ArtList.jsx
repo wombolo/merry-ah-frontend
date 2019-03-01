@@ -5,6 +5,7 @@ import startCount from '../utils/startCount';
 import counter from '../utils/counter';
 import likeCount from '../assets/images/like.png';
 import commentCount from '../assets/images/comment.png';
+import { truncateString } from '../utils/truncateString';
 /**
  * ArtList Component
  */
@@ -34,13 +35,15 @@ const ArtList = ({ user }) => (
                       <Link to={`/arts/${art.slug}`}> {art.title}</Link>{' '}
                     </h6>
                     <p>
-                    {art.description.replace('<p>', '').replace('</p>', '')}
+                    {truncateString(
+                      art.description.replace('<p>', '').replace('</p>', ''), 40,
+                    )}
                     </p>
                   </div>
                 </div>
               </div>
               <div className="card-footer">
-                <div className="comments">
+                <div className="comments art-summary">
                   <p>
                     <img src={likeCount}
                     alt="" /> {counter(art.LikesCount)}{' '}

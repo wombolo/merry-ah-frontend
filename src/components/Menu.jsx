@@ -51,6 +51,10 @@ export class Menu extends Component {
               <NavLink to="/profile" className="dropdown-item">
                 My Profile
               </NavLink>
+
+              <NavLink to="/bookmark" className="dropdown-item">
+                My Bookmarks
+              </NavLink>
               <NavLink to="/create-art"
                        className={`dropdown-item ${userType === 'artist' ? ''
                          : 'd-none'}`}>

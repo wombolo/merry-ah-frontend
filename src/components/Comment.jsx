@@ -22,7 +22,7 @@ class Comment extends Component {
    * @returns {func} returns getComments
    */
   componentDidMount() {
-    this.props.getComments(2, 200, 10);
+    this.props.getComments(this.props.id, 200, 10);
   }
 
   handleSubmit = (e) => {
@@ -30,7 +30,7 @@ class Comment extends Component {
     const commentData = {
       body: this.state.body,
     };
-    this.props.createComment(2, commentData);
+    this.props.createComment(this.props.id, commentData);
   };
 
   handleChange = (event) => {
@@ -38,7 +38,9 @@ class Comment extends Component {
   };
 
   handleClick = (commentId) => {
-    this.props.deleteComment(commentId);
+    if (confirm('Are you sure to delete?')) {
+      this.props.deleteComment(commentId);
+    }
   };
 
   handleId = (id) => {
@@ -49,7 +51,7 @@ class Comment extends Component {
     const editCommentData = {
       commentId,
       body: this.state.editBody,
-      artId: 2,
+      artId: this.props.id,
       lastId: 200,
       limit: 10,
     };

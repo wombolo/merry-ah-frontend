@@ -29,8 +29,8 @@ const ProfileBanner = ({ user }) => {
                   margin: '2.5em 0px 0px 7em',
                 }}
               >
-                {user.userProfile.profile.firstName}
-                {user.userProfile.profile.lastName}{' '}
+                <span className='mr-2'>{user.userProfile.profile.firstName}</span>
+                <span>{user.userProfile.profile.lastName}</span>{' '}
               </h2>
             </div>
           </div>

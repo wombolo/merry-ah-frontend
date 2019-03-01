@@ -119,7 +119,7 @@ export class SingleArt extends Component {
                 <span className="fa fa-star-o"></span>
                 <span className="fa fa-star-o"></span>
               </div>
-              <Comment />
+              <Comment id={details.id}/>
             </div>
              {/* end of comment */}
             <div className="art-right">
@@ -214,6 +214,7 @@ SingleArt.propTypes = {
 
 const mapStatesToProps = state => ({
   art: state.art,
+  auth: state.auth,
 });
 
 export default connect(mapStatesToProps, {
