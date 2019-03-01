@@ -25,7 +25,7 @@ export class BookmarkArt extends Component {
       return <p>Loading Bookmarks....</p>;
     }
     if (this.props.bookmark.bookmarks.data.length === 0) {
-      return <p>User as 0 bookmark</p>;
+      return <p>User has 0 bookmark</p>;
     }
     return (
       <div>
@@ -78,8 +78,7 @@ BookmarkArt.propTypes = {
   getBookmarkArt: PropTypes.func.isRequired,
   bookmark: PropTypes.shape({
     isFetching: PropTypes.bool.isRequired,
-    error: PropTypes.object.isRequired,
-    bookmarks: PropTypes.object.isRequired,
+    bookmarks: PropTypes.array.isRequired,
   }),
 };
 const mapStateToProps = state => ({

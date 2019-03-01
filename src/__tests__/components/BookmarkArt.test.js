@@ -26,6 +26,6 @@ describe('Bookmark Component', () => {
     bookmarkProps.bookmark.isFetching = false;
     bookmarkProps.bookmark.bookmarks.data.length = 0;
     wrapper = mount(<MemoryRouter><BookmarkArt {...bookmarkProps}/></MemoryRouter>);
-    expect(wrapper.find('p').text()).toEqual('User as 0 bookmark');
+    expect(wrapper.find('p').text()).toEqual('User has 0 bookmark');
   });
 });
