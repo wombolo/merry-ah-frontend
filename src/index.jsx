@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import App from './App.jsx';
-import cors from 'cors';
 import 'jquery';
 import 'popper.js';
 import 'bootstrap/dist/js/bootstrap.min';

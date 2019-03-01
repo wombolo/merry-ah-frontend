@@ -1,10 +1,13 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
 import {
   GET_CATEGORIES_FILES,
   SET_FILE_ERROR, SET_UPLOAD_SUCCESS,
   SET_ALL_ART,
 } from './types';
 
+dotenv.config();
+const { CLOUDINARY_API } = process.env;
 import Notify from '../utils/Notify';
 import { basePath } from '../utils/basePath';
 
@@ -41,7 +44,7 @@ export const handleUploadImages = payload => async (dispatch) => {
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "artcave_articles"); // Replace the preset name with your own
-    formData.append("api_key", "199196371633358"); // Replace API key with your own Cloudinary API key
+    formData.append("api_key", `${CLOUDINARY_API}`); // Replace API key with your own Cloudinary API key
     formData.append("timestamp", (Date.now() / 1000) | 0);
 
     const response = await axios.post(
