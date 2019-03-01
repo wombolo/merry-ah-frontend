@@ -78,7 +78,7 @@ export const handleUploadImages = payload => async (dispatch) => {
         },
       },
     );
-    dispatch(window.location.replace(`/arts/${postToBackEnd.data.data.slugifiedTitle}`));
+    window.location.replace(`/arts/${postToBackEnd.data.data.slugifiedTitle}`);
   } catch (error) {
     console.log('--->', error.response)
     const errMessage = `${error.response.data.messages}. Try Again`;
