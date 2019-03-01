@@ -28,3 +28,19 @@ const bookmarkProps = {
   getBookmarkArt: jest.fn(),
 }
 export {loginProps, signUpProps, bookmarkProps };
+
+const createArtProps = {
+  artProps:{
+    files: [],
+    isLoading: true,
+    categories:[],
+    error: ''
+  },
+  history: {
+    push: () => null,
+  },
+  handleUploadImages: () => null,
+  getCategories: () => null
+};
+
+export {loginProps, signUpProps,createArtProps};

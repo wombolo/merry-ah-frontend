@@ -34,6 +34,7 @@ exports[`Routes Component should match snapshot 1`] = `
   <Connect(PrivateRoute)
     component={[Function]}
     path="/bookmark"
+    path="/create-art"
   />
   <Route
     component={[Function]}
