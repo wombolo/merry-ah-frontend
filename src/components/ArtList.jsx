@@ -36,7 +36,7 @@ const ArtList = ({ user }) => (
                     </h6>
                     <p>
                     {truncateString(
-                      art.description.replace('<p>', '').replace('</p>', ''), 40,
+                      art.description.replace(/<p>/g, '').replace(/<\/p>/g, ''), 40,
                     )}
                     </p>
                   </div>

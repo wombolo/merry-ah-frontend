@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavLink from 'react-router-dom/es/NavLink';
+import { Link } from 'react-router-dom';
 
 /**
  * @param {function} event
@@ -17,11 +17,11 @@ export default class Showcase extends Component {
           <div>
             <h1>Bring Unspoken <br></br> Words to Life</h1>
             <div>
-              <NavLink to={'/arts'}>
+              <Link to={'/arts'}>
                 <button
                 type="button"
                 className="showcase_button" >Explore</button>
-              </NavLink>
+              </Link>
             </div>
           </div>
         </div>

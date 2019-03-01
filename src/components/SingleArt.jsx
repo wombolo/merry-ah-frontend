@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Comment from './Comment.jsx';
 import { getSingleArt, deleteSingleArt } from '../actions/artsActions';
+import { truncateString } from '../utils/truncateString';
 
 /**
  *  @returns {JSX} jsx
@@ -108,7 +109,7 @@ export class SingleArt extends Component {
               <div className="videoPreview"></div>
               <div className="art-description">
                 <p>
-                  {details.description}
+                  {details.description.replace(/<p>/g, '').replace(/<\/p>/g, '')}
                 </p>
               </div>
               <div className="rate-section">
