@@ -50,6 +50,7 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.2.1",
     "ckeditor4-react": "^0.1.0",
+    "cors": "^2.8.5",
     "css-loader": "^2.1.0",
     "dotenv": "^6.2.0",
     "exports-loader": "^0.7.0",
