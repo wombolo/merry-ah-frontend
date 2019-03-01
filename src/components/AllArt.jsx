@@ -41,6 +41,7 @@ export class AllArt extends Component {
             const { articles } = art;
 
             return articles.map((singleArt) => {
+              gridItemId = gridItemId === 12 ? 0 : gridItemId
               gridItemId += 1;
               const style = {
                 backgroundImage: `url(${singleArt.featuredImg})`,

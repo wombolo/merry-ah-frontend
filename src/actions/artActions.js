@@ -1,7 +1,7 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
-
-dotenv.config();
+// import dotenv from 'dotenv';
+//
+// dotenv.config();
 import {
   GET_CATEGORIES_FILES,
   SET_FILE_ERROR, SET_UPLOAD_SUCCESS,
@@ -44,7 +44,7 @@ export const handleUploadImages = payload => async (dispatch) => {
     const formData = new FormData();
     formData.append('file', image);
     formData.append('upload_preset', 'artcave_articles');
-    formData.append('api_key', process.env.CLOUDINARY_API);
+    formData.append('api_key', '199196371633358');
     formData.append('timestamp', (Date.now() / 1000) | 0);
 
     const response = await axios.post(
@@ -78,6 +78,7 @@ export const handleUploadImages = payload => async (dispatch) => {
     );
     window.location.replace(`/arts/${postToBackEnd.data.data.slugifiedTitle}`);
   } catch (error) {
+    console.log('--->', error.response)
     const errMessage = `${error.response.data.messages}. Try Again`;
     dispatch(setFileError(errMessage));
     Notify.notifyError(errMessage);

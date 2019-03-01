@@ -25,10 +25,10 @@ export class BookmarkArt extends Component {
       return <p>Loading Bookmarks....</p>;
     }
     if (this.props.bookmark.bookmarks.data.length === 0) {
-      return <p>User as 0 bookmark</p>;
+      return <p>User has 0 bookmark</p>;
     }
     return (
-      <div>
+      <div className='vh-100'>
         {this.props.bookmark.bookmarks.data.map(bookmark => (
           <div className="container" key={bookmark.id}>
             <div className="row" id="bookmark-list">
@@ -49,7 +49,7 @@ export class BookmarkArt extends Component {
                           {bookmark.Art.title}
                         </Link>{' '}
                       </h6>
-                      <p>{bookmark.Art.description}</p>
+                      <p className='mt-0'>{bookmark.Art.description}</p>
                     </div>
                   </div>
                 </div>
