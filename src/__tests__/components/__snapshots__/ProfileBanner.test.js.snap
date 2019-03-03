@@ -12,7 +12,7 @@ exports[`ProfileBanner Component should match snapshot 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "qrsol1",
+            "key": "fvbjac",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -26,7 +26,7 @@ exports[`ProfileBanner Component should match snapshot 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "qrsol1",
+          "key": "fvbjac",
           "pathname": "/",
           "search": "",
           "state": undefined,

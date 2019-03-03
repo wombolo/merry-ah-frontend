@@ -12,7 +12,7 @@ exports[`SideBar Component should match snapshot 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "fuqavy",
+            "key": "tdu28q",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -26,7 +26,7 @@ exports[`SideBar Component should match snapshot 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "fuqavy",
+          "key": "tdu28q",
           "pathname": "/",
           "search": "",
           "state": undefined,

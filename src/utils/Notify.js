@@ -14,8 +14,9 @@ class Notify {
   *
   * @returns {void}
   */
-  static notifyError(error) {
-    swal('', error, 'error');
+  static async notifyError(error) {
+    await swal('', error, 'error');
+    window.location.reload();
   }
 
   /**

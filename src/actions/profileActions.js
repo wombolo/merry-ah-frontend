@@ -90,9 +90,11 @@ export const editProfile = userDetails => async (dispatch) => {
   setHeader();
   dispatch(editProfileRequest());
   try {
-    const image = await handleUpload(userDetails.imgURL);
-    const [resolved] = await Promise.all([image]);
-    userDetails.imgURL = resolved.data.secure_url;
+    if (userDetails.imgURL) {
+      const image = await handleUpload(userDetails.imgURL);
+      const [resolved] = await Promise.all([image]);
+      userDetails.imgURL = resolved.data.secure_url;
+    }
     const res = await axios
       .put(`${basePath}/users/profile-update`, userDetails);
     const payload = res.data;

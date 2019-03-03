@@ -19,19 +19,4 @@ describe('SideBar Component', () => {
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
-
-//   it('Should display laoding when the update is running', () => {
-//     const newProps = {
-//       user: {
-//         ...props.user,
-//         isLoading: true,
-//       },
-//     };
-//     wrapper = mount(
-//         <MemoryRouter>
-//           <ProfileEdit {...newProps} />
-//         </MemoryRouter>,
-//     );
-//     expect(wrapper.find('button').at(0).text()).toEqual('Updating');
-//   });
 });

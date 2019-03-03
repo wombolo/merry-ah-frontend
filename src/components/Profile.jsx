@@ -36,18 +36,22 @@ export class Profile extends Component {
  */
   handleEditProfile = (event) => {
     const {
-      bio,
-      imgURL,
-    } = this.props.user.userProfile.profile;
-    const {
       userType,
     } = this.props.user.userProfile;
     event.preventDefault();
-    const payload = {
-      userType: this.state.userType || userType,
-      bio: this.state.bio || bio,
-      imgURL: this.state.image || imgURL,
-    };
+    let payload;
+    if (this.state.image !== '') {
+      payload = {
+        userType: this.state.userType || userType,
+        bio: this.state.bio,
+        imgURL: this.state.image,
+      };
+    } else {
+      payload = {
+        userType: this.state.userType || userType,
+        bio: this.state.bio,
+      };
+    }
     this.props.editProfile(payload);
   }
 
