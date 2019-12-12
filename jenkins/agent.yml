@@ -26,9 +26,9 @@ spec:
     securityContext:
       privileged: true
     volumeMounts:
-      - name: jenkins-pv-storage
+      - name: jenkins-disk
         mountPath: /var/lib/docker
   volumes:
-  - name: jenkins-pv-storage
+  - name: jenkins-disk
     persistentVolumeClaim:
-        claimName: jenkins-pv-storage
+        claimName: jenkins-disk
