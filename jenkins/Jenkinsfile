@@ -3,7 +3,7 @@ pipeline {
     kubernetes {
       label 'merry-ah-frontend'
       defaultContainer 'jnlp'
-      yamlFile 'agent.yaml'
+      yamlFile 'jenkins/agent.yaml'
     }
   }
 
@@ -11,7 +11,7 @@ pipeline {
     //  installing dependencies to use when running the pipeline
     stage('Install dependencies') {
       steps {
-        container('nodeEs-container') {
+        container('node-es-container') {
           sh "npm install"
         }
       }
@@ -19,31 +19,18 @@ pipeline {
     // Running parallel stages
     stage('Test and report') {
       parallel{
-        // checking for all linting issues
-        stage('Linting') {
-          steps {
-            container('nodeEs-container') {
-              sh "npm lint"
-            }
-          }
-        }
         // Running tests
         stage('Run tests') {
           steps {
-            container('nodeEs-container') {
-              sh "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter"
-              sh "chmod +x ./cc-test-reporter"
-              sh "./cc-test-reporter before-build"
+            container('node-es-container') {
               sh "npm test --coverage"
-              sh "./cc-test-reporter format-coverage coverage/lcov.info -t lcov"
-              sh "./cc-test-reporter upload-coverage"
             }
           }
         }
 
         stage('Build') {
           steps {
-            container('nodeEs-container') {
+            container('node-es-container') {
               sh "npm build"
             }
           }
@@ -58,11 +45,10 @@ pipeline {
       }
 
       steps {
-        container('nodeEs-container') {
+        container('node-es-container') {
           // sh "echo $GCLOUD_SERVICE_KEY | base64 -d > auth_key.json"
           // sh "gcloud auth activate-service-account --key-file auth_key.json"
           sh "docker --version"
-          sh "service docker start"
           sh "docker build -f Dockerfile -t gcr.io/merry-ah:$IMG_TAG ."
           // sh "gcloud docker -- push gcr.io/merry-ah:$IMG_TAG"
         }
