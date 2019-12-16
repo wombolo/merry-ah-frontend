@@ -3,8 +3,10 @@ kind: Pod
 metadata:
   name: "nodeEs-container"
 labels:
-  component: ci
+ component: ci
 spec:
+  # nodeSelector:
+  #  beta.kubernetes.io/instance-type : n1-standard-1
   containers:
   - name: "nodeEs-container"
     image: node:erbium-slim
@@ -20,9 +22,14 @@ spec:
     tty: true
     env:
       - name: DOCKER_HOST
-        value: tcp://localhost:2375
+        value: tcp://0.0.0.0:2375
+
   - name: dind
     image: docker:19.03-dind
+    resources:
+      limits:
+        cpu: "300m"
+        memory: "500Mi"
     securityContext:
       privileged: true
     volumeMounts:
