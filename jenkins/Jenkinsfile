@@ -45,7 +45,7 @@ pipeline {
       }
 
       steps {
-        container('node-es-container') {
+        container('dind') {
           // sh "echo $GCLOUD_SERVICE_KEY | base64 -d > auth_key.json"
           // sh "gcloud auth activate-service-account --key-file auth_key.json"
           sh "docker --version"
