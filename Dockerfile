@@ -1,4 +1,4 @@
-FROM node:erbium-slim AS builder
+FROM node:carbon AS builder
 
 LABEL maintainer="github.com/wombolo"
 
