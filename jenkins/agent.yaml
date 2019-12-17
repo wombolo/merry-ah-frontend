@@ -3,8 +3,14 @@ kind: Pod
 metadata:
   name: "jenkins-slave-container"
 spec:
-#  nodeSelector:
-#    cloud.google.com/gke-nodepool: jenkins-preemptible-nodes
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - preference:
+            matchExpressions:
+              - key: cloud.google.com/gke-preemptible
+                operator: Exists
+          weight: 100
   containers:
   - name: "node-es-container"
     image: node:carbon

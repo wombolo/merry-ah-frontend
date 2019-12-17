@@ -14,12 +14,12 @@ COPY . ${WORKING_DIR}
 
 RUN npm run-script build
 
-FROM node:erbium-slim AS runner
+FROM node:carbon-slim AS runner
 
 ENV WORKING_DIR=/usr/app/src/
 
 WORKDIR ${WORKING_DIR}
 
-COPY --from=builder ${WORKING_DIR}dist/ ${WORKING_DIR}dist/
+COPY --from=builder ${WORKING_DIR} ${WORKING_DIR}
 
 ENTRYPOINT ["npm", "start"]
