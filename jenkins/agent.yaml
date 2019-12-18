@@ -29,7 +29,7 @@ spec:
     image: docker:19.03-dind
     env:
       - name: DOCKER_HOST
-        value: "tcp://docker-server:2376"
+        value: "tcp://docker-server:2375"
     securityContext:
       privileged: true
 
