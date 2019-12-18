@@ -84,6 +84,7 @@
     "style-loader": "^0.23.1",
     "sweetalert": "^2.1.2",
     "transfer-webpack-plugin": "^0.1.4",
+    "terser-webpack-plugin": "^2.2.1",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.3",
