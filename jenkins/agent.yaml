@@ -46,7 +46,7 @@ spec:
   volumes:
     - name: jenkins-disk-nfs
       persistentVolumeClaim:
-        claimName: nfs
+        claimName: data-nfs-server-provisioner-0
 
 #  volumes:
 #    - name: jenkins-disk
