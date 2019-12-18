@@ -46,7 +46,7 @@ spec:
   volumes:
     - name: nfs
       persistentVolumeClaim:
-        claimName: nfs-volume-claim
+        claimName: nfs
 #  volumes:
 #    - name: jenkins-disk
 #      hostPath:
