@@ -33,8 +33,8 @@ spec:
     securityContext:
       privileged: true
     volumeMounts:
-      - name: jenkins-disk
-        mountPath: /var/run/docker.sock
+      - name: jenkins-disk-nfs
+        mountPath: /var/lib/docker
 #  volumes:
 #  - name: jenkins-disk
 #    gcePersistentDisk:
@@ -44,6 +44,12 @@ spec:
 #    - name: jenkins-disk
 #      emptyDir: {}
   volumes:
-    - name: jenkins-disk
-      hostPath:
-        path: /var/run/docker.sock
+    - name: jenkins-disk-nfs
+      persistentVolumeClaim:
+        claimName: nfs
+
+#  volumes:
+#    - name: jenkins-disk
+#      hostPath:
+#        path: /var/run/docker.sock
+
