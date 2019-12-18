@@ -16,11 +16,11 @@ spec:
     image: node:carbon
     resources:
       requests:
-        cpu: "100m"
-        memory: "300Mi"
-      limits:
         cpu: "200m"
-        memory: "500Mi"
+        memory: "400Mi"
+      limits:
+        cpu: "300m"
+        memory: "600Mi"
     command:
     - cat
     tty: true
@@ -34,7 +34,7 @@ spec:
       privileged: true
     volumeMounts:
       - name: jenkins-disk
-        mountPath: /var/run/docker.sock
+        mountPath: /var/lib/docker
 #  volumes:
 #  - name: jenkins-disk
 #    gcePersistentDisk:
@@ -46,4 +46,4 @@ spec:
   volumes:
     - name: jenkins-disk
       hostPath:
-        path: /var/run/docker.sock
+        path: /var/lib/docker
