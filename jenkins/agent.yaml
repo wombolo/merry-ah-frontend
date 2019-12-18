@@ -34,12 +34,16 @@ spec:
       privileged: true
     volumeMounts:
       - name: jenkins-disk
-        mountPath: /var/lib/docker
+        mountPath: /var/run/docker.sock
 #  volumes:
 #  - name: jenkins-disk
 #    gcePersistentDisk:
 #      pdName: jenkins-disk
 #      fsType: ext4
+#  volumes:
+#    - name: jenkins-disk
+#      emptyDir: {}
   volumes:
     - name: jenkins-disk
-      emptyDir: {}
+      hostPath:
+        path: /var/run/docker.sock
