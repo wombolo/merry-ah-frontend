@@ -24,31 +24,25 @@ spec:
     command:
     - cat
     tty: true
-    env:
-      - name: DOCKER_HOST
-        value: tcp://0.0.0.0:2375
 
   - name: dind
     image: docker:19.03-dind
+    env:
+      - name: DOCKER_HOST
+        value: "tcp://docker-server:2375"
     securityContext:
       privileged: true
-    volumeMounts:
-      - name: nfs
-        mountPath: /var/lib/docker
+
 #  volumes:
 #  - name: jenkins-disk
 #    gcePersistentDisk:
 #      pdName: jenkins-disk
 #      fsType: ext4
-#  volumes:
 #    - name: jenkins-disk
 #      emptyDir: {}
-  volumes:
-    - name: nfs
-      persistentVolumeClaim:
-        claimName: nfs
-#  volumes:
+#    - name: nfs
+#      persistentVolumeClaim:
+#        claimName: nfs
 #    - name: jenkins-disk
 #      hostPath:
 #        path: /var/run/docker.sock
-
