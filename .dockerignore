@@ -2,3 +2,5 @@
 Dockerfile
 .github
 .codeclimate
+node_modules
+.git
