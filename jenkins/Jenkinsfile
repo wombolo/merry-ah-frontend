@@ -28,29 +28,29 @@ pipeline {
           }
         }
 
-        stage('Build') {
+        stage('Npm build') {
           steps {
             container('node-es-container') {
               sh "npm build"
             }
           }
         }
-      }
-    }
 
-    // Building and pushing a docker image to GCR
-    stage('Build and push to GCR') {
-      environment {
-        IMG_TAG='\$(echo \$GIT_COMMIT | cut -c -7)'
-      }
+        // Building and pushing a docker image to GCR
+        stage('Build Docker Image') {
+          environment {
+            IMG_TAG='\$(echo \$GIT_COMMIT | cut -c -7)'
+          }
 
-      steps {
-        container('dind') {
-          // sh "echo $GCLOUD_SERVICE_KEY | base64 -d > auth_key.json"
-          // sh "gcloud auth activate-service-account --key-file auth_key.json"
-          sh "docker --version"
-          sh "docker build -f Dockerfile -t gcr.io/merry-ah:$IMG_TAG ."
-          // sh "gcloud docker -- push gcr.io/merry-ah:$IMG_TAG"
+          steps {
+            container('dind') {
+              // sh "echo $GCLOUD_SERVICE_KEY | base64 -d > auth_key.json"
+              // sh "gcloud auth activate-service-account --key-file auth_key.json"
+              sh "docker --version"
+              sh "docker build -f Dockerfile -t gcr.io/merry-ah:$IMG_TAG ."
+              // sh "gcloud docker -- push gcr.io/merry-ah:$IMG_TAG"
+            }
+          }
         }
       }
     }

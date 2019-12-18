@@ -6,9 +6,9 @@ ENV WORKING_DIR=/usr/app/src/
 
 WORKDIR ${WORKING_DIR}
 
-COPY package*.json ${WORKING_DIR}
+#COPY package*.json ${WORKING_DIR}
 
-RUN npm install
+#RUN npm install
 
 COPY . ${WORKING_DIR}
 
