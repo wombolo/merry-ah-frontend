@@ -35,8 +35,11 @@ spec:
     volumeMounts:
       - name: jenkins-disk
         mountPath: /var/lib/docker
+#  volumes:
+#  - name: jenkins-disk
+#    gcePersistentDisk:
+#      pdName: jenkins-disk
+#      fsType: ext4
   volumes:
-  - name: jenkins-disk
-    gcePersistentDisk:
-      pdName: jenkins-disk
-      fsType: ext4
+    - name: jenkins-disk
+      emptyDir: {}
