@@ -23,3 +23,4 @@ WORKDIR ${WORKING_DIR}
 COPY --from=builder ${WORKING_DIR} ${WORKING_DIR}
 
 ENTRYPOINT ["npm", "start"]
+
