@@ -12,7 +12,7 @@ pipeline {
     stage('Install dependencies') {
       steps {
         container('node-es-container') {
-          sh "chmod +x jenkins/npmcache.sh && ./jenkins/npmcache.sh" (label='NPM Cache')
+          sh "chmod +x npmcache.sh && ./npmcache.sh" (label='NPM Cache')
 //          sh "npm install" (label='NPM Install')
         }
       }
