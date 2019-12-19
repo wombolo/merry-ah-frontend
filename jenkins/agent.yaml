@@ -24,6 +24,9 @@ spec:
     command:
     - cat
     tty: true
+    volumeMounts:
+      - mountPath: /nfs_exports/node_modules/
+        name: nfs
 
   - name: dind
     image: docker:19.03-dind
@@ -33,16 +36,17 @@ spec:
     securityContext:
       privileged: true
 
-#  volumes:
+  volumes:
+    - name: nfs
+      persistentVolumeClaim:
+        claimName: nfs
+
 #  - name: jenkins-disk
 #    gcePersistentDisk:
 #      pdName: jenkins-disk
 #      fsType: ext4
 #    - name: jenkins-disk
 #      emptyDir: {}
-#    - name: nfs
-#      persistentVolumeClaim:
-#        claimName: nfs
 #    - name: jenkins-disk
 #      hostPath:
 #        path: /var/run/docker.sock
