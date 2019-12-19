@@ -12,6 +12,7 @@ pipeline {
     stage('Install dependencies') {
       steps {
         container('node-es-container') {
+          sh 'env'
           sh "chmod +x jenkins/npm_cache.sh && ./jenkins/npm_cache.sh"
 //          sh "npm install" (label='NPM Install')
         }
@@ -39,20 +40,43 @@ pipeline {
 
         // Building and pushing a docker image to GCR
         stage('Build Docker Image') {
+          when {
+            anyOf {
+              branch 'production'
+              branch 'staging'
+            }
+          }
+
           environment {
             IMG_TAG='\$(echo \$GIT_COMMIT | cut -c -7)'
           }
-
           steps {
             container('dind') {
               // sh "echo $GCLOUD_SERVICE_KEY | base64 -d > auth_key.json"
               // sh "gcloud auth activate-service-account --key-file auth_key.json"
               sh "docker --version"
               sh "docker build -f Dockerfile -t wombolo/merry-ah:$IMG_TAG ."
-              sh "echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin"
-              sh "docker push wombolo/merry-ah:$IMG_TAG"
             }
           }
+        }
+      }
+    }
+    stage('Deployment') {
+      when {
+        anyOf {
+          branch 'production'
+          branch 'staging'
+        }
+      }
+
+      environment {
+        IMG_TAG='\$(echo \$GIT_COMMIT | cut -c -7)'
+      }
+
+      steps {
+        container('dind') {
+          sh "echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin"
+          sh "docker push wombolo/merry-ah:$IMG_TAG"
         }
       }
     }

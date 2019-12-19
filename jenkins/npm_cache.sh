@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PKG_SUM=$(md5sum package.json)
+PKG_SUM=$(md5sum package.json | cut -d\  -f 1)
 NPM_TARBALL=node_modules-${PKG_SUM}.tgz
 NPM_TARBALL_MD5SUM=${NPM_TARBALL}.md5sum
 NPM_TARBALL_CACHE=${HOME}/.cache/npmtarball
