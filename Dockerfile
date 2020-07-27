@@ -26,5 +26,5 @@ COPY --from=builder ${WORKING_DIR}build/ ${WORKING_DIR}build/
 
 RUN npm install -g serve
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["npm"]
 
